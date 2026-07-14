@@ -102,4 +102,7 @@ button[class*="bg-"][class~="text-white"] svg { color: white !important; stroke:
 @media (max-width: 425px) {
   section { width: 100vw !important; max-width: 100vw !important; overflow-x: hidden !important; box-sizing: border-box !important; }
   img:not(#header-logo) { max-width: 100% !important; height: auto !important; }
+  /* Card images that must fill their fixed-aspect container (see DesignSkillsGrid).
+     :not(#header-logo) matches the specificity of the blanket img rule above. */
+  img.design-skill-img:not(#header-logo) { height: 100% !important; }
 }

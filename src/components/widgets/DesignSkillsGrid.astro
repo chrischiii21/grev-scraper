@@ -35,7 +35,7 @@ const { title, description, skills = [] } = Astro.props;
               <img
                 src={skill.image || ''}
                 alt={skill.title}
-                class="w-full h-full object-contain"
+                class="design-skill-img w-full h-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -61,7 +61,7 @@ const { title, description, skills = [] } = Astro.props;
                 alt={skill.title}
                 width={800}
                 height={600}
-                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                class="design-skill-img w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 loading="lazy"
               />
             </div>
