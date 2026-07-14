@@ -25,7 +25,7 @@ When you change `site.name`, it automatically updates in:
 1. **Header** - Logo/brand name in navigation
 2. **Footer** - "Made by [Brand]" and copyright text
 3. **Page Titles** - Browser tab titles (e.g., "Website Design — Your Brand")
-4. **Meta Tags** - SEO and social media sharing
+4. **Meta Tags** - SEO and social medias sharing
 
 ## ✅ Example
 
