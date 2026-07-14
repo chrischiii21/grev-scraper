@@ -1,34 +1,34 @@
 {
   "business": {
-    "name": "Vertical Flow",
-    "fullName": "Vertical Flow",
-    "tagline": "Helping businesses grow through strategic digital marketing solutions that deliver real results.",
-    "description": "We are a local marketing company in Southern California. Premium marketing solutions including website design, social media management, and indoor billboard advertising."
+    "name": "Alamo Media Network",
+    "fullName": "Alamo Media Network",
+    "tagline": "Amplify Your Brand Where It Matters Most",
+    "description": "We are a local marketing company in San Antonio, Texas. Premium marketing solutions including indoor digital billboards, website design, social media management, and targeted advertising."
   },
   "location": {
-    "city": "Santa Fe Springs",
-    "state": "CA",
-    "address": "Santa Fe Springs, California",
-    "fullAddress": "Santa Fe Springs, California"
+    "city": "San Antonio",
+    "state": "TX",
+    "address": "San Antonio, Texas",
+    "fullAddress": "San Antonio, Texas"
   },
   "contact": {
-    "email": "info@verticalflow.com",
-    "phone": "3106069194",
-    "phoneFormatted": "(310) 606-9194"
+    "email": "hello@alamomedianetwork.com",
+    "phone": "2102017042",
+    "phoneFormatted": "210-201-7042"
   },
   "colors": {
-    "primary": "#00263E",
-    "secondary": "#F18029",
-    "tertiary": "#06D4F5",
-    "quaternary": "#FFBD00",
-    "dark": "#00263E",
+    "primary": "#22518a",
+    "secondary": "#22518a",
+    "tertiary": "#4fd1c5",
+    "quaternary": "#ff7000",
+    "dark": "#1e2e39",
     "light": "#f7fbfe"
   },
   "logo": {
-    "src": "/images/vertical-flow-logo.svg",
-    "srcAvif": "/images/vertical-flow-logo.svg",
-    "srcWebp": "/images/vertical-flow-logo.svg",
-    "alt": "Vertical Flow Logo"
+    "src": "/images/alamo-media-network-logo.webp",
+    "srcAvif": "/images/alamo-media-network-logo.webp",
+    "srcWebp": "/images/alamo-media-network-logo.webp",
+    "alt": "Alamo Media Network Logo"
   },
   "social": {
     "facebook": "#",
@@ -37,27 +37,22 @@
     "youtube": "#",
     "twitter": "#"
   },
-  "locations": [
-    { "name": "Arvada", "slug": "arvada", "enabled": true },
-    { "name": "Aurora", "slug": "aurora", "enabled": true },
-    { "name": "Centennial", "slug": "centennial", "enabled": true },
-    { "name": "Lakewood", "slug": "lakewood", "enabled": true }
-  ],
+  "locations": [],
 
   "map": {
-    "embedUrl": "https://maps.google.com/maps?q=Santa%20Fe%20Springs%2C%20CA&t=&z=11&ie=UTF8&iwloc=&output=embed",
-    "center": "Santa Fe Springs, CA",
-    "latitude": 33.9472,
-    "longitude": -118.0519
+    "embedUrl": "https://www.google.com/maps/d/embed?mid=1eedbNtKnFQ2thuy4h9A3_JdGW6fucHY&ehbc=2E312F",
+    "center": "San Antonio, TX",
+    "latitude": 29.4241,
+    "longitude": -98.4936
   },
   "seo": {
-    "siteName": "Vertical Flow",
-    "defaultTitle": "Vertical Flow",
-    "titleTemplate": "%s — Vertical Flow",
-    "defaultDescription": "We are a local marketing company in Southern California. Premium marketing solutions including website design, social media management, and indoor billboard advertising.",
-    "keywords": "Southern California marketing agency, digital marketing Santa Fe Springs, marketing services Whittier CA, Norwalk marketing, La Mirada digital marketing, social media management, website design",
-    "siteUrl": "https://dealer-template-3.vercel.app",
-    "ogImage": "/images/dealer-logo.png",
+    "siteName": "Alamo Media Network",
+    "defaultTitle": "Indoor Digital Billboards in San Antonio | Alamo Media Network",
+    "titleTemplate": "%s | Alamo Media Network",
+    "defaultDescription": "Expand your reach with San Antonio's largest indoor digital billboards. Alamo Media Network connects local businesses with more customers.",
+    "keywords": "San Antonio marketing agency, digital marketing San Antonio, indoor billboard advertising, indoor digital billboards San Antonio, social media management, website design San Antonio",
+    "siteUrl": "https://alamomedianetwork.com",
+    "ogImage": "/images/alamo-media-network-logo.webp",
     "twitterHandle": ""
   },
   "analytics": {

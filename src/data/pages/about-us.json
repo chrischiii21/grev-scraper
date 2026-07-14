@@ -16,7 +16,7 @@
       "section": "ContentWithImage",
       "eyebrow": "Who We Are",
       "title": "Empowering {city} Businesses",
-      "description": "With 20 years of corporate experience working with industry leaders, we've brought our expertise to {city}. We're passionate about helping local businesses thrive through innovative <strong><a href='/indoor-billboards/screen-advertising' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>digital billboard advertising</a></strong>, <strong><a href='/solutions/foundational/website-design' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>website design</a></strong>, and <strong><a href='/solutions' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>multichannel campaigns</a></strong>.<br><br>Our team combines strategic thinking with creative execution to deliver marketing solutions that actually work. We understand that every business is unique, which is why we take the time to learn about your goals, your audience, and your challenges before recommending any strategy. From small local shops to growing enterprises, we've helped {city} businesses increase their visibility, engage their customers, and drive real results.<br><br>Beyond business, we're committed to our community, building relationships and supporting local non-profits and charitable organizations. We believe in giving back to the community that has given us so much. Together, let's build something great, our strategy, your brand!",
+      "description": "At {business} we're passionate about empowering local businesses to thrive in the digital age. We understand that in today's competitive digital landscape, effective marketing strategies are essential for your success. That's where we come in.<br><br>Our journey began with a simple yet powerful idea: to harness the potential of <strong><a href='/indoor-billboards/screen-advertising' class='text-primary-dark hover:text-primary transition-colors'>indoor digital billboards</a></strong> and help local businesses reach their full potential. With a focus on innovation, creativity, and results, we've become a trusted partner for businesses across {city}, {stateFull}.<br><br>While we specialize in indoor digital billboards, our expertise extends far beyond that. From <strong><a href='/solutions/foundational/website-design' class='text-primary-dark hover:text-primary transition-colors'>Website design</a></strong> to robust <strong><a href='/solutions' class='text-primary-dark hover:text-primary transition-colors'>multichannel campaigns</a></strong>, we offer a full suite of services designed to elevate your brand and drive results.<br><br>Our strategy, your brand. Together, let's build something great.",
       "image": "/images/about-us-team.avif",
       "imagePosition": "left",
       "background": "white",
@@ -27,6 +27,7 @@
       "title": "5 Reasons To Choose Us",
       "description": "",
       "order": 3,
+      "background": "#ffffff",
       "isCarousel": true,
       "itemsPerSlide": 2,
       "carouselAutoplay": true,
@@ -34,13 +35,13 @@
       "features": [
         {
           "title": "Experts in Local Marketing",
-          "description": "Our marketing strategies are finely tuned to reach your specific community. From <strong><a href='/indoor-billboards/screen-advertising' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>indoor digital billboards</a></strong> to robust <strong><a href='/solutions' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>digital campaigns</a></strong>, we ensure your brand connects with the people who matter most, those in your immediate vicinity who are most likely to become loyal customers.",
+          "description": "Our marketing strategies are finely tuned to reach your specific community. From <strong><a href='/indoor-billboards/screen-advertising' class='text-primary-dark hover:text-primary transition-colors'>indoor digital billboards</a></strong> to robust <strong><a href='/solutions' class='text-primary-dark hover:text-primary transition-colors'>digital campaigns</a></strong>, we ensure your brand connects with the people who matter most, those in your immediate vicinity who are most likely to become loyal customers.",
           "icon": "tabler:map-pin",
           "image": "/images/local-marketing-experts.avif"
         },
         {
           "title": "Community-Based Advertising",
-          "description": "We understand the value of community and tailor our campaigns to resonate with local values and interests. This approach not only boosts your brand's visibility but also fosters a strong, positive relationship with your audience. Explore our <strong><a href='/indoor-billboards/locations' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>venue network</a></strong> across {city}.",
+          "description": "We understand the value of community and tailor our campaigns to resonate with local values and interests. This approach not only boosts your brand's visibility but also fosters a strong, positive relationship with your audience. Explore our <strong><a href='/indoor-billboards/locations' class='text-primary-dark hover:text-primary transition-colors'>venue network</a></strong> across {city}.",
           "icon": "tabler:users",
           "image": "/images/community-advertising.avif"
         },
@@ -52,7 +53,7 @@
         },
         {
           "title": "Amazing Creative",
-          "description": "Our team excels at creating dynamic, engaging content that stands out. Whether it's eye-catching visuals or compelling messaging, we ensure your advertisements capture and retain the attention of your target audience. From <strong><a href='/solutions/foundational/social-media-management' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>social media content</a></strong> to <strong><a href='/solutions/lead-gen/pay-per-click' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>PPC campaigns</a></strong>, we deliver results.",
+          "description": "Our team excels at creating dynamic, engaging content that stands out. Whether it's eye-catching visuals or compelling messaging, we ensure your advertisements capture and retain the attention of your target audience. From <strong><a href='/solutions/foundational/social-media-management' class='text-primary-dark hover:text-primary transition-colors'>social media content</a></strong> to <strong><a href='/solutions/lead-gen/pay-per-click' class='text-primary-dark hover:text-primary transition-colors'>PPC campaigns</a></strong>, we deliver results.",
           "icon": "tabler:sparkles",
           "image": "/images/amazing-creative.avif"
         },

@@ -15,34 +15,16 @@
       "description": "Check out where you could be seen in the community with our screen advertising network.",
       "image": "/images/hero-locations.avif",
       "order": 1,
-      "ctaText": "START ADVERTISING",
+      "ctaText": "Start advertising",
       "ctaLink": "/indoor-billboards/screen-advertising"
     },
     {
       "section": "Map",
       "title": "Our Locations",
-      "description": "Our <a href='/indoor-billboards/screen-advertising'>screens</a> can be found in many popular locations throughout the community. Our screens offer a unique format - keeping you in front of your customers in your business, even when other ads are playing. Interested in hosting a screen? <a href='/indoor-billboards/become-a-venue-partner'>Become a venue partner</a>.",
+      "description": "Our <a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>screens</a> can be found in many popular locations throughout the community. Our screens offer a unique format - keeping you in front of your customers in your business, even when other ads are playing. Interested in hosting a screen? <a href='/indoor-billboards/become-a-venue-partner' style='text-decoration: none; color: inherit;'>Become a venue partner</a>.",
       "order": 2,
       "viewMode": "half",
-      "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d98134.93708439223!2d-105.08920979746093!3d39.80246682145779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b8fbe3ee8e629%3A0x594e6dd82de45c1!2sDenver%20Metropolitan%20Area!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus",
-      "locations": [
-        {
-          "name": "Aurora",
-          "url": "/locations/aurora"
-        },
-        {
-          "name": "Arvada",
-          "url": "/locations/arvada"
-        },
-        {
-          "name": "Lakewood",
-          "url": "/locations/lakewood"
-        },
-        {
-          "name": "Centennial",
-          "url": "/locations/centennial"
-        }
-      ]
+      "mapUrl": "https://www.google.com/maps/d/embed?mid=1eedbNtKnFQ2thuy4h9A3_JdGW6fucHY&ehbc=2E312F"
     },
     {
       "section": "FeaturesSection",

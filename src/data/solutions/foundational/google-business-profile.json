@@ -23,7 +23,7 @@
       "title": "Google Business Profile Management",
       "background": "primary-dark",
       "imagePosition": "left",
-      "description": "Our Google Business Profile Management service offers a dedicated account specialists who expertly optimize your profile. They will handle everything from weekly posts to photo uploads. With us, your Google presence will be professionally managed, leaving you to focus on what you do best - running your business. <strong>Looking to maximize your online visibility?</strong> Pair GBP management with a professional <strong><a href='/solutions/foundational/website-design' style='text-decoration: underline; color: inherit;'>website</a></strong> for the ultimate digital presence.",
+      "description": "Our Google Business Profile Management service offers a dedicated account specialists who expertly optimize your profile. They will handle everything from weekly posts to photo uploads. With us, your Google presence will be professionally managed, leaving you to focus on what you do best - running your business. <strong>Looking to maximize your online visibility?</strong> Pair GBP management with a professional <strong><a href='/solutions/foundational/website-design' style='text-decoration: none; color: inherit;'>website</a></strong> for the ultimate digital presence.",
       "image": "/images/google-business-profile-content.jpg",
       "order": 2
     },
@@ -38,7 +38,7 @@
     {
       "section": "FeaturesSection",
       "title": "Boosting Visibility With Google Business Profile",
-      "description": "Whatever stage you're at, we have the expertise to take your Google Business Profile to the next level. <strong>Want to amplify your local presence?</strong> Combine GBP optimization with our <strong><a href='/indoor-billboards/screen-advertising' style='text-decoration: underline; color: inherit;'>indoor billboard advertising</a></strong> to dominate your local market.",
+      "description": "Whatever stage you're at, we have the expertise to take your Google Business Profile to the next level. <strong>Want to amplify your local presence?</strong> Combine GBP optimization with our <strong><a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>indoor billboard advertising</a></strong> to dominate your local market.",
       "order": 4,
       "features": [
         {
@@ -48,7 +48,7 @@
         },
         {
           "title": "Posting",
-          "description": "To boost the performance of your Google Business Profile, we'll post your unique content up to 20 times per month. This helps to boost local search visibility, build trust, and encourage potential customers to engage with you online. Need help creating engaging content? Check out our <strong><a href='/solutions/foundational/design-services' style='text-decoration: underline; color: inherit;'>design services</a></strong>.",
+          "description": "To boost the performance of your Google Business Profile, we'll post your unique content up to 20 times per month. This helps to boost local search visibility, build trust, and encourage potential customers to engage with you online. Need help creating engaging content? Check out our <strong><a href='/solutions/foundational/design-services' style='text-decoration: none; color: inherit;'>design services</a></strong>.",
           "icon": "tabler:search"
         },
         {
@@ -152,7 +152,7 @@
         },
         {
           "question": "How can I get more reviews on my Google Business Profile?",
-          "answer": "We help you implement review generation strategies and respond professionally to all reviews. Want to drive more customers to leave reviews? Our <strong><a href='/solutions/foundational/social-media-management' style='text-decoration: underline; color: inherit;'>social media management</a></strong> and <strong><a href='/solutions/lead-gen/pay-per-click' style='text-decoration: underline; color: inherit;'>PPC campaigns</a></strong> can drive more engaged customers to your business."
+          "answer": "We help you implement review generation strategies and respond professionally to all reviews. Want to drive more customers to leave reviews? Our <strong><a href='/solutions/foundational/social-media-management' style='text-decoration: none; color: inherit;'>social media management</a></strong> and <strong><a href='/solutions/lead-gen/pay-per-click' style='text-decoration: none; color: inherit;'>PPC campaigns</a></strong> can drive more engaged customers to your business."
         }
       ]
     }

@@ -157,9 +157,9 @@ const { actions = [] } = headerData;
               id="header-logo"
               src={siteConfig.logo.src}
               alt={siteConfig.logo.alt}
-              class="h-14 sm:h-14 md:h-12 w-auto transition-all duration-300"
+              class="h-20 sm:h-20 md:h-20 w-auto transition-all duration-300"
               width="150"
-              height="48"
+              height="80"
               fetchpriority="high"
               loading="eager"
               decoding="sync"
@@ -462,7 +462,7 @@ const { actions = [] } = headerData;
               {actions.map((action) => (
                 <a
                   href={action.href}
-                  class="px-5 py-2 text-base font-bold rounded-lg text-white transition bg-[var(--brand-secondary)] hover:bg-[var(--brand-quaternary)]"
+                  class="px-5 py-2 text-base font-bold rounded-lg text-white transition bg-[var(--brand-secondary)] hover:bg-black"
                 >
                   {action.text}
                 </a>
@@ -577,7 +577,7 @@ const { actions = [] } = headerData;
           {actions.map((action) => (
             <a
               href={action.href}
-              class="block w-full text-center px-5 py-3 text-base font-bold rounded-lg text-white transition bg-[var(--brand-secondary)] hover:bg-[var(--brand-quaternary)]"
+              class="block w-full text-center px-5 py-3 text-base font-bold rounded-lg text-white transition bg-[var(--brand-secondary)] hover:bg-black"
             >
               {action.text}
             </a>
@@ -784,23 +784,23 @@ const { actions = [] } = headerData;
           headerContent?.classList.add("h-16");
           
           if (isMobile) {
-            logo?.classList.remove("h-8", "sm:h-10", "md:h-12");
-            logo?.classList.add("h-7");
+            logo?.classList.remove("h-20", "sm:h-20", "md:h-20");
+            logo?.classList.add("h-12");
           } else {
-            logo?.classList.remove("h-8", "sm:h-10", "md:h-12");
-            logo?.classList.add("h-10");
+            logo?.classList.remove("h-20", "sm:h-20", "md:h-20");
+            logo?.classList.add("h-14");
           }
-          
+
           header?.classList.add("shadow-md");
         } else {
           // At top - expand
           headerContent?.classList.remove("h-16");
           headerContent?.classList.add("h-20");
-          
+
           // Restore original responsive classes
-          logo?.classList.remove("h-7", "h-10");
-          if (!logo?.classList.contains("h-8")) {
-            logo?.classList.add("h-8", "sm:h-10", "md:h-12");
+          logo?.classList.remove("h-12", "h-14");
+          if (!logo?.classList.contains("h-20")) {
+            logo?.classList.add("h-20", "sm:h-20", "md:h-20");
           }
           
           header?.classList.remove("shadow-md");

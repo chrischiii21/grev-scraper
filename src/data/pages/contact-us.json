@@ -16,7 +16,7 @@
       "subtitle": "Let's get in touch",
       "description": "Ready to take your marketing to the next level? We'd love to hear from you. Whether you're looking for a complete marketing strategy, need help with a specific project, or just have questions about our services, our team is here to help. Fill out the form below and we'll get back to you within 24 hours. We're excited to learn about your business and explore how we can help you achieve your goals.",
       "order": 2,
-      "submitText": "SUBMIT FORM",
+      "submitText": "Submit form",
       "submitAction": "/api/contact",
       "contactInfo": [
         {

@@ -28,7 +28,7 @@ const hasCustomCta = Astro.slots.has('after-map');
   {!hideMap && (
     <MapSection
       title={`Serving ${siteConfig.location.city} and Surrounding Areas`}
-      description="We proudly serve businesses throughout the Denver metro area including Aurora, Lakewood, Arvada, and Centennial. Explore what we offer in your city."
+      description={`We proudly serve businesses throughout the ${siteConfig.location.city} metro area and surrounding communities.`}
       mapUrl={siteConfig.map.embedUrl}
     />
   )}
@@ -41,7 +41,7 @@ const hasCustomCta = Astro.slots.has('after-map');
       title="Ready to Get Started?"
       description="Join hundreds of businesses who have transformed their online presence with our services. Get started today and see the difference."
       buttonText="Get In Touch"
-      backgroundImage="/images/home.avif"
+      backgroundImage="/images/San-Antonio-Texas-Banner.webp"
     />
   )}
 

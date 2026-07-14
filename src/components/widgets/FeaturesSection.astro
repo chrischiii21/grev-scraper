@@ -59,10 +59,11 @@ if (background) {
         )}
       </div>
 
-      <!-- Features Grid - Clean card layout -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        {features.map((feature) => (
-          <div class="group bg-white p-8 shadow-sm border border-gray-100">
+      <!-- Features Grid - Clean card layout; 4 cards render 2x2, 5 cards render 3 over 2
+           (both rows span the full grid width) to avoid an orphan card -->
+      <div class={`grid grid-cols-1 ${features.length === 5 ? "md:grid-cols-6" : "md:grid-cols-2"} ${features.length === 4 ? "max-w-[920px] mx-auto" : ""} ${features.length !== 4 && features.length !== 5 ? "lg:grid-cols-3" : ""} gap-6 lg:gap-8`}>
+        {features.map((feature, index) => (
+          <div class={`group bg-white p-8 shadow-sm border border-gray-100 ${features.length === 5 ? (index < 3 ? "md:col-span-2" : "md:col-span-3") : ""}`}>
             {/* Icon */}
             {feature.icon && (
               <div class="mb-6 flex justify-center">
@@ -86,7 +87,7 @@ if (background) {
         <div class="text-center mt-12 md:mt-16">
           <a
             href={ctaLink}
-            class="group inline-flex items-center gap-3 px-8 py-4 bg-[var(--brand-dark)] text-white font-semibold rounded-full hover:bg-[var(--brand-dark)] transition-colors duration-300"
+            class="group inline-flex items-center gap-3 px-8 py-4 bg-[var(--brand-dark)] text-white font-bold rounded-full hover:bg-[var(--brand-dark)] transition-colors duration-300"
           >
             <span>{ctaText}</span>
             <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

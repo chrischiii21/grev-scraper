@@ -12,7 +12,7 @@ const vercelUrl = process.env.VERCEL_URL;
 const resolvedSite =
   (vercelProdUrl && `https://${vercelProdUrl}`) ||
   (vercelUrl && `https://${vercelUrl}`) ||
-  "https://verticalflow.com";
+  "https://alamomedianetwork.com";
 
 // https://astro.build/config
 export default defineConfig({

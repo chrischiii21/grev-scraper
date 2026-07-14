@@ -5,22 +5,22 @@
 # ============================================
 
 site:
-  name: Vertical Flow
-  site: "https://verticalflow.com"
+  name: Alamo Media Network
+  site: "https://alamomedianetwork.com"
   base: "/"
   trailingSlash: false
 
 # Default SEO metadata
 metadata:
   title:
-    default: Vertical Flow
-    template: "%s — Vertical Flow"
-  description: "Premium marketing solutions including website design, social media management, and indoor billboard advertising."
+    default: Alamo Media Network
+    template: "%s | Alamo Media Network"
+  description: "Expand your reach with San Antonio's largest indoor digital billboards. Alamo Media Network connects local businesses with more customers."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Vertical Flow
+    site_name: Alamo Media Network
     images:
       - url: "~/assets/images/default.png"
         width: 1200

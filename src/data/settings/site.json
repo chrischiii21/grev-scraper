@@ -1,74 +1,69 @@
 {
   "business": {
-    "name": "Vertical Flow",
-    "fullName": "Vertical Flow",
-    "tagline": "Your trusted partner for comprehensive digital marketing solutions, from custom website design and SEO to indoor billboard advertising and targeted campaigns that deliver real results.",
-    "description": "We are a local marketing company in {city}, {state}. Premium marketing solutions including website design, social media management, and indoor billboard advertising."
+    "name": "Alamo Media Network",
+    "fullName": "Alamo Media Network",
+    "tagline": "Amplify Your Brand Where It Matters Most",
+    "description": "We are a local marketing company in {city}, {state}. Premium marketing solutions including indoor digital billboards, website design, social media management, and targeted advertising."
   },
   "location": {
-    "city": "Denver",
-    "state": "CO",
-    "stateFull": "Colorado",
-    "address": "Denver, CO",
-    "fullAddress": "Denver, CO"
+    "city": "San Antonio",
+    "state": "TX",
+    "stateFull": "Texas",
+    "address": "San Antonio, Texas",
+    "fullAddress": "San Antonio, Texas"
   },
   "contact": {
-    "email": "info@dealertemplate.com",
-    "phone": "5555555555",
-    "phoneFormatted": "555-555-5555"
+    "email": "hello@alamomedianetwork.com",
+    "phone": "2102017042",
+    "phoneFormatted": "210-201-7042"
   },
   "colors": {
-    "primary": "#0175e2",
-    "secondary": "#0175e2",
+    "primary": "#22518a",
+    "secondary": "#22518a",
     "tertiary": "#4fd1c5",
-    "quaternary": "#F4B342",
-    "dark": "#0D1445",
+    "quaternary": "#ff7000",
+    "dark": "#1e2e39",
     "light": "#f7fbfe"
   },
   "logo": {
-    "src": "/images/vertical-flow-logo.svg",
-    "srcAvif": "/images/vertical-flow-logo.svg",
-    "srcWebp": "/images/vertical-flow-logo.svg",
-    "alt": "Vertical Flow Logo"
+    "src": "/images/alamo-media-network-logo.webp",
+    "srcAvif": "",
+    "srcWebp": "/images/alamo-media-network-logo.webp",
+    "alt": "Alamo Media Network Logo"
   },
   "social": {
-    "facebook": "https://www.facebook.com/ntxbillboards/",
-    "instagram": "https://www.instagram.com/dealertemplate/",
-    "linkedin": "https://www.linkedin.com/company/ntx-indoor-digital-billboards/",
-    "youtube": "https://www.youtube.com/@ntxdigital",
+    "facebook": "",
+    "instagram": "",
+    "linkedin": "",
+    "youtube": "",
     "twitter": ""
   },
-  "locations": [
-    { "name": "Arvada", "slug": "arvada", "enabled": true },
-    { "name": "Aurora", "slug": "aurora", "enabled": true },
-    { "name": "Centennial", "slug": "centennial", "enabled": true },
-    { "name": "Lakewood", "slug": "lakewood", "enabled": true }
-  ],
+  "locations": [],
   "map": {
-    "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d98134.93708439223!2d-105.08920979746093!3d39.80246682145779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b8fbe3ee8e629%3A0x594e6dd82de45c1!2sDenver%20Metropolitan%20Area!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus",
-    "center": "Denver, CO",
-    "latitude": 39.7392,
-    "longitude": -104.9903
+    "embedUrl": "https://www.google.com/maps/d/embed?mid=1eedbNtKnFQ2thuy4h9A3_JdGW6fucHY&ehbc=2E312F",
+    "center": "San Antonio, TX",
+    "latitude": 29.4241,
+    "longitude": -98.4936
   },
   "seo": {
-    "siteName": "Vertical Flow",
-    "defaultTitle": "Denver Digital Signage & Marketing | Vertical Flow",
-    "titleTemplate": "%s | Vertical Flow",
-    "defaultDescription": "We connect businesses in Denver through digital signage, PPC, social media, SEO, and website design to keep brands visible and top of mind.",
-    "keywords": "Denver marketing agency, digital marketing Denver, marketing services Denver CO, indoor billboard advertising, social media management, website design Denver, PPC advertising, Google Business Profile, local marketing Denver",
-    "siteUrl": "https://vertical-flow-template.vercel.app",
-    "ogImage": "/images/vertical-flow-logo.svg",
+    "siteName": "Alamo Media Network",
+    "defaultTitle": "Indoor Digital Billboards in San Antonio | Alamo Media Network",
+    "titleTemplate": "%s | Alamo Media Network",
+    "defaultDescription": "Expand your reach with San Antonio's largest indoor digital billboards. Alamo Media Network connects local businesses with more customers.",
+    "keywords": "San Antonio marketing agency, digital marketing San Antonio, indoor billboard advertising, indoor digital billboards San Antonio, social media management, website design San Antonio, PPC advertising, Google Business Profile, local marketing San Antonio TX",
+    "siteUrl": "https://alamomedianetwork.com",
+    "ogImage": "/images/alamo-media-network-logo.webp",
     "twitterHandle": ""
   },
   "legal": {
     "lastUpdated": "November 20, 2025"
   },
   "integrations": {
-    "googleMapsEmbedUrl": "https://www.google.com/maps/d/embed?mid=1Du4Ri3H-5dYTnwxgl-Cutssuy9yJYZWT&ehbc=2E312F",
+    "googleMapsEmbedUrl": "https://www.google.com/maps/d/embed?mid=1eedbNtKnFQ2thuy4h9A3_JdGW6fucHY&ehbc=2E312F",
     "recaptchaSiteKey": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
   },
   "popup": {
-    "image": "/images/home.avif",
+    "image": "/images/on-boarding.avif",
     "badge": "Limited Time Offer",
     "headline": "Ready to Grow Your Business?",
     "description": "Get expert marketing strategies tailored for your business. Let's discuss how we can help you succeed.",
@@ -85,7 +80,7 @@
     "floatingButtonText": "Ask for a Free Scan"
   },
   "cta": {
-    "backgroundImage": "/images/home.avif"
+    "backgroundImage": "/images/San-Antonio-Texas-Banner.webp"
   },
   "analytics": {
     "googleAnalyticsId": ""

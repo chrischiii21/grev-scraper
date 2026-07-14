@@ -14,6 +14,8 @@
       "title": "Indoor Digital Billboard Advertising",
       "description": "Connecting brands with audiences everywhere.",
       "image": "/images/indoor-billboard.avif",
+      "bgPosition": "top",
+      "bgSize": "130% auto",
       "order": 1,
       "ctaText": "Get In Touch",
       "ctaLink": "/contact-us"
@@ -32,7 +34,7 @@
       "title": "Our Advertising Screen Network can Increase Your Brand Recognition",
       "description": "Repeated exposure to your brand message, visuals, and logo, helps your brand stay top of mind with your target audience. Indoor digital billboards give you the unique ability to reach viewers on a platform where you can't be paused skipped or blocked. Build your brand faster by pairing the screen advertising with various marketing channels such as <strong><a href='/solutions/lead-gen/social-media-advertising' style='text-decoration: none; color: inherit;'>Social Media Ads</a></strong>, <strong><a href='/solutions/branding-awareness/display-geofencing' style='text-decoration: none; color: inherit;'>Display Advertising</a></strong>, or a <strong><a href='/solutions/foundational/website-design' style='text-decoration: none; color: inherit;'>Custom Website</a></strong>.",
       "order": 3,
-      "ctaText": "LEARN MORE",
+      "ctaText": "Learn more",
       "ctaLink": "/contact-us"
     },
     {
@@ -155,29 +157,6 @@
         {
           "question": "What if I need to run an ad for only a short time, like for an event?",
           "answer": "Not a problem, we deal with events and promotions all the time. Just <strong><a href='/contact-us' style='text-decoration: none; color: inherit;'>contact us</a></strong> and we can come up with an ad production plan that will align with your campaign needs."
-        }
-      ]
-    },
-    {
-      "section": "FeaturesSection",
-      "title": "Explore Our Indoor Billboard Network",
-      "description": "Learn more about our screen advertising network and partnership opportunities.",
-      "order": 8,
-      "features": [
-        {
-          "title": "View Our Locations",
-          "description": "Curious where your ads will appear? <strong><a href='/indoor-billboards/locations' style='text-decoration: none; color: inherit;'>Check out our network of high-traffic venues</a></strong> across {city} and see where your brand could be featured.",
-          "icon": "tabler:map-pin"
-        },
-        {
-          "title": "Become a Venue Partner",
-          "description": "Own a high-traffic venue? <strong><a href='/indoor-billboards/become-a-venue-partner' style='text-decoration: none; color: inherit;'>Join our network and monetize your space</a></strong> while promoting your business across other locations.",
-          "icon": "tabler:building-store"
-        },
-        {
-          "title": "Get Started Today",
-          "description": "Ready to launch your campaign? <strong><a href='/contact-us' style='text-decoration: none; color: inherit;'>Contact our team for a free consultation</a></strong> and discover how screen advertising can transform your business.",
-          "icon": "tabler:rocket"
         }
       ]
     }

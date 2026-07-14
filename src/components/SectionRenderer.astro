@@ -46,6 +46,8 @@ const ctaActions = s.ctaText && s.ctaLink
     subtitle={s.description || s.subtitle}
     image={s.image}
     backgroundImage={s.backgroundImage}
+    bgPosition={s.bgPosition}
+    bgSize={s.bgSize}
     actions={ctaActions}
   />
 )}
@@ -64,11 +66,10 @@ const ctaActions = s.ctaText && s.ctaLink
   <FAQs title={s.title} faqs={s.faqs} />
 )}
 
-{s.section === "Map" && s.locations && (
+{s.section === "Map" && (
   <MapSection
     title={s.title}
     description={s.description}
-    locations={s.locations}
     mapUrl={s.mapUrl}
     viewMode={s.viewMode}
   />

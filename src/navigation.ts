@@ -13,14 +13,16 @@ export const headerData = {
     {
       text: "About Us",
       href: getPermalink("/about-us"),
-      links: [
-        {
-          text: "Case Studies",
-          description: "Real results from real local businesses.",
-          icon: "tabler:chart-arrows-vertical",
-          href: getPermalink("/about-us/case-studies"),
-        },
-      ],
+      // Case Studies hidden until launch go-signal. To restore: uncomment this
+      // block and rename src/pages/about-us/_case-studies back to case-studies.
+      // links: [
+      //   {
+      //     text: "Case Studies",
+      //     description: "Real results from real local businesses.",
+      //     icon: "tabler:chart-arrows-vertical",
+      //     href: getPermalink("/about-us/case-studies"),
+      //   },
+      // ],
     },
     {
       text: "Indoor Billboards",
@@ -79,7 +81,7 @@ export const footerData = {
     {
       title: "Contact Us",
       links: [
-        { text: getAddress(), href: "https://www.google.com/maps/place/Santa+Fe+Springs,+CA", target: "_blank" },
+        { text: getAddress(), href: "https://www.google.com/maps/place/San+Antonio,+TX", target: "_blank" },
         { text: getPhone(), href: getPhoneHref() },
         { text: getEmail(), href: getEmailHref() },
       ],

@@ -1,5 +1,5 @@
 ---
-import { getMapDefaults, getLocations, siteConfig } from "~/utils/site";
+import { getMapDefaults, siteConfig } from "~/utils/site";
 
 interface Props {
   title?: string;
@@ -14,18 +14,6 @@ const {
   description,
   mapUrl = getMapDefaults().embedUrl,
 } = Astro.props;
-
-const allLocations = getLocations();
-const currentSlug = Astro.url.pathname.replace(/^\/|\/$/g, "").split("/")[0];
-const onLocationPage = allLocations.some((loc) => loc.slug === currentSlug);
-const filteredLocations = allLocations
-  .filter((loc) => loc.slug !== currentSlug)
-  .map((loc) => ({ name: loc.name, href: `/${loc.slug}` }));
-const siteLocations = onLocationPage
-  ? [{ name: siteConfig.location.city, href: "/" }, ...filteredLocations]
-  : filteredLocations;
-
-const stateTag = siteConfig.location.state;
 ---
 
 <section class="relative py-16 md:py-20 bg-light">
@@ -44,106 +32,18 @@ const stateTag = siteConfig.location.state;
         )}
       </div>
 
-      <!-- City index + map, one composed unit -->
-      <div class="grid grid-cols-1 lg:grid-cols-[minmax(340px,2fr)_3fr] gap-5 lg:gap-6 items-stretch">
-        <!-- City index panel -->
-        <div class="bg-[var(--brand-dark)] rounded-2xl p-6 sm:p-8 lg:p-10 flex flex-col shadow-xl">
-          <p class="text-sm font-semibold text-white/60 mb-2">Choose your city</p>
-
-          <nav class="flex-grow flex flex-col justify-center" aria-label="Cities we serve">
-            {siteLocations.map((location) => (
-              <a href={location.href} class="city-row group flex items-center justify-between gap-4 py-4 sm:py-5 border-b border-white/10 last:border-b-0">
-                <span class="flex items-baseline gap-3 min-w-0">
-                  <span class="city-name text-2xl sm:text-3xl font-bold text-white leading-tight truncate">
-                    {location.name}
-                  </span>
-                  <span class="text-xs font-semibold text-white/40 tracking-wide">{stateTag}</span>
-                </span>
-                <span class="city-arrow w-10 h-10 rounded-full border border-white/20 flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                  <svg class="w-4 h-4 text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
-                </span>
-              </a>
-            ))}
-          </nav>
-
-          <p class="mt-8 pt-6 border-t border-white/10 text-sm text-white/60 leading-relaxed">
-            Not in one of these cities? We work across the metro area —
-            <a href="/contact-us" class="font-semibold text-[var(--brand-tertiary)] hover:text-white transition-colors underline underline-offset-4 decoration-[var(--brand-tertiary)]/40 hover:decoration-white/40">
-              talk to us
-            </a>
-          </p>
-        </div>
-
-        <!-- Map -->
-        <div class="relative min-h-[340px] sm:min-h-[420px] lg:min-h-[520px] rounded-2xl overflow-hidden shadow-lg">
-          <iframe
-            class="absolute inset-0 w-full h-full"
-            src={mapUrl}
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title={`Map of ${siteConfig.map.center}`}
-          />
-        </div>
+      <!-- Map -->
+      <div class="relative min-h-[340px] sm:min-h-[420px] lg:min-h-[520px] rounded-2xl overflow-hidden shadow-lg">
+        <iframe
+          class="absolute inset-0 w-full h-full"
+          src={mapUrl}
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title={`Map of ${siteConfig.map.center}`}
+        />
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .city-row {
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .city-name {
-    transition: color 0.25s ease;
-  }
-
-  .city-arrow {
-    transition:
-      background-color 0.25s ease,
-      border-color 0.25s ease,
-      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .city-row:hover {
-    transform: translateX(6px);
-  }
-
-  .city-row:hover .city-name {
-    color: var(--brand-tertiary, #4fd1c5);
-  }
-
-  .city-row:hover .city-arrow {
-    background-color: var(--brand-tertiary, #4fd1c5);
-    border-color: transparent;
-    transform: translateX(2px);
-  }
-
-  .city-row:hover .city-arrow svg {
-    color: var(--brand-dark, #0d1445);
-  }
-
-  .city-row:focus-visible {
-    outline: 2px solid var(--brand-tertiary, #4fd1c5);
-    outline-offset: 4px;
-    border-radius: 0.5rem;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .city-row,
-    .city-name,
-    .city-arrow,
-    .city-arrow svg {
-      transition: none;
-    }
-
-    .city-row:hover,
-    .city-row:hover .city-arrow {
-      transform: none;
-    }
-  }
-</style>

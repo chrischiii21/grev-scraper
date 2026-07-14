@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components";
 import { footerData } from "~/navigation";
 import { getPermalink } from "~/utils/permalinks";
 import { SITE_NAME } from "~/utils/config";
-import { siteConfig, getTagline, getPrimaryColor, getSecondaryColor, getQuaternaryColor, getDarkColor } from "~/utils/site";
+import { siteConfig, getTagline } from "~/utils/site";
 
 // Import solutions from JSON data files
 import websiteDesignData from "~/data/solutions/foundational/website-design.json";
@@ -87,9 +87,9 @@ const { socialLinks = [] } = footerData;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="text-white" style={`background-color: ${getDarkColor()};`}>
-  <!-- Top Line - Gold accent -->
-  <div class="w-full h-1" style={`background-color: ${getQuaternaryColor()};`}></div>
+<footer class="text-white" style="background-color: #000000;">
+  <!-- Top Line - Blue accent -->
+  <div class="w-full h-1" style="background-color: #50afd8;"></div>
   
   <div class="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
     <!-- Top Section: Logo + Tagline + Social -->
@@ -102,9 +102,9 @@ const currentYear = new Date().getFullYear();
             <img
               src={siteConfig.logo.src}
               alt={siteConfig.logo.alt}
-              class="h-16 w-auto transition-transform group-hover:scale-105 brightness-0 invert"
-              width="200"
-              height="64"
+              class="h-24 w-auto transition-transform group-hover:scale-105"
+              width="260"
+              height="96"
               loading="lazy"
               decoding="async"
             />
@@ -140,6 +140,47 @@ const currentYear = new Date().getFullYear();
           </div>
         )
       }
+
+      <!-- Memberships -->
+      <div class="flex lg:justify-end items-start">
+        <div>
+          <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
+            Proud Member Of:
+          </h3>
+          <div class="flex items-center gap-6">
+            <a
+              href="https://metrosa.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Metro San Antonio Chamber of Commerce"
+              class="transition-opacity hover:opacity-80"
+            >
+              <img
+                src="/images/Metro-SA-Chamber-Logo-White.webp"
+                alt="Metro SA Chamber logo"
+                class="h-16 w-auto"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+            <a
+              href="https://www.sahcc.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="San Antonio Hispanic Chamber of Commerce"
+              class="transition-opacity hover:opacity-80"
+            >
+              <img
+                src="/images/SAHCC-Proud-Member-Logo-268x300.webp"
+                alt="SAHCC Proud Member logo"
+                class="h-20 w-auto"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Horizontal Line -->

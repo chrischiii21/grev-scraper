@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow:
 
-Sitemap: https://verticalflow.com/sitemap-index.xml
+Sitemap: https://alamomedianetwork.com/sitemap-index.xml
