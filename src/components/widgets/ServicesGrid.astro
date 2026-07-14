@@ -1,0 +1,100 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Card {
+  title?: string;
+  description?: string;
+  icon?: string;
+  link?: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  cards: Card[];
+}
+
+const {
+  eyebrow = "RESULTS-DRIVEN DIGITAL MARKETING AGENCY",
+  title = "Digital Marketing Solutions for Every Industry",
+  description = "One thing is for sure, regardless of your industry: your clients are online. Are they looking for you or your rivals? Our specialized digital marketing services assist companies in any sector in drawing in new clients and converting them into customers.",
+  ctaText,
+  ctaLink,
+  cards = [],
+} = Astro.props;
+
+// Icon names come from the card data (e.g. "tabler:device-tv")
+const fallbackIcon = "tabler:sparkles";
+---
+
+<section class="relative py-10 md:py-12 lg:py-14 bg-light">
+  <div class="container px-4 sm:px-6 lg:px-8 mx-auto">
+    <div class="max-w-[1240px] mx-auto">
+      <!-- Header -->
+      <div class="mb-6 md:mb-8">
+        {eyebrow && (
+          <p class="flex items-center gap-2 text-[var(--brand-secondary)] text-sm md:text-base font-bold uppercase tracking-wider mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 16 16" fill="currentColor">
+              <rect width="16" height="16" rx="2"/>
+            </svg>
+            {eyebrow}
+          </p>
+        )}
+        {title && (
+          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+            {title}
+          </h2>
+        )}
+        {description && (
+          <p class="text-base md:text-lg text-gray-600 leading-relaxed max-w-3xl" set:html={description} />
+        )}
+      </div>
+
+      <!-- Cards Grid - 2x2 on desktop, 2 columns on tablet, single column on mobile -->
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 mb-8">
+          {cards.map((card) => {
+            const Tag = card.link ? 'a' : 'div';
+            return (
+              <Tag
+                href={card.link}
+                class="group bg-white p-8 md:p-10 flex flex-col items-center text-center rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-gray-100 transition-all duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)] hover:-translate-y-1 hover:border-[var(--brand-secondary)]"
+              >
+                {/* Icon */}
+                <div class="w-16 h-16 md:w-[4.5rem] md:h-[4.5rem] mb-6 rounded-2xl flex items-center justify-center bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] transition-colors duration-300 group-hover:bg-[var(--brand-primary)] group-hover:text-white">
+                  <Icon name={card.icon || fallbackIcon} class="w-8 h-8 md:w-9 md:h-9" />
+                </div>
+
+                {/* Title */}
+                {card.title && (
+                  <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2">{card.title}</h3>
+                )}
+
+                {/* Description */}
+                <p class="text-base md:text-lg text-gray-600 leading-relaxed" set:html={card.description} />
+              </Tag>
+            );
+          })}
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      {ctaText && ctaLink && (
+        <div class="flex justify-center">
+          <a 
+            href={ctaLink} 
+            class="inline-flex items-center gap-2 px-8 py-4 bg-[var(--brand-secondary)] hover:bg-[var(--brand-quaternary)] text-white font-semibold rounded-lg transition-colors duration-300"
+          >
+            {ctaText}
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

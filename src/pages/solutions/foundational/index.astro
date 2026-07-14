@@ -1,0 +1,54 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { breadcrumbSchema } from "~/utils/schema";
+
+import websiteDesignData from "~/data/solutions/foundational/website-design.json";
+import googleBusinessProfileData from "~/data/solutions/foundational/google-business-profile.json";
+import socialMediaManagementData from "~/data/solutions/foundational/social-media-management.json";
+import designServicesData from "~/data/solutions/foundational/design-services.json";
+
+const foundational = [
+  { slug: "website-design", data: websiteDesignData },
+  { slug: "google-business-profile", data: googleBusinessProfileData },
+  { slug: "social-media-management", data: socialMediaManagementData },
+  { slug: "design-services", data: designServicesData },
+].sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+
+const metadata = {
+  title: 'Foundational Services - Your Brand',
+  description: 'Build a strong foundation for your digital presence',
+};
+
+const origin = Astro.url.origin;
+const schemas = [
+  breadcrumbSchema(origin, [
+    { name: "Home", path: "/" },
+    { name: "Solutions", path: "/solutions" },
+    { name: "Foundational", path: "/solutions/foundational" },
+  ]),
+];
+---
+
+<PageLayout metadata={metadata} schemas={schemas}>
+  <Hero
+    title="Foundational Services"
+    subtitle="Essential services to establish and strengthen your online presence"
+  />
+
+  <section class="py-16 bg-white">
+    <div class="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {foundational.map(item => (
+          <a href={`/solutions/foundational/${item.slug}`} class="p-6 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">{item.data.title}</h3>
+            <p class="text-gray-600">{item.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+</PageLayout>

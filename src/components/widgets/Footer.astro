@@ -1,0 +1,387 @@
+---
+import { Icon } from "astro-icon/components";
+import { footerData } from "~/navigation";
+import { getPermalink } from "~/utils/permalinks";
+import { SITE_NAME } from "~/utils/config";
+import { siteConfig, getTagline, getPrimaryColor, getSecondaryColor, getQuaternaryColor, getDarkColor } from "~/utils/site";
+
+// Import solutions from JSON data files
+import websiteDesignData from "~/data/solutions/foundational/website-design.json";
+import googleBusinessProfileData from "~/data/solutions/foundational/google-business-profile.json";
+import socialMediaManagementData from "~/data/solutions/foundational/social-media-management.json";
+import designServicesData from "~/data/solutions/foundational/design-services.json";
+import payPerClickData from "~/data/solutions/lead-gen/pay-per-click.json";
+import socialMediaAdvertisingData from "~/data/solutions/lead-gen/social-media-advertising.json";
+import connectedTvData from "~/data/solutions/branding-awareness/connected-tv.json";
+import displayGeofencingData from "~/data/solutions/branding-awareness/display-geofencing.json";
+import streamingAudioData from "~/data/solutions/branding-awareness/streaming-audio.json";
+
+// Build solutions array from JSON
+const allSolutions = [
+  { slug: "foundational/website-design", data: websiteDesignData },
+  { slug: "foundational/google-business-profile", data: googleBusinessProfileData },
+  { slug: "foundational/social-media-management", data: socialMediaManagementData },
+  { slug: "foundational/design-services", data: designServicesData },
+  { slug: "lead-gen/pay-per-click", data: payPerClickData },
+  { slug: "lead-gen/social-media-advertising", data: socialMediaAdvertisingData },
+  { slug: "branding-awareness/connected-tv", data: connectedTvData },
+  { slug: "branding-awareness/display-geofencing", data: displayGeofencingData },
+  { slug: "branding-awareness/streaming-audio", data: streamingAudioData },
+];
+
+const foundational = allSolutions
+  .filter((s) => s.data.category === "foundational")
+  .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
+  .slice(0, 3);
+
+const leadGen = allSolutions
+  .filter((s) => s.data.category === "lead-gen")
+  .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
+  .slice(0, 3);
+
+const brandingAwareness = allSolutions
+  .filter((s) => s.data.category === "branding-awareness")
+  .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
+  .slice(0, 3);
+
+// Hydrate footer links with dynamic solutions
+const hydratedLinks = footerData.links.map((section) => {
+  if (section.title === "Solutions") {
+    return {
+      ...section,
+      groups: [
+        {
+          title: "Foundational",
+          links: foundational.map((item) => ({
+            text: item.data.title,
+            href: getPermalink(
+              `/solutions/foundational/${item.slug.replace("foundational/", "")}`
+            ),
+          })),
+        },
+        {
+          title: "Lead Generation",
+          links: leadGen.map((item) => ({
+            text: item.data.title,
+            href: getPermalink(
+              `/solutions/lead-gen/${item.slug.replace("lead-gen/", "")}`
+            ),
+          })),
+        },
+        {
+          title: "Branding & Awareness",
+          links: brandingAwareness.map((item) => ({
+            text: item.data.title,
+            href: getPermalink(
+              `/solutions/branding-awareness/${item.slug.replace("branding-awareness/", "")}`
+            ),
+          })),
+        },
+      ],
+    };
+  }
+  return section;
+});
+
+const { socialLinks = [] } = footerData;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="text-white" style={`background-color: ${getDarkColor()};`}>
+  <!-- Top Line - Gold accent -->
+  <div class="w-full h-1" style={`background-color: ${getQuaternaryColor()};`}></div>
+  
+  <div class="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+    <!-- Top Section: Logo + Tagline + Social -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+      <div class="lg:col-span-2">
+        <a href="/" class="hidden md:inline-block mb-6 group">
+          <picture>
+            <source srcset={siteConfig.logo.srcAvif} type="image/avif" />
+            <source srcset={siteConfig.logo.srcWebp} type="image/webp" />
+            <img
+              src={siteConfig.logo.src}
+              alt={siteConfig.logo.alt}
+              class="h-16 w-auto transition-transform group-hover:scale-105 brightness-0 invert"
+              width="200"
+              height="64"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        </a>
+        <p class="text-white text-base leading-relaxed max-w-xl">
+          {getTagline()}
+        </p>
+      </div>
+
+      <!-- Social Links -->
+      {
+        socialLinks.length > 0 && (
+          <div class="flex lg:justify-end items-start">
+            <div>
+              <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
+                Connect With Us
+              </h3>
+              <div class="flex gap-3">
+                {socialLinks.map((link) => (
+                  <a
+                    href={link.href}
+                    aria-label={link.ariaLabel}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-11 h-11 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                  >
+                    <Icon name={link.icon} class="w-5 h-5" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        )
+      }
+    </div>
+
+    <!-- Horizontal Line -->
+    <div class="border-t border-white/20 mb-6"></div>
+
+    <!-- Links Grid -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12"
+    >
+      {
+        hydratedLinks.map((section) => (
+          <div>
+            {"href" in section && section.href ? (
+              <a
+                href={section.href as string}
+                class="text-white font-bold mb-6 text-sm uppercase tracking-wider hover:text-tertiary transition block inline-flex items-center gap-2 group"
+              >
+                {section.title}
+                <svg
+                  class="w-4 h-4 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+            ) : (
+              <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-wider">
+                {section.title}
+              </h4>
+            )}
+
+            {"groups" in section && section.groups ? (
+              <div class="space-y-1">
+                {section.groups.map((group, index) => (
+                  <div class="accordion-group">
+                    <button
+                      class="accordion-toggle w-full text-left flex items-center justify-between text-white hover:text-tertiary text-xs font-semibold uppercase tracking-wider py-2.5 px-3 rounded-lg hover:bg-white/5 transition-all"
+                      data-accordion={`group-${index}`}
+                      aria-expanded={index === 0 ? "true" : "false"}
+                    >
+                      <span>{group.title}</span>
+                      <svg
+                        class="accordion-icon w-4 h-4 transition-transform duration-300 flex-shrink-0"
+                        style={index === 0 ? "" : "transform: rotate(-90deg)"}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+                    <ul
+                      class="accordion-content space-y-1.5 overflow-hidden transition-all duration-300 pl-3"
+                      data-accordion-content={`group-${index}`}
+                      style={
+                        index === 0
+                          ? "max-height: 500px; opacity: 1; margin-top: 0.5rem;"
+                          : "max-height: 0; opacity: 0;"
+                      }
+                    >
+                      {group.links.map((link) => (
+                        <li>
+                          <a
+                            href={link.href}
+                            class="text-white hover:text-tertiary transition text-sm py-1.5 px-2 rounded block hover:bg-white/5 inline-flex items-center group"
+                          >
+                            <span class="footer-bullet w-0 group-hover:w-1.5 h-1.5 rounded-full transition-all mr-0 group-hover:mr-2" />
+                            {link.text}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <ul class="space-y-1.5">
+                {section.links.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      class="text-white hover:text-tertiary transition text-sm py-1.5 px-2 rounded block hover:bg-white/5 inline-flex items-center group break-words"
+                      {...(link.target ? { target: link.target, rel: "noopener noreferrer" } : {})}
+                    >
+                      <span class="footer-bullet w-0 group-hover:w-1.5 h-1.5 rounded-full transition-all mr-0 group-hover:mr-2 flex-shrink-0" />
+                      <span class="break-all">{link.text}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/20 pt-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white">
+        <span>© {currentYear} {SITE_NAME}. All rights reserved.</span>
+        {footerData.secondaryLinks.length > 0 && (
+          <ul class="flex items-center gap-4">
+            {footerData.secondaryLinks.map((link) => (
+              <li>
+                <a href={link.href} class="hover:text-tertiary transition">
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function initFooterAccordions() {
+    const accordionToggles = document.querySelectorAll(".accordion-toggle");
+
+    accordionToggles.forEach((toggle) => {
+      toggle.addEventListener("click", () => {
+        const targetId = toggle.getAttribute("data-accordion");
+        const content = document.querySelector(
+          `[data-accordion-content="${targetId}"]`
+        );
+        const icon = toggle.querySelector(".accordion-icon");
+        const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+
+        if (isExpanded) {
+          toggle.setAttribute("aria-expanded", "false");
+          if (content) {
+            (content as HTMLElement).style.maxHeight = "0";
+            (content as HTMLElement).style.opacity = "0";
+            (content as HTMLElement).style.marginTop = "0";
+          }
+          if (icon) {
+            (icon as HTMLElement).style.transform = "rotate(-90deg)";
+          }
+        } else {
+          accordionToggles.forEach((otherToggle) => {
+            if (otherToggle !== toggle) {
+              const otherId = otherToggle.getAttribute("data-accordion");
+              const otherContent = document.querySelector(
+                `[data-accordion-content="${otherId}"]`
+              );
+              const otherIcon = otherToggle.querySelector(".accordion-icon");
+
+              otherToggle.setAttribute("aria-expanded", "false");
+              if (otherContent) {
+                (otherContent as HTMLElement).style.maxHeight = "0";
+                (otherContent as HTMLElement).style.opacity = "0";
+                (otherContent as HTMLElement).style.marginTop = "0";
+              }
+              if (otherIcon) {
+                (otherIcon as HTMLElement).style.transform = "rotate(-90deg)";
+              }
+            }
+          });
+
+          toggle.setAttribute("aria-expanded", "true");
+          if (content) {
+            (content as HTMLElement).style.maxHeight = "500px";
+            (content as HTMLElement).style.opacity = "1";
+            (content as HTMLElement).style.marginTop = "0.5rem";
+          }
+          if (icon) {
+            (icon as HTMLElement).style.transform = "rotate(0deg)";
+          }
+        }
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initFooterAccordions);
+  } else {
+    initFooterAccordions();
+  }
+</script>
+
+<style>
+  footer {
+    color: white !important;
+  }
+
+  footer * {
+    color: white !important;
+  }
+
+  footer a {
+    text-decoration: none !important;
+    color: white !important;
+  }
+
+  footer a:hover {
+    color: #a1c2bd !important;
+  }
+
+  footer h4,
+  footer span,
+  footer p,
+  footer button {
+    color: white !important;
+  }
+
+  .accordion-toggle {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white !important;
+  }
+
+  .accordion-toggle:focus {
+    outline: 2px solid rgba(161, 194, 189, 0.5);
+    outline-offset: 2px;
+  }
+
+  .accordion-content {
+    transition:
+      max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      margin-top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .accordion-icon {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .footer-bullet {
+    background-color: var(--color-tertiary, #06D4F5) !important;
+  }
+</style>

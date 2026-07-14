@@ -1,0 +1,75 @@
+---
+import PageLayout from "~/layouts/PageLayout.astro";
+import CTANewsletter from "~/components/widgets/CTANewsletter.astro";
+import SectionRenderer from "~/components/SectionRenderer.astro";
+import { getPageTitle } from "~/utils/config";
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  serviceSchema,
+} from "~/utils/schema";
+
+import socialMediaAdvertisingData from "~/data/solutions/lead-gen/social-media-advertising.json";
+import payPerClickData from "~/data/solutions/lead-gen/pay-per-click.json";
+
+const dataMap: Record<string, any> = {
+  "social-media-advertising": socialMediaAdvertisingData,
+  "pay-per-click": payPerClickData,
+};
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: "social-media-advertising" } },
+    { params: { slug: "pay-per-click" } },
+  ];
+}
+
+const { slug } = Astro.params;
+const entry = dataMap[slug!];
+
+const sections = [...(entry.sections || [])].sort(
+  (a: any, b: any) => (a.order || 0) - (b.order || 0)
+);
+
+const metadata = {
+  title: entry.metadata?.title || getPageTitle(entry.title),
+  description: entry.metadata?.description || entry.description,
+  keywords: entry.metadata?.keywords || "",
+  canonical: `${Astro.url.origin}/solutions/lead-gen/${slug}`,
+  noindex: false,
+  nofollow: false,
+};
+
+const origin = Astro.url.origin;
+const pageUrl = `${origin}/solutions/lead-gen/${slug}`;
+const faqSection = sections.find((s: any) => s.section === "FAQs");
+const heroSection = sections.find((s: any) => s.section === "Hero");
+const schemas: Array<Record<string, unknown>> = [
+  serviceSchema(origin, pageUrl, {
+    name: entry.title,
+    description: entry.description,
+    image: heroSection?.image || heroSection?.backgroundImage,
+    serviceType: "Lead Generation",
+  }),
+  breadcrumbSchema(origin, [
+    { name: "Home", path: "/" },
+    { name: "Solutions", path: "/solutions" },
+    { name: "Lead Generation", path: "/solutions/lead-gen" },
+    { name: entry.title, path: `/solutions/lead-gen/${slug}` },
+  ]),
+];
+const faqSchema = faqSection ? faqPageSchema(faqSection.faqs) : null;
+if (faqSchema) schemas.push(faqSchema);
+---
+
+<PageLayout metadata={metadata} schemas={schemas}>
+  {sections.map((section: any) => <SectionRenderer section={section} />)}
+
+  <CTANewsletter
+    slot="after-map"
+    title="Ready to Get Started?"
+    description="Join hundreds of businesses who have transformed their online presence with our services. Get started today and see the difference."
+    buttonText="Get In Touch"
+    backgroundImage="/images/home.avif"
+  />
+</PageLayout>

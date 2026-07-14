@@ -1,0 +1,50 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { breadcrumbSchema } from "~/utils/schema";
+
+import socialMediaAdvertisingData from "~/data/solutions/lead-gen/social-media-advertising.json";
+import payPerClickData from "~/data/solutions/lead-gen/pay-per-click.json";
+
+const leadGen = [
+  { slug: "social-media-advertising", data: socialMediaAdvertisingData },
+  { slug: "pay-per-click", data: payPerClickData },
+].sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+
+const metadata = {
+  title: 'Lead Generation Services - Your Brand',
+  description: 'Drive qualified leads and grow your customer base',
+};
+
+const origin = Astro.url.origin;
+const schemas = [
+  breadcrumbSchema(origin, [
+    { name: "Home", path: "/" },
+    { name: "Solutions", path: "/solutions" },
+    { name: "Lead Generation", path: "/solutions/lead-gen" },
+  ]),
+];
+---
+
+<PageLayout metadata={metadata} schemas={schemas}>
+  <Hero
+    title="Lead Generation Services"
+    subtitle="Targeted advertising solutions to generate quality leads and maximize exposure"
+  />
+
+  <section class="py-16 bg-white">
+    <div class="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {leadGen.map(item => (
+          <a href={`/solutions/lead-gen/${item.slug}`} class="p-6 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">{item.data.title}</h3>
+            <p class="text-gray-600">{item.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+</PageLayout>

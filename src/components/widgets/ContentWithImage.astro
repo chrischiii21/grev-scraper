@@ -1,0 +1,106 @@
+---
+interface Props {
+  title?: string;
+  blueHeading?: string;
+  eyebrow?: string;
+  description?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  image?: string;
+  imageAlt?: string;
+  imagePosition?: string;
+  background?: string;
+}
+
+const {
+  title,
+  blueHeading,
+  eyebrow,
+  description,
+  ctaText,
+  ctaLink,
+  image,
+  imageAlt,
+  imagePosition = "right",
+  background = "white",
+} = Astro.props;
+
+// Map friendly background names to real colors. Hex values pass through as-is.
+// (Previously the raw value was used directly, so "gray" became the CSS
+// named color gray/#808080 — a hard medium gray instead of a soft tint.)
+const backgroundMap: Record<string, string> = {
+  white: "#ffffff",
+  gray: "#f7fbfe",
+  light: "#f7fbfe",
+  primary: "var(--brand-primary)",
+  dark: "var(--brand-dark)",
+};
+const backgroundColor = background.startsWith("#")
+  ? background
+  : backgroundMap[background] ?? background;
+---
+
+<section class="relative py-12 md:py-16 lg:py-20" style={`background-color: ${backgroundColor};`}>
+  <div class="container px-4 sm:px-6 lg:px-8 mx-auto">
+    <div class="max-w-[1240px] mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <!-- Content -->
+        <div class={imagePosition === "left" ? "order-2 lg:order-2" : "order-1 lg:order-1"}>
+          {blueHeading && (
+            <p class="flex items-center gap-2 text-[var(--brand-secondary)] text-sm md:text-base font-bold uppercase tracking-wider mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 16 16" fill="currentColor">
+                <rect width="16" height="16" rx="2"/>
+              </svg>
+              {blueHeading}
+            </p>
+          )}
+          
+          {eyebrow && (
+            <p class="flex items-center gap-2 text-[var(--brand-secondary)] text-sm md:text-base font-bold uppercase tracking-wider mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 16 16" fill="currentColor">
+                <rect width="16" height="16" rx="2"/>
+              </svg>
+              {eyebrow}
+            </p>
+          )}
+          
+          {title && (
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-5 leading-tight">
+              {title}
+            </h2>
+          )}
+          
+          {description && (
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-6" set:html={description} />
+          )}
+          
+          {ctaText && ctaLink && (
+            <a 
+              href={ctaLink} 
+              class="inline-flex items-center gap-2 px-8 py-3 bg-[var(--brand-secondary)] hover:bg-black text-white font-semibold rounded-lg transition-colors duration-300"
+            >
+              {ctaText}
+            </a>
+          )}
+        </div>
+        
+        <!-- Image -->
+        <div class={`max-[425px]:hidden ${imagePosition === "left" ? "order-1 lg:order-1" : "order-2 lg:order-2"}`}>
+          {image && (
+            <div class="rounded-2xl overflow-hidden shadow-lg">
+              <img 
+                src={image} 
+                alt={imageAlt || title || "Content image"} 
+                width="1000"
+                height="666"
+                class="w-full h-auto object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,66 @@
+---
+import type { MetaData } from '~/types';
+import BaseLayout from './BaseLayout.astro';
+import MapSection from '~/components/widgets/MapSection.astro';
+import CTANewsletter from '~/components/widgets/CTANewsletter.astro';
+import PopupModal from '~/components/widgets/PopupModal.astro';
+import FloatingCTAButton from '~/components/ui/FloatingCTAButton.astro';
+import { siteConfig } from '~/utils/site';
+import popupData from '~/data/settings/popup.json';
+
+export interface Props {
+  metadata?: MetaData;
+  hideMap?: boolean;
+  hideCta?: boolean;
+  schemas?: Array<Record<string, unknown>>;
+}
+
+const { metadata = {}, hideMap = false, hideCta = false, schemas = [] } = Astro.props;
+
+// Pages can pass their own CTA via slot="after-map"; otherwise the default renders
+const hasCustomCta = Astro.slots.has('after-map');
+---
+
+<BaseLayout metadata={metadata} schemas={schemas}>
+  <slot />
+  
+  <!-- Global Map Section - Appears after content but before newsletter CTAs -->
+  {!hideMap && (
+    <MapSection
+      title={`Serving ${siteConfig.location.city} and Surrounding Areas`}
+      description="We proudly serve businesses throughout the Denver metro area including Aurora, Lakewood, Arvada, and Centennial. Explore what we offer in your city."
+      mapUrl={siteConfig.map.embedUrl}
+    />
+  )}
+  
+  <slot name="after-map" />
+
+  <!-- Global final CTA - every page gets one unless it opts out or provides its own -->
+  {!hideCta && !hasCustomCta && (
+    <CTANewsletter
+      title="Ready to Get Started?"
+      description="Join hundreds of businesses who have transformed their online presence with our services. Get started today and see the difference."
+      buttonText="Get In Touch"
+      backgroundImage="/images/home.avif"
+    />
+  )}
+
+  <!-- Floating CTA Button - opens popup -->
+  {popupData.enabled && <FloatingCTAButton />}
+
+  <!-- Global Popup - Configured via Pages CMS -->
+  {popupData.enabled && (
+    <PopupModal
+      title={popupData.title}
+      subtitle={popupData.subtitle}
+      ctaText={popupData.ctaText}
+      ctaLink={popupData.ctaLink}
+      benefits={popupData.benefits}
+      dismissText={popupData.dismissText}
+      delay={popupData.delay}
+      showOnce={popupData.showOnce}
+      showTriggerButton={popupData.showTriggerButton}
+      triggerButtonText={popupData.triggerButtonText}
+    />
+  )}
+</BaseLayout>

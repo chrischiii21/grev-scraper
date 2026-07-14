@@ -1,0 +1,166 @@
+{
+  "title": "Website Design",
+  "description": "Custom website design & development to achieve your unique goals and maximize results.",
+  "category": "foundational",
+  "order": 1,
+  "icon": "tabler:world",
+  "thumbnail": "/images/website-design.avif",
+  "ctaText": "Get In Touch",
+  "ctaLink": "/contact-us",
+  "sections": [
+    {
+      "section": "Hero",
+      "eyebrow": "Foundational",
+      "title": "Best Website Design Services to Elevate Your Brand Online",
+      "description": "Custom website design & development to achieve your unique goals and maximize results.",
+      "image": "/images/website-design.avif",
+      "order": 1,
+      "ctaText": "Get In Touch",
+      "ctaLink": "/contact-us"
+    },
+    {
+      "section": "ContentWithImage",
+      "title": "Custom Websites",
+      "background": "primary-dark",
+      "imagePosition": "left",
+      "description": "Every business is unique, and your website should be too. We don't use cookie-cutter templates, we build custom websites tailored to your brand, your goals, and your customers. From sleek designs to powerful functionality, we create websites that stand out and deliver results.",
+      "image": "/images/website-design-content.avif",
+      "order": 2
+    },
+    {
+      "section": "CTALight",
+      "title": "Your Site is Your Cornerstone of Your Online Presence",
+      "description": "Your website is the foundation of all your digital marketing efforts. It's where <strong><a href='/solutions/foundational/social-media-management' style='text-decoration: none; color: inherit;'>social media</a></strong> followers land, where ads drive traffic, and where customers learn about your business. A strong website amplifies everything else you do online, from <strong><a href='/solutions/foundational/google-business-profile' style='text-decoration: none; color: inherit;'>local SEO</a></strong> to <strong><a href='/solutions/lead-gen/pay-per-click' style='text-decoration: none; color: inherit;'>paid advertising</a></strong> and email campaigns. Without a solid website, you're building on shaky ground. <br><br><strong>Want to amplify your reach?</strong> Pair your website with our <strong><a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>indoor billboard advertising</a></strong> to dominate both online and offline.",
+      "order": 3,
+      "ctaText": "Get Started Today",
+      "ctaLink": "/contact-us"
+    },
+    {
+      "section": "FeaturesSection",
+      "title": "Website Solutions: Guiding You from Start to Finish",
+      "description": "Whatever stage you're at, we have the expertise to take your website to the next level. <strong>Looking to drive more traffic?</strong> Check out our <strong><a href='/solutions/lead-gen/pay-per-click' style='text-decoration: none; color: inherit;'>PPC advertising services</a></strong> to get immediate results.",
+      "order": 4,
+      "features": [
+        {
+          "title": "UI/UX Design",
+          "description": "The user interface (UI) and user experience (UX) design are the most important aspects of a website. Our in-house development team will ensure that every visitor has an intuitive, easy to navigate, and visually engaging experience on your website.",
+          "icon": "tabler:world"
+        },
+        {
+          "title": "Search Engine Optimization (SEO)",
+          "description": "Implementing SEO best practices ensures that the website ranks well in search engine results, driving organic traffic and increasing visibility. Want to boost your local presence? Optimize your <strong><a href='/solutions/foundational/google-business-profile' style='text-decoration: none; color: inherit;'>Google Business Profile</a></strong>.",
+          "icon": "tabler:search"
+        },
+        {
+          "title": "Maintenance and Support",
+          "description": "Ongoing maintenance and technical support services ensure that the website remains secure, up-to-date, and functioning optimally at all times.",
+          "icon": "tabler:refresh"
+        },
+        {
+          "title": "Analytics and Tracking",
+          "description": "Implementation of tools like Google Analytics help to track website traffic, user behavior, and other metrics for continuous optimization and improvement.",
+          "icon": "tabler:users"
+        }
+      ]
+    },
+    {
+      "section": "FeaturesWithImage",
+      "title": "Website Design Process",
+      "description": "Our proven process ensures your website is built right, on time, and ready to grow your business.",
+      "order": 5,
+      "features": [
+        {
+          "title": "Step 1<br>DISCOVERY & STRATEGY",
+          "description": "We start by understanding your business, goals, and target audience to create a strategic plan.",
+          "icon": "tabler:bulb",
+          "image": "/images/website-discovery.avif"
+        },
+        {
+          "title": "Step 2<br>DESIGN & DEVELOPMENT",
+          "description": "Our team designs and builds your custom website with a focus on user experience and conversion.",
+          "icon": "tabler:code",
+          "image": "/images/website-development.avif"
+        },
+        {
+          "title": "Step 3<br>TESTING & LAUNCH",
+          "description": "We thoroughly test everything before launch to ensure your site works flawlessly across all devices.",
+          "icon": "tabler:rocket",
+          "image": "/images/website-testing.jpeg"
+        },
+        {
+          "title": "Step 4<br>SUPPORT & GROWTH",
+          "description": "After launch, we provide ongoing support, updates, and optimization to keep your site performing at its best.",
+          "icon": "tabler:chart-line",
+          "image": "/images/website-support.jpeg"
+        }
+      ]
+    },
+    {
+      "section": "FeaturesSection",
+      "title": "Our Marketing Service Approach is Simple",
+      "description": "We believe great marketing shouldn't be complicated. Here's how we help businesses grow.",
+      "order": 6,
+      "features": [
+        {
+          "title": "We Listen",
+          "description": "We take time to understand your business, goals, and challenges before recommending solutions.",
+          "icon": "tabler:ear"
+        },
+        {
+          "title": "We Strategize",
+          "description": "Every business is different. We create custom strategies tailored to your unique needs and budget.",
+          "icon": "tabler:chess"
+        },
+        {
+          "title": "We Execute",
+          "description": "From design to launch, we handle everything so you can focus on running your business.",
+          "icon": "tabler:player-play"
+        },
+        {
+          "title": "We Measure",
+          "description": "We track results and provide clear reports so you always know what's working.",
+          "icon": "tabler:chart-dots"
+        },
+        {
+          "title": "We Optimize",
+          "description": "Marketing isn't set-it-and-forget-it. We continuously improve to maximize your exposure.",
+          "icon": "tabler:adjustments"
+        },
+        {
+          "title": "We Support",
+          "description": "Questions? Updates? We're here whenever you need us with friendly, responsive support.",
+          "icon": "tabler:headset"
+        }
+      ]
+    },
+    {
+      "section": "FAQs",
+      "title": "Website Common Questions",
+      "description": "Get answers to the most common questions about our website design services.",
+      "order": 7,
+      "faqs": [
+        {
+          "question": "How long does it take to build a website?",
+          "answer": "Most websites take 4-8 weeks from start to launch, depending on complexity and content readiness. We'll give you a clear timeline during our initial consultation."
+        },
+        {
+          "question": "Do I need to provide content for my website?",
+          "answer": "We can work with whatever you have! If you have existing content, great. If not, we can help write it or recommend professional copywriters. <strong>Need help with visuals?</strong> Check out our <strong><a href='/solutions/foundational/design-services' style='text-decoration: none; color: inherit;'>design services</a></strong> for professional graphics and branding."
+        },
+        {
+          "question": "Do you provide hosting and maintenance?",
+          "answer": "Yes, we offer hosting, security, backups, and ongoing maintenance packages to keep your site running smoothly."
+        },
+        {
+          "question": "What happens after my website launches?",
+          "answer": "A great website is just the beginning! After launch, we can help you attract visitors through <strong><a href='/solutions/foundational/social-media-management' style='text-decoration: none; color: inherit;'>social media marketing</a></strong>, improve your <strong><a href='/solutions/foundational/google-business-profile' style='text-decoration: none; color: inherit;'>Google Business Profile</a></strong>, or drive immediate traffic with <strong><a href='/solutions/lead-gen/pay-per-click' style='text-decoration: none; color: inherit;'>PPC campaigns</a></strong>."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "title": "SEO-Friendly Website Design for Local Businesses",
+    "description": "We design modern, SEO-friendly websites that help businesses build credibility, improve visibility, and convert visitors into customers.",
+    "keywords": "website design {city}, web design {city} {state}, custom website design, web development {city}, best website design {city}, top web design {city}, professional web design, responsive website design, mobile-friendly websites {city}, {city} web designers"
+  }
+}

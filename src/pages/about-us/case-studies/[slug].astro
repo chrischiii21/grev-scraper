@@ -1,0 +1,173 @@
+---
+// Case Study DETAIL page. One published case study addressed by its slug.
+// Data comes from the shared public read API (see src/lib/case-studies.ts).
+//
+// Output is static (astro.config output: "static"), so getStaticPaths
+// pre-renders one page per published case study at build time — a fresh
+// publish needs a rebuild.
+import PageLayout from "~/layouts/PageLayout.astro";
+import { getPageTitle } from "~/utils/config";
+import { breadcrumbSchema } from "~/utils/schema";
+import { listCaseStudies, type CaseStudy } from "~/lib/case-studies";
+
+export async function getStaticPaths() {
+  const studies = await listCaseStudies();
+  return studies.map((cs) => ({ params: { slug: cs.slug }, props: { cs } }));
+}
+
+const { cs } = Astro.props as { cs: CaseStudy };
+
+const metadata = {
+  title: getPageTitle(cs.title),
+  description: cs.results_summary || cs.challenge_summary || `${cs.title} — case study.`,
+};
+
+const origin = Astro.url.origin;
+const schemas = [
+  breadcrumbSchema(origin, [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about-us" },
+    { name: "Case Studies", path: "/about-us/case-studies" },
+    { name: cs.title, path: `/about-us/case-studies/${cs.slug}` },
+  ]),
+];
+---
+
+<PageLayout metadata={metadata} schemas={schemas}>
+  <article class="py-10 sm:py-14 md:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a
+        href="/about-us/case-studies"
+        class="inline-flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-[var(--brand-secondary)] transition-colors"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+        </svg>
+        All Case Studies
+      </a>
+
+      <!-- Client logo / industry -->
+      <div class="flex justify-center mt-8 mb-2">
+        {cs.client_logo_url
+          ? <img src={cs.client_logo_url} alt={cs.title} class="block max-h-28 max-w-[320px] object-contain" />
+          : <span class="text-xl font-extrabold text-gray-900">{cs.industry ?? "Case Study"}</span>}
+      </div>
+
+      <h1 class="text-center text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 max-w-3xl mx-auto mt-4 mb-10 leading-tight">
+        {cs.title}
+      </h1>
+
+      <!-- HERO + SIDEBAR -->
+      <section class="grid grid-cols-1 md:grid-cols-[1.6fr_1fr] rounded-xl border border-gray-200 overflow-hidden mb-12 sm:mb-16">
+        {cs.hero_image_url && (
+          <img
+            src={cs.hero_image_url}
+            alt={cs.title}
+            class="w-full h-full min-h-[280px] object-cover bg-gray-100"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        )}
+        <div class="p-6 sm:p-8 bg-light">
+          {cs.industry && (
+            <div class="mb-5">
+              <div class="text-xs font-bold uppercase tracking-widest text-[var(--brand-secondary)]">Industry</div>
+              <div class="text-gray-600 mt-1">{cs.industry}</div>
+            </div>
+          )}
+          {cs.challenge_summary && (
+            <div class="mb-5">
+              <div class="text-xs font-bold uppercase tracking-widest text-[var(--brand-secondary)]">Challenge</div>
+              <div class="text-gray-600 mt-1">{cs.challenge_summary}</div>
+            </div>
+          )}
+          {cs.results_summary && (
+            <div class="mb-5">
+              <div class="text-xs font-bold uppercase tracking-widest text-[var(--brand-secondary)]">Results</div>
+              <div class="text-gray-600 mt-1">{cs.results_summary}</div>
+            </div>
+          )}
+          {cs.website_url && (
+            <a
+              href={cs.website_url}
+              class="inline-block mt-1 text-sm font-semibold text-[var(--brand-secondary)] hover:text-[var(--brand-quaternary)] break-all transition-colors"
+              target="_blank"
+              rel="noopener"
+            >
+              {cs.website_url}
+            </a>
+          )}
+        </div>
+      </section>
+
+      <!-- STAT CALLOUTS — the signature "wall of results" band -->
+      {cs.stats.length > 0 && (
+        <section class="bg-[var(--brand-dark)] rounded-xl -mx-4 sm:mx-0 mb-12 sm:mb-16">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6 text-center px-6 py-10 sm:py-14">
+            {cs.stats.map((s) => (
+              <div>
+                <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--brand-tertiary)] leading-none">
+                  {s.value}
+                </div>
+                <div class="text-xs font-bold uppercase tracking-widest text-white/70 mt-3">
+                  {s.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- ABOUT + GALLERY -->
+      {cs.about_business && (
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16">
+          {cs.gallery.length > 0 && (
+            <div class="flex flex-col gap-4">
+              {cs.gallery.map((url) => (
+                <img
+                  src={url}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full min-h-[300px] object-cover bg-gray-100 rounded-xl border border-gray-200"
+                />
+              ))}
+            </div>
+          )}
+          <div>
+            <p class="flex items-center gap-2 text-[var(--brand-secondary)] text-sm font-bold uppercase tracking-wider mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 16 16" fill="currentColor">
+                <rect width="16" height="16" rx="2" />
+              </svg>
+              About the Business
+            </p>
+            <p class="text-base sm:text-lg text-gray-600 leading-relaxed">{cs.about_business}</p>
+          </div>
+        </section>
+      )}
+
+      <!-- BODY SECTIONS -->
+      <div class="space-y-10 sm:space-y-12">
+        {cs.challenge_body && (
+          <section>
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 pl-4 border-l-4 border-[var(--brand-secondary)]">The Challenge</h2>
+            <p class="text-base sm:text-lg text-gray-600 leading-relaxed">{cs.challenge_body}</p>
+          </section>
+        )}
+        {cs.solution_body && (
+          <section>
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 pl-4 border-l-4 border-[var(--brand-secondary)]">The Solution</h2>
+            <p class="text-base sm:text-lg text-gray-600 leading-relaxed">{cs.solution_body}</p>
+          </section>
+        )}
+        {cs.results_body && (
+          <section>
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 pl-4 border-l-4 border-[var(--brand-secondary)]">The Results</h2>
+            <p class="text-base sm:text-lg text-gray-600 leading-relaxed">{cs.results_body}</p>
+          </section>
+        )}
+      </div>
+    </div>
+  </article>
+</PageLayout>

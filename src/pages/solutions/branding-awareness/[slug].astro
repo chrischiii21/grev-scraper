@@ -1,0 +1,78 @@
+---
+import PageLayout from "~/layouts/PageLayout.astro";
+import CTANewsletter from "~/components/widgets/CTANewsletter.astro";
+import SectionRenderer from "~/components/SectionRenderer.astro";
+import { getPageTitle } from "~/utils/config";
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  serviceSchema,
+} from "~/utils/schema";
+
+import connectedTvData from "~/data/solutions/branding-awareness/connected-tv.json";
+import displayGeofencingData from "~/data/solutions/branding-awareness/display-geofencing.json";
+import streamingAudioData from "~/data/solutions/branding-awareness/streaming-audio.json";
+
+const dataMap: Record<string, any> = {
+  "connected-tv": connectedTvData,
+  "display-geofencing": displayGeofencingData,
+  "streaming-audio": streamingAudioData,
+};
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: "connected-tv" } },
+    { params: { slug: "display-geofencing" } },
+    { params: { slug: "streaming-audio" } },
+  ];
+}
+
+const { slug } = Astro.params;
+const entry = dataMap[slug!];
+
+const sections = [...(entry.sections || [])].sort(
+  (a: any, b: any) => (a.order || 0) - (b.order || 0)
+);
+
+const metadata = {
+  title: entry.metadata?.title || getPageTitle(entry.title),
+  description: entry.metadata?.description || entry.description,
+  keywords: entry.metadata?.keywords || "",
+  canonical: `${Astro.url.origin}/solutions/branding-awareness/${slug}`,
+  noindex: false,
+  nofollow: false,
+};
+
+const origin = Astro.url.origin;
+const pageUrl = `${origin}/solutions/branding-awareness/${slug}`;
+const faqSection = sections.find((s: any) => s.section === "FAQs");
+const heroSection = sections.find((s: any) => s.section === "Hero");
+const schemas: Array<Record<string, unknown>> = [
+  serviceSchema(origin, pageUrl, {
+    name: entry.title,
+    description: entry.description,
+    image: heroSection?.image || heroSection?.backgroundImage,
+    serviceType: "Branding & Awareness",
+  }),
+  breadcrumbSchema(origin, [
+    { name: "Home", path: "/" },
+    { name: "Solutions", path: "/solutions" },
+    { name: "Branding & Awareness", path: "/solutions/branding-awareness" },
+    { name: entry.title, path: `/solutions/branding-awareness/${slug}` },
+  ]),
+];
+const faqSchema = faqSection ? faqPageSchema(faqSection.faqs) : null;
+if (faqSchema) schemas.push(faqSchema);
+---
+
+<PageLayout metadata={metadata} schemas={schemas}>
+  {sections.map((section: any) => <SectionRenderer section={section} />)}
+
+  <CTANewsletter
+    slot="after-map"
+    title="Ready to Get Started?"
+    description="Join hundreds of businesses who have transformed their online presence with our services. Get started today and see the difference."
+    buttonText="Get In Touch"
+    backgroundImage="/images/home.avif"
+  />
+</PageLayout>

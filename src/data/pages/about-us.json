@@ -1,0 +1,73 @@
+{
+  "title": "About Us",
+  "description": "Unleash the Power of Digital Marketing!",
+  "sections": [
+    {
+      "section": "Hero",
+      "eyebrow": "Learn About Our Story",
+      "title": "About Us",
+      "description": "{business} - Built for local businesses.",
+      "image": "/images/about-us-partner.avif",
+      "order": 1,
+      "ctaText": "Get In Touch",
+      "ctaLink": "/contact-us"
+    },
+    {
+      "section": "ContentWithImage",
+      "eyebrow": "Who We Are",
+      "title": "Empowering {city} Businesses",
+      "description": "With 20 years of corporate experience working with industry leaders, we've brought our expertise to {city}. We're passionate about helping local businesses thrive through innovative <strong><a href='/indoor-billboards/screen-advertising' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>digital billboard advertising</a></strong>, <strong><a href='/solutions/foundational/website-design' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>website design</a></strong>, and <strong><a href='/solutions' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>multichannel campaigns</a></strong>.<br><br>Our team combines strategic thinking with creative execution to deliver marketing solutions that actually work. We understand that every business is unique, which is why we take the time to learn about your goals, your audience, and your challenges before recommending any strategy. From small local shops to growing enterprises, we've helped {city} businesses increase their visibility, engage their customers, and drive real results.<br><br>Beyond business, we're committed to our community, building relationships and supporting local non-profits and charitable organizations. We believe in giving back to the community that has given us so much. Together, let's build something great, our strategy, your brand!",
+      "image": "/images/about-us-team.avif",
+      "imagePosition": "left",
+      "background": "white",
+      "order": 2
+    },
+    {
+      "section": "FeaturesWithImage",
+      "title": "5 Reasons To Choose Us",
+      "description": "",
+      "order": 3,
+      "isCarousel": true,
+      "itemsPerSlide": 2,
+      "carouselAutoplay": true,
+      "carouselAutoplayDelay": 5000,
+      "features": [
+        {
+          "title": "Experts in Local Marketing",
+          "description": "Our marketing strategies are finely tuned to reach your specific community. From <strong><a href='/indoor-billboards/screen-advertising' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>indoor digital billboards</a></strong> to robust <strong><a href='/solutions' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>digital campaigns</a></strong>, we ensure your brand connects with the people who matter most, those in your immediate vicinity who are most likely to become loyal customers.",
+          "icon": "tabler:map-pin",
+          "image": "/images/local-marketing-experts.avif"
+        },
+        {
+          "title": "Community-Based Advertising",
+          "description": "We understand the value of community and tailor our campaigns to resonate with local values and interests. This approach not only boosts your brand's visibility but also fosters a strong, positive relationship with your audience. Explore our <strong><a href='/indoor-billboards/locations' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>venue network</a></strong> across {city}.",
+          "icon": "tabler:users",
+          "image": "/images/community-advertising.avif"
+        },
+        {
+          "title": "Affordability",
+          "description": "We offer cost-effective marketing solutions tailored to your budget, providing exceptional value without compromising on quality or impact.",
+          "icon": "tabler:currency-dollar",
+          "image": "/images/affordability.avif"
+        },
+        {
+          "title": "Amazing Creative",
+          "description": "Our team excels at creating dynamic, engaging content that stands out. Whether it's eye-catching visuals or compelling messaging, we ensure your advertisements capture and retain the attention of your target audience. From <strong><a href='/solutions/foundational/social-media-management' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>social media content</a></strong> to <strong><a href='/solutions/lead-gen/pay-per-click' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>PPC campaigns</a></strong>, we deliver results.",
+          "icon": "tabler:sparkles",
+          "image": "/images/amazing-creative.avif"
+        },
+        {
+          "title": "A Proven Track Record",
+          "description": "We have a history of successful campaigns that drive results. Our clients have seen significant increases in brand awareness, foot traffic, and customer engagement. Our proven strategies are designed to deliver measurable outcomes that contribute to your business growth.",
+          "icon": "tabler:award",
+          "image": "/images/track-record.avif"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "title": "About {business} | Local Business Branding",
+    "description": "Discover how we help businesses stay top of mind where customers eat, work, live, and play through signage and digital marketing.",
+    "keywords": "{city} marketing agency about, marketing company {city}, digital marketing team {city}, {city} advertising agency team, marketing agency story"
+  }
+}

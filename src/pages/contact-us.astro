@@ -1,0 +1,31 @@
+---
+import PageLayout from "~/layouts/PageLayout.astro";
+import SectionRenderer from "~/components/SectionRenderer.astro";
+import { getPageTitle } from "~/utils/config";
+import { breadcrumbSchema, contactPageSchema } from "~/utils/schema";
+
+import contactData from "~/data/pages/contact-us.json";
+
+const sections = [...contactData.sections].sort((a: any, b: any) => (a.order || 0) - (b.order || 0));
+
+const metadata = {
+  title: contactData.metadata?.title || getPageTitle(contactData.title),
+  description: contactData.metadata?.description || contactData.description,
+  keywords: contactData.metadata?.keywords || "",
+  noindex: false,
+  nofollow: false,
+};
+
+const origin = Astro.url.origin;
+const schemas = [
+  contactPageSchema(origin, `${origin}/contact-us`),
+  breadcrumbSchema(origin, [
+    { name: "Home", path: "/" },
+    { name: "Contact Us", path: "/contact-us" },
+  ]),
+];
+---
+
+<PageLayout metadata={metadata} schemas={schemas} hideCta={true}>
+  {sections.map((section: any) => <SectionRenderer section={section} />)}
+</PageLayout>

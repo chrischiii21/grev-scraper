@@ -1,0 +1,120 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  image?: string;
+  imageAlt?: string;
+  backgroundImage?: string;
+  actions?: Array<{
+    text: string;
+    href: string;
+    variant?: 'primary' | 'secondary';
+  }>;
+}
+
+const {
+  title = 'Local Advertising & Digital Marketing Pros',
+  subtitle = 'Helping businesses get noticed, on screens and online. Choose a single service or roll everything into one always-on plan.',
+  tagline = 'Premium Marketing Solutions',
+  image,
+  imageAlt,
+  backgroundImage = '',
+  actions = [],
+} = Astro.props;
+
+// Use image as backgroundImage if provided and no backgroundImage is set
+const heroBackground = image || backgroundImage;
+---
+
+<section class="relative overflow-x-hidden hero-section">
+  <!-- Background -->
+  <div class="absolute inset-0 -z-10 hero-bg">
+    {heroBackground && (
+      <div
+        class="hero-bg-image absolute inset-0 w-full h-full bg-cover bg-center"
+        style={`background-image: url('${heroBackground}');`}
+        role="img"
+        aria-label={imageAlt || title || "Hero background"}
+      ></div>
+    )}
+    <!-- Diagonal Gradient Overlay (desktop) -->
+    <div class="hidden md:block absolute inset-0 bg-gradient-to-tr from-[var(--brand-dark)] via-[var(--brand-dark)]/85 to-transparent clip-diagonal hero-overlay"></div>
+    <!-- Vertical Gradient Overlay (mobile) -->
+    <div class="block md:hidden absolute inset-0 bg-gradient-to-b from-[var(--brand-dark)]/50 via-[var(--brand-dark)]/70 to-[var(--brand-dark)]/90 hero-overlay"></div>
+  </div>
+
+  <!-- Content Container -->
+  <div class="relative z-10 min-h-[600px] md:min-h-[650px] lg:min-h-[700px]">
+    <div class="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <div class="flex items-center h-full min-h-[600px] md:min-h-[650px] lg:min-h-[700px]">
+        <div class="w-full max-w-3xl py-16 md:py-20 lg:py-24 text-white">
+          <!-- Badge/Tagline -->
+          {tagline && (
+            <div class="mb-6">
+              <span class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[var(--brand-tertiary)] uppercase tracking-wider">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+                {tagline}
+              </span>
+            </div>
+          )}
+
+          <!-- Heading -->
+          <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] mb-6 text-balance">
+            {title}
+          </h1>
+
+          <!-- Subheading -->
+          <p class="text-white/85 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mb-10 max-w-xl" set:html={subtitle} />
+
+          <!-- CTA Buttons -->
+          {actions.length > 0 && (
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4">
+              {actions.map((action) => (
+                action.variant === 'secondary' ? (
+                  <a 
+                    href={action.href} 
+                    class="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-5 md:px-8 py-2.5 sm:py-3 md:py-4 text-sm md:text-base rounded-lg border-2 border-white/40 text-white font-semibold hover:bg-white/10 hover:border-white/60 transition-all duration-300"
+                  >
+                    {action.text}
+                  </a>
+                ) : (
+                  <a
+                    href={action.href}
+                    class="group inline-flex items-center justify-center gap-1.5 sm:gap-2 md:gap-3 pl-4 sm:pl-5 md:pl-8 pr-5 sm:pr-6 md:pr-10 py-2.5 sm:py-3 md:py-4 text-sm md:text-base rounded-lg bg-[var(--brand-secondary)] hover:bg-[var(--brand-quaternary)] text-white hover:text-[var(--brand-dark)] font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    <span>{action.text}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                )
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom diagonal shape style -->
+  <style is:global>
+    .clip-diagonal {
+      clip-path: polygon(0 0, 70% 0, 50% 100%, 0% 100%);
+    }
+    
+    @media (max-width: 1024px) {
+      .clip-diagonal {
+        clip-path: polygon(0 0, 85% 0, 70% 100%, 0% 100%);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .clip-diagonal {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      }
+    }
+  </style>
+</section>

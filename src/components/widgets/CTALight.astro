@@ -1,0 +1,63 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  keyPoints?: string[];
+  eyebrow?: string;
+  backgroundImage?: string;
+}
+
+const { 
+  title, 
+  description, 
+  ctaText, 
+  ctaLink, 
+  keyPoints = [], 
+  eyebrow,
+  backgroundImage = 'cta-bg.avif',
+} = Astro.props;
+---
+
+<section class="relative py-16 md:py-20 overflow-hidden bg-[var(--brand-dark)]">
+  <!-- Content -->
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="max-w-[1240px] mx-auto text-center">
+      {eyebrow && (
+        <div class="flex justify-center mb-6">
+          <span class="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md ring-1 ring-white/20 text-white text-xs sm:text-sm font-semibold uppercase tracking-wider rounded-full">
+            {eyebrow}
+          </span>
+        </div>
+      )}
+      
+      <!-- Heading -->
+      {title && (
+        <h2 class="text-3xl sm:text-4xl md:text-5xl text-white font-bold leading-tight mb-6">
+          {title}
+        </h2>
+      )}
+      
+      <!-- Description -->
+      {description && (
+        <div class="max-w-3xl mx-auto text-base md:text-lg leading-relaxed mb-8 text-white/90" set:html={description} />
+      )}
+      
+      <!-- CTA Button -->
+      {ctaText && ctaLink && (
+        <div class="flex flex-wrap justify-center gap-5">
+          <a 
+            href={ctaLink} 
+            class="inline-flex items-center gap-2 rounded-lg bg-white text-[var(--brand-dark)] px-8 py-3.5 text-base font-semibold shadow-lg transition-all duration-300 hover:bg-gray-100 hover:shadow-xl hover:translate-y-[-2px]"
+          >
+            {ctaText}
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

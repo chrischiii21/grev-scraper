@@ -1,0 +1,291 @@
+---
+/**
+ * SectionRenderer
+ * Renders a single MDX section object into the appropriate widget component.
+ * Used by all solution slug pages to avoid duplicating section-switch logic.
+ */
+import CallToAction from "~/components/widgets/CallToAction.astro";
+import Hero from "~/components/widgets/Hero.astro";
+import HeroSimple from "~/components/widgets/HeroSimple.astro";
+import FAQs from "~/components/widgets/FAQs.astro";
+import MapSection from "~/components/widgets/MapSection.astro";
+import ContentWithKeypoints from "~/components/widgets/ContentWithKeypoints.astro";
+import ContentWithImage from "~/components/widgets/ContentWithImage.astro";
+import ContentWithVideo from "~/components/widgets/ContentWithVideo.astro";
+import ContentSimple from "~/components/widgets/ContentSimple.astro";
+import BoostVisibility from "~/components/widgets/BoostVisibility.astro";
+import CTALight from "~/components/widgets/CTALight.astro";
+import CTANewsletter from "~/components/widgets/CTANewsletter.astro";
+import FeaturesSection from "~/components/widgets/FeaturesSection.astro";
+import FeaturesWithImage from "~/components/widgets/FeaturesWithImage.astro";
+import FeaturesGrid from "~/components/widgets/FeaturesGrid.astro";
+import FeaturesGridNumbered from "~/components/widgets/FeaturesGridNumbered.astro";
+import DesignSkillsGrid from "~/components/widgets/DesignSkillsGrid.astro";
+import ProcessSteps from "~/components/widgets/ProcessSteps.astro";
+import NetworksSection from "~/components/widgets/NetworksSection.astro";
+import FormSection from "~/components/widgets/FormSection.astro";
+import ServicesGrid from "~/components/widgets/ServicesGrid.astro";
+import { localizeData } from "~/utils/site";
+
+interface Props {
+  section: any;
+}
+
+const { section } = Astro.props;
+const s = localizeData(section);
+
+const ctaActions = s.ctaText && s.ctaLink
+  ? [{ text: s.ctaText, href: s.ctaLink, variant: "primary" as const }]
+  : [];
+---
+
+{s.section === "Hero" && (
+  <Hero
+    tagline={s.eyebrow || s.tagline}
+    title={s.title}
+    subtitle={s.description || s.subtitle}
+    image={s.image}
+    backgroundImage={s.backgroundImage}
+    actions={ctaActions}
+  />
+)}
+
+{s.section === "HeroSimple" && (
+  <HeroSimple
+    tagline={s.tagline}
+    title={s.title}
+    subtitle={s.subtitle}
+    backgroundImage={s.backgroundImage}
+    actions={ctaActions}
+  />
+)}
+
+{s.section === "FAQs" && s.faqs && (
+  <FAQs title={s.title} faqs={s.faqs} />
+)}
+
+{s.section === "Map" && s.locations && (
+  <MapSection
+    title={s.title}
+    description={s.description}
+    locations={s.locations}
+    mapUrl={s.mapUrl}
+    viewMode={s.viewMode}
+  />
+)}
+
+{s.section === "ContentWithKeypoints" && (
+  <ContentWithKeypoints
+    title={s.title}
+    eyebrow={s.eyebrow}
+    description={s.description}
+    ctaText={s.ctaText}
+    ctaLink={s.ctaLink}
+    image={s.image}
+    keyPoints={s.keyPoints}
+  />
+)}
+
+{s.section === "ContentWithImage" && (
+  <ContentWithImage
+    title={s.title}
+    blueHeading={s.blueHeading}
+    eyebrow={s.eyebrow}
+    description={s.description}
+    ctaText={s.ctaText}
+    ctaLink={s.ctaLink}
+    image={s.image}
+    imagePosition={s.imagePosition}
+    background={s.background}
+  />
+)}
+
+{s.section === "ContentWithVideo" && (
+  <ContentWithVideo
+    title={s.title}
+    eyebrow={s.eyebrow}
+    description={s.description}
+    ctaText={s.ctaText}
+    ctaLink={s.ctaLink}
+    videoUrl={s.videoUrl}
+    videoPosition={s.videoPosition}
+    background={s.background}
+    poster={s.poster}
+    autoplay={s.autoplay}
+    muted={s.muted}
+    loop={s.loop}
+    controls={s.controls}
+  />
+)}
+
+{s.section === "ContentSimple" && (
+  <ContentSimple
+    title={s.title}
+    eyebrow={s.eyebrow}
+    description={s.description}
+    ctaText={s.ctaText}
+    ctaLink={s.ctaLink}
+    image={s.image}
+    background={s.background}
+    centered={s.centered}
+  />
+)}
+
+{s.section === "BoostVisibility" && (
+  <BoostVisibility
+    eyebrow={s.eyebrow}
+    title={s.title}
+    description={s.description}
+    image={s.image}
+    ctaText={s.ctaText}
+    ctaLink={s.ctaLink}
+    features={s.features || []}
+  />
+)}
+
+{s.section === "CallToAction" && (
+  <CallToAction
+    title={s.title}
+    subtitle={s.subtitle}
+    actions={ctaActions}
+  />
+)}
+
+{s.section === "CTALight" && (
+  <CTALight
+    title={s.title}
+    description={s.description}
+    ctaText={s.ctaText || "Get In Touch"}
+    ctaLink={s.ctaLink || "/contact-us"}
+  />
+)}
+
+{s.section === "NewsletterCTA" && (
+  <CTANewsletter
+    title={s.title}
+    description={s.description}
+    buttonText={s.ctaText || "Get Started"}
+    buttonLink={s.ctaLink || "/contact-us"}
+    backgroundImage={s.backgroundImage}
+  />
+)}
+
+{s.section === "DesignSkillsGrid" && s.skills && (
+  <DesignSkillsGrid
+    title={s.title}
+    description={s.description}
+    skills={s.skills}
+  />
+)}
+
+{s.section === "FeaturesGrid" && (
+  <FeaturesGrid
+    eyebrow={s.eyebrow}
+    title={s.title}
+    description={s.description}
+    features={s.features}
+    ctaText={s.ctaText}
+    ctaLink={s.ctaLink}
+    background={s.background}
+  />
+)}
+
+{s.section === "FeaturesGridNumbered" && (
+  <FeaturesGridNumbered
+    eyebrow={s.eyebrow}
+    title={s.title}
+    description={s.description}
+    features={s.features}
+    ctaText={s.ctaText}
+    ctaLink={s.ctaLink}
+    background={s.background}
+  />
+)}
+
+{s.section === "FeaturesWithImage" && s.features && (
+  <FeaturesWithImage
+    eyebrow={s.eyebrow}
+    title={s.title}
+    description={s.description}
+    cards={s.features}
+    image={s.image}
+    image2={s.image2}
+    background={s.background}
+    ctaText={s.ctaText}
+    ctaLink={s.ctaLink}
+  />
+)}
+
+{s.section === "FeaturesSection" && s.features && (
+  <FeaturesSection
+    eyebrow={s.eyebrow}
+    title={s.title}
+    description={s.description}
+    features={s.features}
+    ctaText={s.ctaText}
+    ctaLink={s.ctaLink}
+  />
+)}
+
+{s.section === "ProcessSteps" && s.steps && (
+  <ProcessSteps
+    eyebrow={s.eyebrow}
+    title={s.title}
+    description={s.description}
+    steps={s.steps}
+    background={s.background}
+  />
+)}
+
+{s.section === "Networks" && s.networks && (
+  <NetworksSection
+    title={s.title}
+    subtitle={s.subtitle}
+    description={s.description}
+    networks={s.networks}
+  />
+)}
+
+{s.section === "Form" && s.formFields && (
+  <FormSection
+    title={s.title}
+    subtitle={s.eyebrow}
+    description={s.description}
+    fields={s.formFields}
+    submitText={s.submitText}
+    submitAction={s.submitAction}
+    background={s.background}
+    contactInfo={s.contactInfo}
+  />
+)}
+
+{s.section === "FormSection" && s.formFields && (
+  <FormSection
+    title={s.title}
+    subtitle={s.subtitle || s.eyebrow}
+    description={s.description}
+    fields={s.formFields}
+    submitText={s.submitText}
+    submitAction={s.submitAction}
+    background={s.background}
+    contactInfo={s.contactInfo}
+  />
+)}
+
+{s.section === "CTABanner" && (
+  <CallToAction
+    title={s.title}
+    subtitle={s.description}
+    actions={ctaActions}
+  />
+)}
+
+{s.section === "ServicesGrid" && s.cards && (
+  <ServicesGrid
+    title={s.title}
+    description={s.description}
+    ctaText={s.ctaText}
+    ctaLink={s.ctaLink}
+    cards={s.cards}
+  />
+)}

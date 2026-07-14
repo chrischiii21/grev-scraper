@@ -1,0 +1,105 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Step {
+  title?: string;
+  description?: string;
+  icon?: string;
+}
+
+interface Props {
+  title?: string;
+  eyebrow?: string;
+  description?: string;
+  steps: Step[];
+  background?: string;
+}
+
+const {
+  title,
+  eyebrow,
+  description,
+  steps = [],
+  background = "#f7fbfe",
+} = Astro.props;
+---
+
+<section class="py-12 md:py-16 lg:py-20" style={`background-color: ${background};`}>
+  <div class="container px-4 sm:px-6 lg:px-8 mx-auto">
+    <div class="max-w-[1240px] mx-auto">
+      {/* Header */}
+      <div class="mb-12 lg:mb-16">
+        {eyebrow && (
+          <p class="flex items-center gap-2 text-[var(--brand-secondary)] text-sm md:text-base font-bold uppercase tracking-wider mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 16 16" fill="currentColor">
+              <rect width="16" height="16" rx="2"/>
+            </svg>
+            {eyebrow}
+          </p>
+        )}
+        
+        {title && (
+          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+            {title}
+          </h2>
+        )}
+        
+        {description && (
+          <p class="text-base md:text-lg text-gray-700 leading-relaxed max-w-3xl" set:html={description} />
+        )}
+      </div>
+
+      {/* Process Steps Grid */}
+      <div class="relative">
+
+        {/* Steps Grid */}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 relative">
+          {steps.map((step, index) => (
+            <div 
+              class="relative"
+              style={`animation-delay: ${index * 0.1}s;`}
+            >
+              {/* Arrow between steps - connects from right of current card to left of next card */}
+              {index < steps.length - 1 && index % 3 !== 2 && (
+                <div class="hidden lg:flex absolute top-1/2 -translate-y-1/2 left-full ml-2 mr-2 z-20 items-center justify-center">
+                  <svg class="w-8 h-8 text-[var(--brand-primary)]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                  </svg>
+                </div>
+              )}
+              
+              {/* Card */}
+              <div class="bg-white p-6 lg:p-8 shadow-md hover:shadow-xl transition-all duration-300 h-full relative overflow-hidden">
+                {/* Background Number with very light blue background */}
+                <div class="absolute top-4 right-4 pointer-events-none">
+                  <div class="w-16 h-16 bg-[var(--brand-primary)]/5 rounded-xl flex items-center justify-center">
+                    <span class="text-[var(--brand-primary)]/60 font-bold text-3xl">
+                      {String(index + 1)}
+                    </span>
+                  </div>
+                </div>
+                
+                {/* Icon */}
+                <div class="relative z-10 mb-6">
+                  {step.icon && (
+                    <Icon name={step.icon} class="w-12 h-12 text-[var(--brand-secondary)]" />
+                  )}
+                </div>
+                
+                {/* Content */}
+                <div class="relative z-10">
+                  {step.title && (
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-tight" set:html={step.title} />
+                  )}
+                  {step.description && (
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed" set:html={step.description} />
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

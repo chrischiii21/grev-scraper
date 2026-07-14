@@ -1,0 +1,51 @@
+---
+interface Benefit {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  benefits?: Benefit[];
+}
+
+const { title, description, benefits = [] } = Astro.props;
+---
+
+<section class="relative py-16 md:py-20 bg-white">
+  <div class="container px-4 sm:px-6 lg:px-8 mx-auto">
+    <div class="max-w-[1240px] mx-auto">
+      {(title || description) && (
+        <div class="text-center mb-12 max-w-3xl mx-auto">
+          {title && (
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--brand-dark)] leading-tight mb-6">
+              {title}
+            </h2>
+          )}
+          {description && (
+            <p class="text-base md:text-lg text-gray-600 leading-relaxed" set:html={description} />
+          )}
+        </div>
+      )}
+
+      {benefits.length > 0 && (
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {benefits.map((benefit) => (
+            <div class="flex gap-4 p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+              <div class="flex-shrink-0">
+                <svg class="w-6 h-6 text-[var(--brand-secondary)]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed" set:html={benefit.description} />
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+---
+import PageLayout from "~/layouts/PageLayout.astro";
+import SectionRenderer from "~/components/SectionRenderer.astro";
+import { getPageTitle } from "~/utils/config";
+import { aboutPageSchema, breadcrumbSchema } from "~/utils/schema";
+
+import aboutData from "~/data/pages/about-us.json";
+
+const sections = [...aboutData.sections].sort((a: any, b: any) => (a.order || 0) - (b.order || 0));
+
+// NewsletterCTA sections are excluded here; PageLayout renders the global final CTA
+const mainSections = sections.filter((s: any) => s.section !== "NewsletterCTA");
+
+const metadata = {
+  title: aboutData.metadata?.title || getPageTitle(aboutData.title),
+  description: aboutData.metadata?.description || aboutData.description,
+  keywords: aboutData.metadata?.keywords || "",
+  noindex: false,
+  nofollow: false,
+};
+
+const origin = Astro.url.origin;
+const schemas = [
+  aboutPageSchema(origin, `${origin}/about-us`),
+  breadcrumbSchema(origin, [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about-us" },
+  ]),
+];
+---
+
+<PageLayout metadata={metadata} schemas={schemas}>
+  {mainSections.map((section: any) => <SectionRenderer section={section} />)}
+
+</PageLayout>

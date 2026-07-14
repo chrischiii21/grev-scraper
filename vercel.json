@@ -1,0 +1,64 @@
+{
+  "redirects": [
+    {
+      "source": "/app/contact",
+      "destination": "/contact-us",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/foundational/foundational/:slug",
+      "destination": "/solutions/foundational/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/lead-gen/pay-per-click/pay-per-click",
+      "destination": "/solutions/lead-gen/pay-per-click",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/lead-gen/pay-per-click/social-media-advertising",
+      "destination": "/solutions/lead-gen/social-media-advertising",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/foundational/foundational/social-media-management",
+      "destination": "/solutions/foundational/social-media-management",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/foundational/foundational/website-design",
+      "destination": "/solutions/foundational/website-design",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/foundational/foundational/design-services",
+      "destination": "/solutions/foundational/design-services",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/lead-gen/lead-gen/:slug",
+      "destination": "/solutions/lead-gen/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/lead-gen/lead-gen/social-media-advertising",
+      "destination": "/solutions/lead-gen/social-media-advertising",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/lead-gen/lead-gen/pay-per-click",
+      "destination": "/solutions/lead-gen/pay-per-click",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/branding-awareness/branding-awareness/:slug",
+      "destination": "/solutions/branding-awareness/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact-us",
+      "permanent": true
+    }
+  ]
+}

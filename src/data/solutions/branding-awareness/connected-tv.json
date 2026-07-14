@@ -1,0 +1,257 @@
+{
+  "title": "Connected TV (OTT Ads)",
+  "description": "Reach audiences on streaming platforms with targeted TV advertising.",
+  "category": "branding-awareness",
+  "order": 1,
+  "icon": "tabler:device-tv",
+  "thumbnail": "/images/connected-tv.avif",
+  "ctaText": "Start Your CTV Campaign",
+  "ctaLink": "/contact-us",
+  "sections": [
+    {
+      "section": "Hero",
+      "eyebrow": "Branding & Awareness",
+      "title": "Connected TV | OTT",
+      "description": "Capture the attention of a streaming audience with dynamic video ads.",
+      "image": "/images/connected-tv.avif",
+      "order": 1,
+      "ctaText": "Get Started",
+      "ctaLink": "/contact-us"
+    },
+    {
+      "section": "ContentWithImage",
+      "title": "Connected TV +Over-The-Top Advertising",
+      "background": "primary-dark",
+      "description": "Connected TV (CTV) and Over-The-Top video (OTT) advertising allows you to make an impact with stunning video ads. Target TV streaming audiences on popular channels like ESPN, CNN, and Fox. These non-skippable ads are designed to leave a lasting impression and keep you top-of-mind.",
+      "image": "/images/connected-tv-content.avif",
+      "order": 2
+    },
+    {
+      "section": "CTALight",
+      "title": "Make an Impact With Connected TV and Over-The-Top Advertising",
+      "description": "CTV/OTT advertising stands out in the marketing landscape by delivering compelling brand experiences to audiences captivated by streaming services. CTV/OTT ads are non-skippable ensuring that every CTV/OTT campaign achieves maximum visibility and meaningful results. Add CTV/OTT to existing efforts such as <strong><a href='/solutions/lead-gen/social-media-advertising' style='text-decoration: none; color: inherit;'>Social Media Advertising</a></strong>, <strong><a href='/solutions/foundational/google-business-profile' style='text-decoration: none; color: inherit;'>Google Business Profile</a></strong>, or <strong><a href='/solutions/lead-gen/pay-per-click' style='text-decoration: none; color: inherit;'>Pay-Per-Click</a></strong> efforts for a well-rounded multichannel strategy.",
+      "order": 3,
+      "ctaText": "Launch Your Campaign",
+      "ctaLink": "/contact-us"
+    },
+    {
+      "section": "FeaturesSection",
+      "title": "Why Connected TV Advertising Works",
+      "description": "Combine the impact of TV with the precision of digital advertising.",
+      "order": 4,
+      "features": [
+        {
+          "title": "Premium Placement",
+          "description": "Your ads appear on popular streaming platforms like Hulu, Roku, Fire TV, and more, right alongside premium content from major networks and studios.",
+          "icon": "tabler:star"
+        },
+        {
+          "title": "Precise Targeting",
+          "description": "Target by demographics, interests, location, viewing habits, and more. Reach exactly who you want, when you want, with zero waste.",
+          "icon": "tabler:target"
+        },
+        {
+          "title": "Non-Skippable Impact",
+          "description": "Unlike YouTube ads, CTV ads can't be skipped. Your message gets seen, every time, on the biggest screen in the home.",
+          "icon": "tabler:eye"
+        },
+        {
+          "title": "Measurable Results",
+          "description": "Track impressions, completion rates, website visits, and conversions. Know exactly what's working and optimize in real-time.",
+          "icon": "tabler:chart-line"
+        }
+      ]
+    },
+    {
+      "section": "FeaturesWithImage",
+      "title": "How Connected TV Advertising Works",
+      "description": "From strategy to results, we handle everything to make your CTV campaign a success.",
+      "order": 5,
+      "features": [
+        {
+          "title": "Strategy & Targeting",
+          "description": "We identify your ideal audience and create a targeting strategy to reach them across streaming platforms.",
+          "icon": "tabler:bulb",
+          "image": "/images/strategy.avif"
+        },
+        {
+          "title": "Creative Development",
+          "description": "We produce high-quality video ads optimized for streaming platforms, or adapt your existing TV commercials.",
+          "icon": "tabler:video",
+          "image": "/images/creative-development.avif"
+        },
+        {
+          "title": "Campaign Launch",
+          "description": "Your ads go live across premium streaming networks, reaching your target audience during their favorite shows.",
+          "icon": "tabler:rocket",
+          "image": "/images/campaign-launch.avif"
+        },
+        {
+          "title": "Tracking & Optimization",
+          "description": "We monitor performance, track results, and continuously optimize to maximize your exposure and campaign effectiveness.",
+          "icon": "tabler:adjustments",
+          "image": "/images/tracking.avif"
+        }
+      ]
+    },
+    {
+      "section": "Networks",
+      "title": "Advertise Across Premium Streaming Platforms",
+      "description": "Your ads appear on the platforms your customers are already watching.",
+      "order": 6,
+      "networks": [
+        {
+          "title": "Networks",
+          "itemsPerView": 3,
+          "brands": [
+            {
+              "name": "A&E",
+              "logo": "/images/brands/AE-2.webp"
+            },
+            {
+              "name": "AMC",
+              "logo": "/images/brands/AMC-2.webp"
+            },
+            {
+              "name": "CNN",
+              "logo": "/images/brands/CNN-2.webp"
+            },
+            {
+              "name": "Comedy Central",
+              "logo": "/images/brands/Comedy-Central-2.webp"
+            },
+            {
+              "name": "Discovery",
+              "logo": "/images/brands/Discovery-2.webp"
+            },
+            {
+              "name": "Disney Channel",
+              "logo": "/images/brands/Disney-Channel-2.webp"
+            },
+            {
+              "name": "ESPN",
+              "logo": "/images/brands/ESPN-2.webp"
+            },
+            {
+              "name": "Food Network",
+              "logo": "/images/brands/Food-Network-2.webp"
+            },
+            {
+              "name": "Fox News",
+              "logo": "/images/brands/Fox-News-2.webp"
+            },
+            {
+              "name": "HGTV",
+              "logo": "/images/brands/HGTV-2.webp"
+            },
+            {
+              "name": "History",
+              "logo": "/images/brands/History-2.webp"
+            },
+            {
+              "name": "Lifetime",
+              "logo": "/images/brands/Lifetime-2.webp"
+            },
+            {
+              "name": "MSNBC",
+              "logo": "/images/brands/MSNBC-2.webp"
+            },
+            {
+              "name": "TLC",
+              "logo": "/images/brands/TLC-1.webp"
+            },
+            {
+              "name": "TNT",
+              "logo": "/images/brands/TNT-2.webp"
+            },
+            {
+              "name": "USA",
+              "logo": "/images/brands/USA-2.webp"
+            },
+            {
+              "name": "Vice",
+              "logo": "/images/brands/Vice-2.webp"
+            }
+          ]
+        },
+        {
+          "title": "Platforms",
+          "itemsPerView": 3,
+          "brands": [
+            {
+              "name": "Android TV",
+              "logo": "/images/brands/androidtv-2.webp"
+            },
+            {
+              "name": "Chromecast",
+              "logo": "/images/brands/chromecast-2.webp"
+            },
+            {
+              "name": "Roku",
+              "logo": "/images/brands/Roku-2.webp"
+            },
+            {
+              "name": "Fire TV",
+              "logo": "/images/brands/firetv-2.webp"
+            },
+            {
+              "name": "XBOX",
+              "logo": "/images/brands/xbox-2.webp"
+            },
+            {
+              "name": "Apple TV",
+              "logo": "/images/brands/appletv-2.webp"
+            },
+            {
+              "name": "Playstation",
+              "logo": "/images/brands/playstation-2.webp"
+            }
+          ]
+        },
+        {
+          "title": "Subscriptions",
+          "itemsPerView": 3,
+          "brands": [
+            {
+              "name": "Pluto TV",
+              "logo": "/images/brands/pluto-2.webp"
+            },
+            {
+              "name": "Sling TV",
+              "logo": "/images/brands/sling-television-2.webp"
+            },
+            {
+              "name": "Fubo TV",
+              "logo": "/images/brands/fubu-2.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "FAQs",
+      "title": "Connected TV Advertising FAQs",
+      "description": "Get answers to common questions about CTV advertising.",
+      "order": 7,
+      "faqs": [
+        {
+          "question": "What is Connected TV (CTV) advertising?",
+          "answer": "Connected TV advertising delivers video ads to viewers watching streaming content on internet-connected devices like smart TVs, Roku, Fire TV, Apple TV, and gaming consoles. It's TV advertising for the streaming age."
+        },
+        {
+          "question": "How is CTV different from traditional TV advertising?",
+          "answer": "CTV offers precise targeting, real-time tracking, and measurable results that traditional TV can't provide. You can target specific audiences, track who saw your ad, and measure conversions, all at a fraction of traditional TV costs."
+        },
+        {
+          "question": "What platforms will my ads appear on?",
+          "answer": "Your ads can appear on major streaming platforms like Hulu, Peacock, Paramount+, Pluto TV, and more, as well as across devices like Roku, Fire TV, Apple TV, and smart TVs."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "title": "Connected TV Advertising | Reach Streaming Audiences",
+    "description": "Elevate your brand with high-quality ads delivered to the right audience on top streaming platforms.",
+    "keywords": "connected TV advertising {city}, CTV ads {city}, OTT advertising {city}, streaming TV ads, Roku advertising, Hulu ads {city}, streaming platform advertising"
+  }
+}

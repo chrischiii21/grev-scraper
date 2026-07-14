@@ -1,0 +1,61 @@
+---
+import PageLayout from "~/layouts/PageLayout.astro";
+import { breadcrumbSchema } from "~/utils/schema";
+
+import connectedTvData from "~/data/solutions/branding-awareness/connected-tv.json";
+import displayGeofencingData from "~/data/solutions/branding-awareness/display-geofencing.json";
+import streamingAudioData from "~/data/solutions/branding-awareness/streaming-audio.json";
+
+const brandingAwareness = [
+  { slug: "connected-tv", data: connectedTvData },
+  { slug: "display-geofencing", data: displayGeofencingData },
+  { slug: "streaming-audio", data: streamingAudioData },
+].sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+
+const metadata = {
+  title: "Branding & Awareness Solutions",
+  description:
+    "Expand your reach with our branding and awareness advertising solutions.",
+};
+
+const origin = Astro.url.origin;
+const schemas = [
+  breadcrumbSchema(origin, [
+    { name: "Home", path: "/" },
+    { name: "Solutions", path: "/solutions" },
+    { name: "Branding & Awareness", path: "/solutions/branding-awareness" },
+  ]),
+];
+---
+
+<PageLayout metadata={metadata} schemas={schemas}>
+  <div class="py-16">
+    <div class="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      <header class="mb-12 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Branding & Awareness
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Expand your reach and build brand recognition with our comprehensive
+          advertising solutions.
+        </p>
+      </header>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          brandingAwareness.map((solution) => (
+            <a
+              href={`/solutions/branding-awareness/${solution.slug}`}
+              class="group block p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition-all"
+            >
+              <h3 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary transition">
+                {solution.data.title}
+              </h3>
+              <p class="text-gray-600">{solution.data.description}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</PageLayout>

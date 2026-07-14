@@ -1,0 +1,52 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Feature {
+  title: string;
+  description: string;
+  icon?: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  features: Feature[];
+}
+
+const { title, subtitle, features = [] } = Astro.props;
+---
+
+<section class="bg-white rounded-lg">
+  <div class="max-w-[1240px] mx-auto p-4 sm:p-6 lg:px-8">
+    {
+      (title || subtitle) && (
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          {title && (
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-dark mb-4">
+              {title}
+            </h2>
+          )}
+          {subtitle && <p class="text-base md:text-lg lg:text-xl text-gray-600">{subtitle}</p>}
+        </div>
+      )
+    }
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {
+        features.map((feature) => (
+          <div class="p-6 rounded-lg border border-gray-200 hover:border-primary-light hover:shadow-lg transition">
+            {feature.icon && (
+              <div class="w-12 h-12 bg-neutral rounded-lg flex items-center justify-center mb-4">
+                <Icon name={feature.icon} class="w-6 h-6 text-primary" />
+              </div>
+            )}
+            <h3 class="text-lg sm:text-xl font-semibold text-primary-dark mb-2">
+              {feature.title}
+            </h3>
+            <p class="text-sm sm:text-base text-gray-600" set:html={feature.description} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

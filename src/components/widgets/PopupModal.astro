@@ -1,0 +1,412 @@
+---
+import { siteConfig } from "~/utils/site";
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  benefits?: string[];
+  dismissText?: string;
+  delay?: number;
+  showOnce?: boolean;
+  showTriggerButton?: boolean;
+  triggerButtonText?: string;
+}
+
+const {
+  title = "Get Your Free Marketing Consultation",
+  subtitle,
+  description = "Discover how digital marketing can grow your business. Schedule a free consultation with our experts today.",
+  ctaText = "Schedule Free Consultation",
+  ctaLink = "/contact-us",
+  benefits = [
+    "Free 30-minute strategy session",
+    "Custom campaign recommendations",
+    "No commitment or pressure"
+  ],
+  dismissText = "No thanks, I'll browse first",
+  delay = 5000,
+  showOnce = true,
+  showTriggerButton = false,
+  triggerButtonText = "Free Consultation",
+} = Astro.props;
+---
+
+<div
+  id="popup-modal"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 backdrop-blur-sm"
+  data-delay={delay}
+  data-show-once={showOnce}
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="popup-title"
+  aria-label="Marketing consultation popup"
+>
+  <!-- Modal Container -->
+  <div
+    class="relative w-full h-full sm:h-auto sm:w-[90%] sm:max-w-4xl mx-auto shadow-2xl overflow-hidden sm:overflow-y-auto sm:max-h-[90vh] sm:animate-scale-in rounded-lg"
+  >
+    <!-- Close Button -->
+    <button
+      id="close-popup"
+      class="absolute top-4 right-4 z-20 w-8 h-8 md:hidden flex items-center justify-center text-white hover:text-gray-300 transition-colors"
+      aria-label="Close popup"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <!-- Two Column Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-2 min-h-[450px]">
+      <!-- Left Side - Dark Navy Background -->
+      <div class="relative bg-[var(--brand-dark)] text-white px-8 sm:px-10 lg:px-12 py-10 sm:py-12 lg:py-14 flex flex-col justify-end overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+          <img
+            src="/images/home.avif"
+            alt="Marketing team"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[var(--brand-dark)] via-[var(--brand-dark)]/70 to-[var(--brand-dark)]/30"></div>
+        </div>
+
+        <!-- Content - Bottom Left -->
+        <div class="relative z-10">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-[var(--brand-dark)] rounded-full mb-6">
+            <span class="w-2 h-2 bg-white rounded-full"></span>
+            <span class="text-xs font-bold text-white uppercase tracking-wider">
+              Limited Time Offer
+            </span>
+          </div>
+
+          <!-- Title -->
+          <h3
+            id="popup-title"
+            class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight"
+          >
+            {title}
+          </h3>
+        </div>
+      </div>
+
+      <!-- Right Side - White Content Section -->
+      <div class="bg-white px-8 sm:px-10 lg:px-12 py-10 sm:py-12 lg:py-14 flex flex-col justify-center relative">
+        <!-- Close Button -->
+        <button
+          id="close-popup-white"
+          class="absolute top-6 right-6 z-20 w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600 transition-colors"
+          aria-label="Close popup"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+
+        <!-- Blue Left Border Accent -->
+        <div class="absolute left-6 top-12 bottom-12 w-1 bg-[var(--brand-secondary)] rounded-r"></div>
+
+        <div class="max-w-md mx-auto w-full">
+          <!-- Logo -->
+          <div class="mb-6">
+            <img
+              src={siteConfig.logo.src}
+              alt={siteConfig.logo.alt}
+              class="h-12 sm:h-14 w-auto"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <!-- Headline -->
+          <div class="mb-6">
+            <h4 class="text-2xl sm:text-3xl font-bold text-[var(--brand-dark)] leading-tight mb-3">
+              Ready to Grow Your Business?
+            </h4>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              Get expert marketing strategies tailored for local businesses. Let's discuss how we can help you succeed.
+            </p>
+          </div>
+
+          <!-- Benefits List with Icons -->
+          <ul class="space-y-4 mb-8">
+            {benefits.map((benefit, index) => (
+              <li class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-[var(--brand-secondary)]/10 rounded-lg flex items-center justify-center">
+                  {index === 0 && (
+                    <svg class="w-6 h-6 text-[var(--brand-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  )}
+                  {index === 1 && (
+                    <svg class="w-6 h-6 text-[var(--brand-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                  )}
+                  {index === 2 && (
+                    <svg class="w-6 h-6 text-[var(--brand-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  )}
+                </div>
+                <div class="flex-1 pt-1">
+                  <span class="text-base text-[var(--brand-dark)] font-medium leading-relaxed">
+                    {benefit}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <!-- CTA Button - Navy with Darker Hover -->
+          <a
+            href={ctaLink}
+            class="block w-full px-6 py-3.5 bg-[var(--brand-dark)] hover:bg-black text-white text-center font-bold text-base rounded-lg transition-all duration-300 mb-6"
+          >
+            {ctaText}
+          </a>
+
+          <!-- Trust Indicators -->
+          <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-gray-600 mb-5">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-[var(--brand-tertiary)]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="font-semibold">20+ Years Experience</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-[var(--brand-tertiary)]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="font-semibold">Local Experts</span>
+            </div>
+          </div>
+
+          <!-- Secondary Action -->
+          <button
+            id="close-popup-bottom"
+            class="block w-full text-sm text-gray-700 hover:text-gray-900 transition-colors text-center font-medium underline"
+          >
+            {dismissText}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Floating Trigger Button -->
+{showTriggerButton && (
+  <button
+    id="popup-trigger-button"
+    class="fixed bottom-6 right-6 z-40 px-5 py-3 sm:px-6 sm:py-3.5 bg-[var(--brand-secondary)] text-[var(--brand-dark)] font-bold text-sm rounded-lg shadow-2xl hover:bg-[var(--brand-quaternary)] hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 flex items-center gap-2.5 group uppercase tracking-wider"
+    aria-label={`Open ${triggerButtonText} popup`}
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+    </svg>
+    <span class="hidden sm:inline">{triggerButtonText}</span>
+    <span class="sm:hidden">Scan</span>
+  </button>
+)}
+
+<script is:inline>
+  (function () {
+    let hasShownPopup = false;
+    const STORAGE_KEY = "popup-shown-timestamp";
+    const TWELVE_HOURS = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
+
+    function shouldShowPopup() {
+      try {
+        const lastShown = localStorage.getItem(STORAGE_KEY);
+        if (!lastShown) return true;
+
+        const timeSinceLastShown = Date.now() - parseInt(lastShown, 10);
+        return timeSinceLastShown >= TWELVE_HOURS;
+      } catch (e) {
+        // If localStorage is not available, show popup
+        return true;
+      }
+    }
+
+    function markPopupAsShown() {
+      try {
+        localStorage.setItem(STORAGE_KEY, Date.now().toString());
+      } catch (e) {
+        // Silently fail if localStorage is not available
+      }
+    }
+
+    function showPopup() {
+      const popup = document.getElementById("popup-modal");
+      if (!popup) return;
+
+      // Check if already shown in this session or within time limit
+      if (hasShownPopup || !shouldShowPopup()) {
+        return;
+      }
+
+      popup.classList.remove("hidden");
+      popup.classList.add("flex");
+      document.body.style.overflow = "hidden";
+      hasShownPopup = true;
+      markPopupAsShown();
+    }
+
+    function closePopup() {
+      const popup = document.getElementById("popup-modal");
+      if (!popup) return;
+
+      // Add fade-out animation
+      popup.classList.add("animate-fade-out");
+
+      // Wait for animation to complete before hiding
+      setTimeout(function () {
+        popup.classList.add("hidden");
+        popup.classList.remove("flex", "animate-fade-out");
+        document.body.style.overflow = "";
+      }, 300);
+    }
+
+    function isDesktop() {
+      return window.innerWidth >= 768; // md breakpoint
+    }
+
+    function initPopup() {
+      const popup = document.getElementById("popup-modal");
+      if (!popup) return;
+
+      // Setup close buttons
+      const closeBtn = document.getElementById("close-popup");
+      const closeWhiteBtn = document.getElementById("close-popup-white");
+      const closeBottomBtn = document.getElementById("close-popup-bottom");
+      const triggerBtn = document.getElementById("popup-trigger-button");
+
+      if (closeBtn) {
+        closeBtn.addEventListener("click", closePopup);
+      }
+
+      if (closeWhiteBtn) {
+        closeWhiteBtn.addEventListener("click", closePopup);
+      }
+
+      if (closeBottomBtn) {
+        closeBottomBtn.addEventListener("click", closePopup);
+      }
+
+      // Setup trigger button
+      if (triggerBtn) {
+        triggerBtn.addEventListener("click", function () {
+          popup.classList.remove("hidden");
+          popup.classList.add("flex");
+          document.body.style.overflow = "hidden";
+          markPopupAsShown();
+        });
+      }
+
+      // Close on backdrop click
+      popup.addEventListener("click", function (e) {
+        if (e.target === popup) {
+          closePopup();
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && !popup.classList.contains("hidden")) {
+          closePopup();
+        }
+      });
+
+      // Listen for manual trigger from floating button
+      window.addEventListener("show-popup-modal", function () {
+        // Always show when manually triggered
+        const popup = document.getElementById("popup-modal");
+        if (!popup) return;
+
+        popup.classList.remove("hidden");
+        popup.classList.add("flex");
+        document.body.style.overflow = "hidden";
+
+        // Mark as shown but don't set hasShownPopup flag
+        // This allows manual triggers to work multiple times in same session
+        markPopupAsShown();
+      });
+
+      // Show popup automatically on desktop only, after a delay
+      if (isDesktop()) {
+        setTimeout(function () {
+          showPopup();
+        }, 3000); // Show after 3 seconds on desktop
+      }
+    }
+
+    // Initialize immediately
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initPopup);
+    } else {
+      initPopup();
+    }
+  })();
+</script>
+
+<style>
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  /* Only animate on larger screens */
+  @media (min-width: 640px) {
+    .sm\:animate-scale-in {
+      animation: scale-in 0.3s ease-out;
+    }
+  }
+
+  .animate-fade-out {
+    animation: fade-out 0.3s ease-in forwards;
+  }
+
+  /* Custom thick border for CTA button */
+  .border-3 {
+    border-width: 3px;
+  }
+</style>

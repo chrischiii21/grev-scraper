@@ -1,0 +1,80 @@
+---
+import PageLayout from "~/layouts/PageLayout.astro";
+import SectionRenderer from "~/components/SectionRenderer.astro";
+import CTANewsletter from "~/components/widgets/CTANewsletter.astro";
+import { getPageTitle } from "~/utils/config";
+import { localizeData } from "~/utils/site";
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  serviceSchema,
+} from "~/utils/schema";
+
+import screenAdvertisingData from "~/data/indoor-billboards/screen-advertising.json";
+import becomeVenuePartnerData from "~/data/indoor-billboards/become-a-venue-partner.json";
+import locationsData from "~/data/indoor-billboards/locations.json";
+
+const dataMap: Record<string, any> = {
+  "screen-advertising": screenAdvertisingData,
+  "become-a-venue-partner": becomeVenuePartnerData,
+  "locations": locationsData,
+};
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: "screen-advertising" } },
+    { params: { slug: "become-a-venue-partner" } },
+    { params: { slug: "locations" } },
+  ];
+}
+
+const { slug } = Astro.params;
+const entry = localizeData(dataMap[slug!]);
+
+const sections = [...(entry.sections || [])].sort(
+  (a: any, b: any) => (a.order || 0) - (b.order || 0)
+);
+
+const hideMap = slug === "locations";
+
+const metadata = {
+  title: entry.metadata?.title || getPageTitle(entry.title),
+  description: entry.metadata?.description || entry.description,
+  keywords: entry.metadata?.keywords || "",
+  canonical: `${Astro.url.origin}/indoor-billboards/${slug}`,
+  noindex: false,
+  nofollow: false,
+};
+
+const origin = Astro.url.origin;
+const pageUrl = `${origin}/indoor-billboards/${slug}`;
+const faqSection = sections.find((s: any) => s.section === "FAQs");
+const heroSection = sections.find((s: any) => s.section === "Hero");
+const schemas: Array<Record<string, unknown>> = [
+  serviceSchema(origin, pageUrl, {
+    name: entry.title,
+    description: entry.description,
+    image: heroSection?.image || heroSection?.backgroundImage,
+    serviceType: "Indoor Billboard Advertising",
+  }),
+  breadcrumbSchema(origin, [
+    { name: "Home", path: "/" },
+    { name: "Indoor Billboards", path: "/indoor-billboards/screen-advertising" },
+    { name: entry.title, path: `/indoor-billboards/${slug}` },
+  ]),
+];
+const faqSchema = faqSection ? faqPageSchema(faqSection.faqs) : null;
+if (faqSchema) schemas.push(faqSchema);
+---
+
+<PageLayout metadata={metadata} hideMap={hideMap} schemas={schemas}>
+  {sections.map((section: any) => <SectionRenderer section={section} />)}
+
+  <CTANewsletter
+    slot="after-map"
+    title="Ready to Get Started?"
+    description="Join hundreds of businesses who have transformed their online presence with our services. Get started today and see the difference."
+    buttonText="Get In Touch"
+    backgroundImage="/images/home.avif"
+  />
+</PageLayout>

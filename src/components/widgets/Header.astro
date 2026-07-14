@@ -1,0 +1,836 @@
+---
+import { Icon } from "astro-icon/components";
+import { headerData } from "~/navigation";
+import { getPermalink } from "~/utils/permalinks";
+import { SITE_NAME } from "~/utils/config";
+import ToggleMenu from "../ui/ToggleMenu.astro";
+import { getPrimaryColor, getSecondaryColor, getTertiaryColor, siteConfig, localizeData } from "~/utils/site";
+
+// Import solutions from JSON data files
+import websiteDesignData from "~/data/solutions/foundational/website-design.json";
+import googleBusinessProfileData from "~/data/solutions/foundational/google-business-profile.json";
+import socialMediaManagementData from "~/data/solutions/foundational/social-media-management.json";
+import designServicesData from "~/data/solutions/foundational/design-services.json";
+import payPerClickData from "~/data/solutions/lead-gen/pay-per-click.json";
+import socialMediaAdvertisingData from "~/data/solutions/lead-gen/social-media-advertising.json";
+import connectedTvData from "~/data/solutions/branding-awareness/connected-tv.json";
+import displayGeofencingData from "~/data/solutions/branding-awareness/display-geofencing.json";
+import streamingAudioData from "~/data/solutions/branding-awareness/streaming-audio.json";
+
+// Import indoor billboards from JSON data files
+import screenAdvertisingData from "~/data/indoor-billboards/screen-advertising.json";
+import locationsData from "~/data/indoor-billboards/locations.json";
+import becomeVenuePartnerData from "~/data/indoor-billboards/become-a-venue-partner.json";
+
+// Build solutions array from JSON (matching the old getCollection shape)
+const allSolutions = [
+  { slug: "foundational/website-design", data: websiteDesignData },
+  { slug: "foundational/google-business-profile", data: googleBusinessProfileData },
+  { slug: "foundational/social-media-management", data: socialMediaManagementData },
+  { slug: "foundational/design-services", data: designServicesData },
+  { slug: "lead-gen/pay-per-click", data: payPerClickData },
+  { slug: "lead-gen/social-media-advertising", data: socialMediaAdvertisingData },
+  { slug: "branding-awareness/connected-tv", data: connectedTvData },
+  { slug: "branding-awareness/display-geofencing", data: displayGeofencingData },
+  { slug: "branding-awareness/streaming-audio", data: streamingAudioData },
+];
+
+const allBillboards = [
+  { slug: "indoor-billboards/screen-advertising", data: localizeData(screenAdvertisingData) },
+  { slug: "indoor-billboards/locations", data: localizeData(locationsData) },
+  { slug: "indoor-billboards/become-a-venue-partner", data: localizeData(becomeVenuePartnerData) },
+];
+
+const foundational = allSolutions
+  .filter((s) => s.data.category === "foundational")
+  .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+
+const leadGen = allSolutions
+  .filter((s) => s.data.category === "lead-gen")
+  .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+
+const brandingAwareness = allSolutions
+  .filter((s) => s.data.category === "branding-awareness")
+  .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+
+const sortedBillboards = [...allBillboards].sort(
+  (a, b) => (a.data.order || 0) - (b.data.order || 0)
+);
+
+// Hydrate the config
+const links = headerData.links.map((link: any) => {
+  if (link.text === "Indoor Billboards" && link.links === "auto") {
+    return {
+      ...link,
+      links: sortedBillboards.map((item) => {
+        const cleanSlug = item.slug.replace("indoor-billboards/", "");
+        return {
+          text: item.data.title,
+          description: item.data.description,
+          icon: item.data.icon,
+          thumbnail: item.data.thumbnail,
+          href: `/indoor-billboards/${cleanSlug}`,
+        };
+      }),
+    };
+  }
+
+  if (link.text === "Solutions" && Array.isArray(link.links)) {
+    return {
+      ...link,
+      links: link.links.map((sublink: any) => {
+        if (sublink.text === "Foundational" && sublink.links === "auto") {
+          return {
+            ...sublink,
+            links: foundational.map((item) => {
+              const cleanSlug = item.slug.replace("solutions/foundational/", "").replace("foundational/", "");
+              return {
+                text: item.data.title,
+                description: item.data.description,
+                icon: item.data.icon,
+                thumbnail: item.data.thumbnail,
+                href: `/solutions/foundational/${cleanSlug}`,
+              };
+            }),
+          };
+        }
+        if (sublink.text === "Lead Gen" && sublink.links === "auto") {
+          return {
+            ...sublink,
+            links: leadGen.map((item) => {
+              const cleanSlug = item.slug.replace("solutions/lead-gen/", "").replace("lead-gen/", "");
+              return {
+                text: item.data.title,
+                description: item.data.description,
+                icon: item.data.icon,
+                thumbnail: item.data.thumbnail,
+                href: `/solutions/lead-gen/${cleanSlug}`,
+              };
+            }),
+          };
+        }
+        if (
+          sublink.text === "Branding & Awareness" &&
+          sublink.links === "auto"
+        ) {
+          return {
+            ...sublink,
+            links: brandingAwareness.map((item) => {
+              const cleanSlug = item.slug.replace("solutions/branding-awareness/", "").replace("branding-awareness/", "");
+              return {
+                text: item.data.title,
+                description: item.data.description,
+                icon: item.data.icon,
+                thumbnail: item.data.thumbnail,
+                href: `/solutions/branding-awareness/${cleanSlug}`,
+              };
+            }),
+          };
+        }
+        return sublink;
+      }),
+    };
+  }
+
+  return link;
+});
+
+const { actions = [] } = headerData;
+---
+
+<header
+  id="main-header"
+  class="sticky top-0 z-40 flex-none mx-auto w-full bg-white border-b border-gray-200 transition-all duration-300"
+>
+  <div class="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div
+      class="flex justify-between items-center py-4 transition-all duration-300"
+      id="header-content"
+    >
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center" aria-label={`${siteConfig.business.name} - Home`}>
+          <picture>
+            <source srcset={siteConfig.logo.srcAvif} type="image/avif" />
+            <source srcset={siteConfig.logo.srcWebp} type="image/webp" />
+            <img
+              id="header-logo"
+              src={siteConfig.logo.src}
+              alt={siteConfig.logo.alt}
+              class="h-14 sm:h-14 md:h-12 w-auto transition-all duration-300"
+              width="150"
+              height="48"
+              fetchpriority="high"
+              loading="eager"
+              decoding="sync"
+            />
+          </picture>
+        </a>
+      </div>
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex lg:items-center lg:space-x-4">
+        <nav
+          class="flex items-center space-x-1 relative"
+          aria-label="Main navigation"
+        >
+          {
+            links.map((link, index) => (
+              <div class="relative" data-dropdown={`dropdown-${index}`}>
+                {link.links && link.links.length > 0 ? (
+                  <>
+                    {link.href ? (
+                      <a
+                        href={link.href}
+                        class="dropdown-toggle px-4 py-2 text-base font-semibold text-black hover:text-[var(--brand-secondary)] inline-flex items-center transition-colors"
+                      >
+                        {link.text}
+                        <svg
+                          class="ml-1 h-4 w-4 transition-transform dropdown-arrow"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </a>
+                    ) : (
+                      <button class="dropdown-toggle px-4 py-2 text-base font-semibold text-black hover:text-[var(--brand-secondary)] inline-flex items-center transition-colors">
+                        {link.text}
+                        <svg
+                          class="ml-1 h-4 w-4 transition-transform dropdown-arrow"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </button>
+                    )}
+                    {/* Mega Menu for Solutions */}
+                    {link.text === "Solutions" ? (
+                      <div class="dropdown-menu absolute left-1/2 -translate-x-1/2 mt-2 2xl:w-[1000px] xl:w-[720px] lg:w-[680px] w-[400px] max-w-[calc(100vw-2rem)] opacity-0 invisible pointer-events-none transition-all duration-200 z-50">
+                        <div class="rounded-xl shadow-2xl bg-white ring-1 ring-gray-200 overflow-hidden">
+                          <div class="grid 2xl:grid-cols-[1fr_280px] grid-cols-1 2xl:divide-x divide-gray-100">
+                            {/* Categories Column - Scrollable */}
+                            <div class="relative">
+                              <div
+                                class="px-6 py-6 max-h-[480px] overflow-y-auto scrollbar-thin"
+                                id="solutions-scroll-container"
+                              >
+                                <div class="space-y-8">
+                                  {link.links.map((sublink) => (
+                                    <div>
+                                      <div
+                                        class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider mb-4"
+                                        style={`color: ${getPrimaryColor()};`}
+                                      >
+                                        {sublink.text}
+                                      </div>
+                                      {sublink.links &&
+                                        sublink.links.length > 0 && (
+                                          <div class="grid lg:grid-cols-2 grid-cols-1 gap-x-6 gap-y-1">
+                                            {sublink.links.map((nestedLink) => (
+                                              <a
+                                                href={nestedLink.href}
+                                                class="group/item flex items-start gap-3 p-3 rounded-lg hover:bg-neutral transition-all"
+                                              >
+                                                {nestedLink.icon && (
+                                                  <div class="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-[var(--brand-secondary)]/10 group-hover/item:bg-[var(--brand-secondary)]">
+                                                    <Icon
+                                                      name={nestedLink.icon}
+                                                      class="w-5 h-5 transition-colors text-[var(--brand-secondary)] group-hover/item:text-white"
+                                                    />
+                                                  </div>
+                                                )}
+                                                <div class="flex-1 min-w-0">
+                                                  <div class="text-sm font-semibold text-gray-900 transition-colors" onmouseover="this.style.color='#0D1445'" onmouseout="this.style.color=''">
+                                                    {nestedLink.text}
+                                                  </div>
+                                                  {nestedLink.description && (
+                                                    <div class="text-xs text-gray-500 mt-0.5 line-clamp-2">
+                                                      {nestedLink.description}
+                                                    </div>
+                                                  )}
+                                                </div>
+                                              </a>
+                                            ))}
+                                          </div>
+                                        )}
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Featured Section - Dynamic Random Service */}
+                            <div class="hidden 2xl:block bg-gradient-to-br from-neutral to-white p-8">
+                              <div class="text-xs font-bold uppercase tracking-wider mb-4" style={`color: ${getPrimaryColor()};`}>
+                                Featured
+                              </div>
+                              {(() => {
+                                // Get current page URL to exclude it
+                                const currentPath = Astro.url.pathname;
+
+                                // Combine all services
+                                const allServices = [
+                                  ...foundational.map((s) => ({
+                                    title: s.data.title,
+                                    description: s.data.description,
+                                    thumbnail: s.data.thumbnail,
+                                    href: getPermalink(
+                                      `/solutions/foundational/${s.slug.replace("foundational/", "")}`
+                                    ),
+                                  })),
+                                  ...leadGen.map((s) => ({
+                                    title: s.data.title,
+                                    description: s.data.description,
+                                    thumbnail: s.data.thumbnail,
+                                    href: getPermalink(
+                                      `/solutions/lead-gen/${s.slug.replace("lead-gen/", "")}`
+                                    ),
+                                  })),
+                                  ...brandingAwareness.map((s) => ({
+                                    title: s.data.title,
+                                    description: s.data.description,
+                                    thumbnail: s.data.thumbnail,
+                                    href: getPermalink(
+                                      `/solutions/branding-awareness/${s.slug.replace("branding-awareness/", "")}`
+                                    ),
+                                  })),
+                                ];
+
+                                // Filter out current page
+                                const availableServices = allServices.filter(
+                                  (s) => s.href !== currentPath
+                                );
+
+                                // Pick random service
+                                const randomService =
+                                  availableServices[
+                                    Math.floor(
+                                      Math.random() * availableServices.length
+                                    )
+                                  ];
+
+                                return randomService;
+                              })() &&
+                                (() => {
+                                  const currentPath = Astro.url.pathname;
+                                  const allServices = [
+                                    ...foundational.map((s) => ({
+                                      title: s.data.title,
+                                      description: s.data.description,
+                                      thumbnail: s.data.thumbnail,
+                                      href: getPermalink(
+                                        `/solutions/foundational/${s.slug.replace("foundational/", "")}`
+                                      ),
+                                    })),
+                                    ...leadGen.map((s) => ({
+                                      title: s.data.title,
+                                      description: s.data.description,
+                                      thumbnail: s.data.thumbnail,
+                                      href: getPermalink(
+                                        `/solutions/lead-gen/${s.slug.replace("lead-gen/", "")}`
+                                      ),
+                                    })),
+                                    ...brandingAwareness.map((s) => ({
+                                      title: s.data.title,
+                                      description: s.data.description,
+                                      thumbnail: s.data.thumbnail,
+                                      href: getPermalink(
+                                        `/solutions/branding-awareness/${s.slug.replace("branding-awareness/", "")}`
+                                      ),
+                                    })),
+                                  ];
+                                  const availableServices = allServices.filter(
+                                    (s) => s.href !== currentPath
+                                  );
+                                  const featured =
+                                    availableServices[
+                                      Math.floor(
+                                        Math.random() * availableServices.length
+                                      )
+                                    ];
+
+                                  return (
+                                    <a href={featured.href} class="group block">
+                                      <div class="relative h-32 rounded-lg overflow-hidden mb-4 shadow-md">
+                                        <img
+                                          src={featured.thumbnail}
+                                          alt={featured.title}
+                                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                          loading="lazy"
+                                          decoding="async"
+                                        />
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                        <div class="absolute bottom-3 left-3 right-3">
+                                          <div class="text-white font-bold text-sm">
+                                            {featured.title}
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <p class="text-xs text-gray-600 mb-4">
+                                        {featured.description}
+                                      </p>
+                                      <span class="inline-flex items-center gap-1 text-xs font-semibold group-hover:gap-2 transition-all" style={`color: ${getSecondaryColor()};`}>
+                                        Learn More
+                                        <svg
+                                          class="w-3 h-3"
+                                          fill="none"
+                                          stroke="currentColor"
+                                          viewBox="0 0 24 24"
+                                        >
+                                          <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M9 5l7 7-7 7"
+                                          />
+                                        </svg>
+                                      </span>
+                                    </a>
+                                  );
+                                })()}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      /* Modern dropdown for other menus - auto-adjust position */
+                      <div class="dropdown-menu absolute left-0 lg:left-auto lg:right-0 mt-2 w-80 max-w-[calc(100vw-2rem)] opacity-0 invisible pointer-events-none transition-all duration-200 z-50">
+                        <div class="rounded-xl shadow-2xl bg-white ring-1 ring-gray-200 overflow-hidden">
+                          <div class="p-6">
+                            <div class="space-y-1">
+                              {link.links.map((sublink) => (
+                                <a
+                                  href={sublink.href}
+                                  class="group/item flex items-start gap-3 p-3 rounded-lg hover:bg-neutral transition-all"
+                                >
+                                  {sublink.icon && (
+                                    <div class="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-[var(--brand-secondary)]/10 group-hover/item:bg-[var(--brand-secondary)]">
+                                      <Icon
+                                        name={sublink.icon}
+                                        class="w-5 h-5 transition-colors text-[var(--brand-secondary)] group-hover/item:text-white"
+                                      />
+                                    </div>
+                                  )}
+                                  <div class="flex-1 min-w-0">
+                                    <div class="text-sm font-semibold text-gray-900 transition-colors" onmouseover="this.style.color='#0D1445'" onmouseout="this.style.color=''">
+                                      {sublink.text}
+                                    </div>
+                                    {sublink.description && (
+                                      <div class="text-xs text-gray-500 mt-0.5 line-clamp-2">
+                                        {sublink.description}
+                                      </div>
+                                    )}
+                                  </div>
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <a
+                    href={link.href}
+                    class="px-4 py-2 text-base font-semibold text-black hover:text-[var(--brand-secondary)] transition-colors"
+                  >
+                    {link.text}
+                  </a>
+                )}
+              </div>
+            ))
+          }
+        </nav>
+
+        <!-- CTA Actions -->
+        {
+          actions.length > 0 && (
+            <div class="flex items-center gap-3">
+              {actions.map((action) => (
+                <a
+                  href={action.href}
+                  class="px-5 py-2 text-base font-bold rounded-lg text-white transition bg-[var(--brand-secondary)] hover:bg-[var(--brand-quaternary)]"
+                >
+                  {action.text}
+                </a>
+              ))}
+            </div>
+          )
+        }
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="flex lg:hidden">
+        <ToggleMenu />
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden lg:hidden border-t border-gray-200 bg-white shadow-lg"
+  >
+    <div
+      class="px-4 pt-4 pb-6 space-y-2 max-h-[calc(100vh-64px)] overflow-y-auto"
+    >
+      {
+        links.map((link) => (
+          <div>
+            {link.links && link.links.length > 0 ? (
+              <>
+                <button class="mobile-dropdown-btn w-full flex items-center justify-between px-4 py-3 text-base font-semibold text-gray-900 hover:bg-neutral rounded-lg transition-all">
+                  {link.text}
+                  <svg
+                    class="h-5 w-5 transform transition-transform"
+                    style="color: var(--brand-secondary);"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                <div class="mobile-dropdown-content mt-2 space-y-1 transition-all duration-300 ease-in-out overflow-hidden max-h-0" data-open="false">
+                  {link.links.map((sublink) => (
+                    <div>
+                      {sublink.links && sublink.links.length > 0 ? (
+                        <>
+                          <button class="mobile-dropdown-btn w-full flex items-center justify-between px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary rounded-md">
+                            {sublink.text}
+                            <svg
+                              class="h-4 w-4 transform transition-transform"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M19 9l-7 7-7-7"
+                              />
+                            </svg>
+                          </button>
+                          <div class="mobile-dropdown-content mt-2 ml-2 space-y-1 transition-all duration-300 ease-in-out overflow-hidden max-h-0" data-open="false">
+                            {sublink.links.map((nestedLink) => (
+                              <a
+                                href={nestedLink.href}
+                                class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-md"
+                              >
+                                {nestedLink.icon && (
+                                  <Icon
+                                    name={nestedLink.icon}
+                                    class="w-5 h-5 flex-shrink-0"
+                                  />
+                                )}
+                                <span>{nestedLink.text}</span>
+                              </a>
+                            ))}
+                          </div>
+                        </>
+                      ) : (
+                        <a
+                          href={sublink.href}
+                          class="block px-4 py-3 text-base text-gray-600 hover:bg-gray-50 hover:text-primary rounded-md"
+                        >
+                          {sublink.text}
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <a
+                href={link.href}
+                class="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary rounded-md"
+              >
+                {link.text}
+              </a>
+            )}
+          </div>
+        ))
+      }
+
+      {/* Mobile CTA Actions */}
+      {actions.length > 0 && (
+        <div class="pt-4 mt-2 border-t border-gray-200 space-y-3">
+          {actions.map((action) => (
+            <a
+              href={action.href}
+              class="block w-full text-center px-5 py-3 text-base font-bold rounded-lg text-white transition bg-[var(--brand-secondary)] hover:bg-[var(--brand-quaternary)]"
+            >
+              {action.text}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</header>
+
+<script>
+  function initMobileMenu() {
+    const toggleButton = document.querySelector(".ml-1\\.5");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    toggleButton?.addEventListener("click", () => {
+      mobileMenu?.classList.toggle("hidden");
+    });
+
+    document.querySelectorAll(".mobile-dropdown-btn").forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        const content = button.nextElementSibling;
+        const svg = button.querySelector("svg");
+        const parentDiv = button.parentElement;
+
+        // Toggle current dropdown with smooth transition
+        const contentEl = content as HTMLElement;
+        const isOpen = contentEl?.getAttribute('data-open') === 'true';
+
+        if (!isOpen) {
+          // Close only sibling dropdowns when opening (same level)
+          const siblings = parentDiv?.parentElement?.children;
+          if (siblings) {
+            Array.from(siblings).forEach((sibling) => {
+              if (sibling !== parentDiv) {
+                const siblingContent = sibling.querySelector(
+                  ":scope > .mobile-dropdown-content"
+                ) as HTMLElement;
+                const siblingArrow = sibling.querySelector(
+                  ":scope > .mobile-dropdown-btn svg"
+                );
+                if (siblingContent) {
+                  siblingContent.style.maxHeight = "0px";
+                  siblingContent.setAttribute('data-open', 'false');
+                }
+                if (siblingArrow) {
+                  siblingArrow.classList.remove("rotate-180");
+                }
+              }
+            });
+          }
+
+          // Use max-height: none for better performance (no reflow needed)
+          requestAnimationFrame(() => {
+            contentEl.style.maxHeight = "1000px"; // Large enough for any content
+            contentEl.setAttribute('data-open', 'true');
+            svg?.classList.add("rotate-180");
+          });
+
+          // Update parent heights when nested dropdown opens
+          const updateParentHeights = () => {
+            requestAnimationFrame(() => {
+              let parent = contentEl.parentElement?.closest(
+                ".mobile-dropdown-content"
+              ) as HTMLElement;
+              
+              // Just set a large max-height instead of measuring
+              while (parent) {
+                parent.style.maxHeight = "2000px";
+                parent = parent.parentElement?.closest(
+                  ".mobile-dropdown-content"
+                ) as HTMLElement;
+              }
+            });
+          };
+
+          setTimeout(updateParentHeights, 10);
+        } else {
+          requestAnimationFrame(() => {
+            contentEl.style.maxHeight = "0px";
+            contentEl.setAttribute('data-open', 'false');
+            svg?.classList.remove("rotate-180");
+          });
+
+          // Update parent heights when nested dropdown closes
+          setTimeout(() => {
+            requestAnimationFrame(() => {
+              let parent = contentEl.parentElement?.closest(
+                ".mobile-dropdown-content"
+              ) as HTMLElement;
+              
+              // Just set a large max-height instead of measuring
+              while (parent) {
+                parent.style.maxHeight = "2000px";
+                parent = parent.parentElement?.closest(
+                  ".mobile-dropdown-content"
+                ) as HTMLElement;
+              }
+            });
+          }, 310);
+        }
+      });
+    });
+  }
+
+  function initSmartDropdowns() {
+    // Hover-based dropdown navigation
+    const dropdownContainers = document.querySelectorAll("[data-dropdown]");
+
+    dropdownContainers.forEach((container) => {
+      const dropdown = container.querySelector(".dropdown-menu");
+      const arrow = container.querySelector(".dropdown-arrow");
+
+      if (!dropdown) return;
+
+      let closeTimeout: ReturnType<typeof setTimeout> | null = null;
+
+      const openDropdown = () => {
+        // Clear any pending close timeout
+        if (closeTimeout) {
+          clearTimeout(closeTimeout);
+          closeTimeout = null;
+        }
+
+        // Close all other dropdowns
+        document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+          if (menu !== dropdown) {
+            menu.classList.remove(
+              "opacity-100",
+              "visible",
+              "pointer-events-auto"
+            );
+            menu.classList.add("opacity-0", "invisible", "pointer-events-none");
+          }
+        });
+
+        // Reset all other arrows
+        document.querySelectorAll(".dropdown-arrow").forEach((svg) => {
+          if (svg !== arrow) {
+            svg.classList.remove("rotate-180");
+          }
+        });
+
+        // Open current dropdown
+        dropdown.classList.remove(
+          "opacity-0",
+          "invisible",
+          "pointer-events-none"
+        );
+        dropdown.classList.add("opacity-100", "visible", "pointer-events-auto");
+        arrow?.classList.add("rotate-180");
+      };
+
+      const closeDropdown = () => {
+        closeTimeout = setTimeout(() => {
+          dropdown.classList.remove(
+            "opacity-100",
+            "visible",
+            "pointer-events-auto"
+          );
+          dropdown.classList.add(
+            "opacity-0",
+            "invisible",
+            "pointer-events-none"
+          );
+          arrow?.classList.remove("rotate-180");
+        }, 100);
+      };
+
+      // Open dropdown on hover over container
+      container.addEventListener("mouseenter", openDropdown);
+
+      // Close dropdown when leaving container
+      container.addEventListener("mouseleave", closeDropdown);
+
+      // Keep dropdown open when hovering over it
+      dropdown.addEventListener("mouseenter", () => {
+        if (closeTimeout) {
+          clearTimeout(closeTimeout);
+          closeTimeout = null;
+        }
+      });
+
+      // Close dropdown when leaving the dropdown menu
+      dropdown.addEventListener("mouseleave", closeDropdown);
+    });
+  }
+
+  function initShrinkHeader() {
+    const header = document.getElementById("main-header");
+    const headerContent = document.getElementById("header-content");
+    const logo = document.getElementById("header-logo");
+    let ticking = false;
+
+    function updateHeader() {
+      const scrolled = window.scrollY > 50;
+      const isMobile = window.innerWidth < 640;
+      
+      requestAnimationFrame(() => {
+        if (scrolled) {
+          // Scrolled down - shrink
+          headerContent?.classList.remove("h-20");
+          headerContent?.classList.add("h-16");
+          
+          if (isMobile) {
+            logo?.classList.remove("h-8", "sm:h-10", "md:h-12");
+            logo?.classList.add("h-7");
+          } else {
+            logo?.classList.remove("h-8", "sm:h-10", "md:h-12");
+            logo?.classList.add("h-10");
+          }
+          
+          header?.classList.add("shadow-md");
+        } else {
+          // At top - expand
+          headerContent?.classList.remove("h-16");
+          headerContent?.classList.add("h-20");
+          
+          // Restore original responsive classes
+          logo?.classList.remove("h-7", "h-10");
+          if (!logo?.classList.contains("h-8")) {
+            logo?.classList.add("h-8", "sm:h-10", "md:h-12");
+          }
+          
+          header?.classList.remove("shadow-md");
+        }
+        ticking = false;
+      });
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateHeader);
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", updateHeader, { passive: true });
+    // Defer initial check off the critical rendering path to avoid forced reflow
+    requestAnimationFrame(updateHeader);
+  }
+
+  function bootHeader() {
+    initMobileMenu();
+    initSmartDropdowns();
+    initShrinkHeader();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bootHeader);
+  } else {
+    bootHeader();
+  }
+</script>

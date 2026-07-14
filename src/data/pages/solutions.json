@@ -1,0 +1,121 @@
+{
+  "title": "Marketing Solutions",
+  "description": "Explore our full suite of indoor billboard and digital marketing services designed to keep your brand visible.",
+  "sections": [
+    {
+      "section": "Hero",
+      "eyebrow": "Digital Marketing",
+      "title": "Digital Marketing Services",
+      "description": "A full range of services to make your business a digital powerhouse!",
+      "image": "/images/digital-marketing.avif",
+      "order": 1,
+      "ctaText": "Get In Touch",
+      "ctaLink": "/contact-us"
+    },
+    {
+      "section": "FeaturesWithImage",
+      "title": "A Digital Marketing Powerhouse",
+      "description": "",
+      "order": 2,
+      "features": [
+        {
+          "title": "Reach More People",
+          "description": "Use multiple channels like <strong><a href='/indoor-billboards/screen-advertising' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>indoor billboards</a></strong> and <strong><a href='/solutions/lead-gen/social-media-advertising' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>social media ads</a></strong> to connect with a wider audience in different places.",
+          "icon": "tabler:users",
+          "image": "/images/reach-more-people.avif"
+        },
+        {
+          "title": "Increase Engagement",
+          "description": "Connect with users on their preferred channels, where they're more likely to engage with your <strong><a href='/solutions/foundational/social-media-management' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>content</a></strong>.",
+          "icon": "tabler:message-circle",
+          "image": "/images/increase-engagement.avif"
+        },
+        {
+          "title": "Consistent Brand Image",
+          "description": "Maintain a uniform <strong><a href='/solutions/foundational/design-services' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>brand image</a></strong> across channels to make your brand recognizable and relatable.",
+          "icon": "tabler:badge",
+          "image": "/images/brand-image.avif"
+        },
+        {
+          "title": "Simplify Customer Path",
+          "description": "Create more touch points in the <strong><a href='/solutions/foundational/website-design' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>customer journey</a></strong>, making it easier to guide them towards a desired action.",
+          "icon": "tabler:route",
+          "image": "/images/customer-path.avif"
+        }
+      ]
+    },
+    {
+      "section": "FeaturesSection",
+      "title": "Multichannel Marketing",
+      "description": "",
+      "order": 3,
+      "features": [
+        {
+          "title": "Screen Advertising",
+          "description": "Our hyper-local <strong><a href='/indoor-billboards/screen-advertising' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>digital screens</a></strong> showcase your personalized motion ad on repeat, keeping your brand at the forefront for existing customers and building awareness with new ones throughout their daily routines.",
+          "icon": "tabler:ad",
+          "link": "/indoor-billboards/screen-advertising"
+        },
+        {
+          "title": "Website Design",
+          "description": "Collaborate with our skilled creative team to craft a visually stunning and <strong><a href='/solutions/foundational/website-design' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>well-functioning website</a></strong>, perfectly aligned with your brand's identity and objectives.",
+          "icon": "tabler:code",
+          "link": "/solutions/foundational/website-design"
+        },
+        {
+          "title": "Google Business Profile",
+          "description": "Your <strong><a href='/solutions/foundational/google-business-profile' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>Google Business Profile</a></strong> is the open sign on your digital storefront. Work alongside a dedicated specialist to ensure your profile is optimized with posts, photos, hours of operation, and beyond.",
+          "icon": "tabler:brand-google",
+          "link": "/solutions/foundational/google-business-profile"
+        },
+        {
+          "title": "Social Media Management",
+          "description": "Amplify your brand online with <strong><a href='/solutions/foundational/social-media-management' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>Social Media management</a></strong>. Our SMM team will elevate your brand presence through strategic management and captivating content.",
+          "icon": "tabler:share-3",
+          "link": "/solutions/foundational/social-media-management"
+        },
+        {
+          "title": "Pay-Per-Click (PPC)",
+          "description": "Drive leads and dominate search engine results pages with highly targeted <strong><a href='/solutions/lead-gen/pay-per-click' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>Pay-Per-Click campaigns</a></strong>. Make yourself known on the world's most used search engine.",
+          "icon": "tabler:hand-click",
+          "link": "/solutions/lead-gen/pay-per-click"
+        },
+        {
+          "title": "Social Media Ads",
+          "description": "Use targeted messaging and in-depth customer demographics to reach your ideal customers on <strong><a href='/solutions/lead-gen/social-media-advertising' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>social platforms</a></strong> and spark valuable engagement.",
+          "icon": "tabler:photo",
+          "link": "/solutions/lead-gen/social-media-advertising"
+        },
+        {
+          "title": "Display Advertising | Geofencing",
+          "description": "Leverage <strong><a href='/solutions/branding-awareness/display-geofencing' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>location-targeted ads</a></strong> to reach users online and on their devices. These visually engaging ads help increase your brand visibility.",
+          "icon": "tabler:focus-2",
+          "link": "/solutions/branding-awareness/display-geofencing"
+        },
+        {
+          "title": "Connected TV | OTT Ads",
+          "description": "Cutting-edge <strong><a href='/solutions/branding-awareness/connected-tv' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>CTV | OTT ads</a></strong> put your brand front and center to a streaming audience with non-skippable placements on platforms like Apple TV, ESPN, and Roku.",
+          "icon": "tabler:device-tv",
+          "link": "/solutions/branding-awareness/connected-tv"
+        },
+        {
+          "title": "Streaming Audio",
+          "description": "Streamline your message directly into listeners' favorite podcasts, radio, or music with strategic <strong><a href='/solutions/branding-awareness/streaming-audio' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>streaming audio ads</a></strong> that captivate at the perfect moment.",
+          "icon": "tabler:headphones",
+          "link": "/solutions/branding-awareness/streaming-audio"
+        },
+        {
+          "title": "Design Services",
+          "description": "Our skilled designers transform your vision into exceptional <strong><a href='/solutions/foundational/design-services' class='text-primary-dark hover:text-primary transition-colors underline decoration-primary/50'>graphic design</a></strong>, from logos and rebrands to captivating flyers, shaping your brand identity and marketing.",
+          "icon": "tabler:tools",
+          "link": "/solutions/foundational/design-services"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "title": "Digital Marketing Solutions | Full-Service Marketing Agency",
+    "description": "Explore our suite of digital marketing, including indoor billboards, website design, social media, & PPC, to grow your business with proven results.",
+    "keywords": "marketing solutions {city}, digital marketing services {city}, full service marketing {city}, marketing services overview, {city} advertising solutions, comprehensive marketing {city}"
+  }
+}

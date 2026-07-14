@@ -1,0 +1,92 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Feature {
+  title?: string;
+  description?: string;
+  icon?: string;
+}
+
+interface Props {
+  title?: string;
+  eyebrow?: string;
+  description?: string;
+  image?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  features: Feature[];
+}
+
+const {
+  title,
+  eyebrow,
+  description,
+  image,
+  ctaText,
+  ctaLink,
+  features = [],
+} = Astro.props;
+---
+
+<section class="relative py-12 md:py-16 lg:py-20 bg-light">
+  <div class="container px-4 sm:px-6 lg:px-8 mx-auto">
+    <div class="max-w-[1240px] mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <!-- Left: Content -->
+        <div class="order-1">
+          {eyebrow && (
+            <p class="flex items-center gap-2 text-[var(--brand-secondary)] text-sm md:text-base font-bold uppercase tracking-wider mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 16 16" fill="currentColor">
+                <rect width="16" height="16" rx="2"/>
+              </svg>
+              {eyebrow}
+            </p>
+          )}
+          
+          {title && (
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-5 leading-tight">
+              {title}
+            </h2>
+          )}
+          
+          {description && (
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-8" set:html={description} />
+          )}
+          
+          {ctaText && ctaLink && (
+            <a 
+              href={ctaLink} 
+              class="inline-flex items-center gap-2 px-8 py-3 bg-[var(--brand-secondary)] hover:bg-[var(--brand-quaternary)] text-white font-semibold rounded-lg transition-colors duration-300"
+            >
+              {ctaText}
+            </a>
+          )}
+        </div>
+        
+        <!-- Right: Scrollable Features -->
+        <div class="order-2">
+          
+          <div class="bg-light border-l-4 border-[var(--brand-secondary)] rounded-lg shadow-sm overflow-hidden">
+            <div class="max-h-[450px] overflow-y-auto scrollbar-thin scrollbar-thumb-[var(--brand-secondary)] scrollbar-track-gray-200">
+              <div class="space-y-0 p-6">
+                {features.map((feature, index) => (
+                  <div class={`flex items-start gap-4 py-6 ${index < features.length - 1 ? 'border-b border-gray-200' : ''}`}>
+                    {feature.icon && (
+                      <div class="flex items-center justify-center w-12 h-12 flex-shrink-0">
+                        <Icon name={feature.icon} class="w-10 h-10 text-[var(--brand-secondary)]" />
+                      </div>
+                    )}
+                    <div class="flex-1">
+                      <h3 class="font-bold text-base md:text-lg text-gray-900 mb-2" set:html={feature.title} />
+                      <p class="text-sm sm:text-base text-gray-600 leading-relaxed" set:html={feature.description} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

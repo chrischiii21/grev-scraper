@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv \"c:/Users/Rubica/Documents/Client Websites/westcoast-digital-360/public/images/imgs/\"* \"c:/Users/Rubica/Documents/Client Websites/westcoast-digital-360/public/images/\")",
+      "Bash(rmdir \"c:/Users/Rubica/Documents/Client Websites/westcoast-digital-360/public/images/imgs\")",
+      "Bash(xargs sed:*)",
+      "Bash(where bun *)",
+      "Bash(bun --version)",
+      "Bash(rm \"c:\\\\Users\\\\Rubica\\\\Documents\\\\Updated Templates\\\\vertical-flow-template\\\\package-lock.json\")",
+      "Bash(bun install *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\Rubica\\Documents\\Updated Templates\\vertical-flow-template"
+    ]
+  }
+}

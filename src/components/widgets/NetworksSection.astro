@@ -1,0 +1,173 @@
+---
+interface Network {
+  title: string;
+  brands: Array<{
+    name: string;
+    logo: string;
+  }>;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  networks?: Network[];
+}
+
+const {
+  title = "Advertise Across Premium Streaming Platforms",
+  subtitle,
+  description = "Your ads appear on the platforms your customers are already watching.",
+  networks = [],
+} = Astro.props;
+
+const uid = Math.random().toString(36).slice(2, 8);
+---
+
+<section class="relative py-12 md:py-16 lg:py-20 bg-white overflow-hidden">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1240px] mx-auto">
+
+      <!-- Heading -->
+      <div class="text-center mb-12 md:mb-16">
+        {title && (
+          <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--brand-dark)] leading-tight mb-4">
+            {title}
+          </h2>
+        )}
+        {subtitle && (
+          <p class="text-base md:text-xl text-[var(--brand-secondary)] font-medium mb-4">{subtitle}</p>
+        )}
+        {description && (
+          <p class="mt-3 text-gray-600 text-base md:text-lg max-w-2xl mx-auto" set:html={description} />
+        )}
+      </div>
+
+      <!-- Carousels -->
+      <div class="space-y-12 md:space-y-16">
+        {networks.map((network, i) => (
+          <div>
+            <h3 class="text-xl md:text-2xl font-semibold text-[var(--brand-dark)] mb-6 text-center uppercase tracking-wide">
+              {network.title}
+            </h3>
+
+            <div class="relative" id={`carousel-${uid}-${i}`}>
+              <!-- Track -->
+              <div class="overflow-hidden">
+                <div
+                  class="carousel-track flex transition-transform duration-500 ease-in-out"
+                  data-total={network.brands.length}
+                >
+                  {network.brands.map((brand) => (
+                    <div class="carousel-slide flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-3 md:px-4">
+                      <div class="bg-white rounded-2xl shadow-sm hover:shadow-md border border-gray-100 transition-all duration-300 p-4 md:p-8 flex items-center justify-center h-32 md:h-40">
+                        <img
+                          src={brand.logo}
+                          alt={brand.name}
+                          class="w-full max-w-[120px] md:max-w-full max-h-full object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Prev -->
+              <button
+                class="carousel-prev absolute top-1/2 -left-4 -translate-y-1/2 bg-white hover:bg-gray-50 text-[var(--brand-dark)] rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center shadow-md transition-all duration-200 hover:scale-105 z-10"
+                aria-label="Previous"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 18l-6-6 6-6"/>
+                </svg>
+              </button>
+
+              <!-- Next -->
+              <button
+                class="carousel-next absolute top-1/2 -right-4 -translate-y-1/2 bg-white hover:bg-gray-50 text-[var(--brand-dark)] rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center shadow-md transition-all duration-200 hover:scale-105 z-10"
+                aria-label="Next"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 6l6 6-6 6"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative Blurs -->
+  <div class="absolute top-0 left-0 w-48 h-48 md:w-64 md:h-64 bg-[var(--brand-dark)]/5 blur-3xl rounded-full -z-10"></div>
+  <div class="absolute bottom-0 right-0 w-48 h-48 md:w-64 md:h-64 bg-[var(--brand-dark)]/5 blur-3xl rounded-full -z-10"></div>
+</section>
+
+<script>
+  document.querySelectorAll('[id^="carousel-"]').forEach((wrapper) => {
+    const track = wrapper.querySelector<HTMLElement>('.carousel-track')!;
+    const originalSlides = Array.from(wrapper.querySelectorAll<HTMLElement>('.carousel-slide'));
+    const prevBtn = wrapper.querySelector<HTMLButtonElement>('.carousel-prev')!;
+    const nextBtn = wrapper.querySelector<HTMLButtonElement>('.carousel-next')!;
+
+    const total = originalSlides.length;
+
+    // How many slides are visible at the current breakpoint.
+    // Mirrors the Tailwind widths: w-full (1), sm:w-1/2 (2), md:w-1/3 (3).
+    function visibleCount() {
+      const w = window.innerWidth;
+      if (w >= 768) return 3;
+      if (w >= 640) return 2;
+      return 1;
+    }
+
+    // If every brand already fits on screen, there's nothing to slide.
+    function fitsInView() {
+      return total <= visibleCount();
+    }
+
+    // Clone all slides and append for the infinite effect.
+    originalSlides.forEach(slide => {
+      track.appendChild(slide.cloneNode(true));
+    });
+
+    let current = 0;
+
+    function slideWidth() {
+      return track.querySelectorAll<HTMLElement>('.carousel-slide')[0].offsetWidth;
+    }
+
+    function update(animate = true) {
+      track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
+      track.style.transform = `translateX(-${current * slideWidth()}px)`;
+    }
+
+    function applyResponsiveState() {
+      const hideNav = fitsInView();
+      prevBtn.style.display = hideNav ? 'none' : '';
+      nextBtn.style.display = hideNav ? 'none' : '';
+      if (hideNav) {
+        current = 0;
+      }
+      update(false);
+    }
+
+    // After animating to a clone, silently jump to the real slide
+    track.addEventListener('transitionend', () => {
+      if (current >= total) {
+        current = current - total;
+        update(false);
+      } else if (current < 0) {
+        current = current + total;
+        update(false);
+      }
+    });
+
+    nextBtn.addEventListener('click', () => { current++; update(); });
+    prevBtn.addEventListener('click', () => { current--; update(); });
+
+    window.addEventListener('resize', applyResponsiveState);
+    applyResponsiveState();
+  });
+</script>

@@ -1,0 +1,49 @@
+---
+import PageLayout from "~/layouts/PageLayout.astro";
+import SectionRenderer from "~/components/SectionRenderer.astro";
+import CTANewsletter from "~/components/widgets/CTANewsletter.astro";
+import { breadcrumbSchema, faqPageSchema } from "~/utils/schema";
+
+import solutionsData from "~/data/pages/solutions.json";
+
+const sections = [...(solutionsData.sections as any[])].sort(
+  (a, b) => (a.order || 0) - (b.order || 0)
+);
+
+// Pull out NewsletterCTA to render in slot="after-map"
+const newsletterSection = sections.find((s: any) => s.section === "NewsletterCTA");
+const mainSections = sections.filter((s: any) => s.section !== "NewsletterCTA");
+
+const origin = Astro.url.origin;
+const faqSection = sections.find((s: any) => s.section === "FAQs");
+const schemas: Array<Record<string, unknown>> = [
+  breadcrumbSchema(origin, [
+    { name: "Home", path: "/" },
+    { name: "Solutions", path: "/solutions" },
+  ]),
+];
+const faqSchema = faqSection ? faqPageSchema(faqSection.faqs) : null;
+if (faqSchema) schemas.push(faqSchema);
+---
+
+<PageLayout metadata={solutionsData.metadata} schemas={schemas}>
+  {mainSections.map((section: any) => <SectionRenderer section={section} />)}
+
+  {newsletterSection ? (
+    <CTANewsletter
+      slot="after-map"
+      title={newsletterSection.title}
+      description={newsletterSection.description}
+      buttonText={newsletterSection.ctaText || "Get In Touch"}
+      backgroundImage={newsletterSection.backgroundImage}
+    />
+  ) : (
+    <CTANewsletter
+      slot="after-map"
+      title="Ready to Get Started?"
+      description="Join hundreds of businesses who have transformed their online presence with our services. Get started today and see the difference."
+      buttonText="Get In Touch"
+      backgroundImage="/images/home.avif"
+    />
+  )}
+</PageLayout>

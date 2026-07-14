@@ -1,0 +1,189 @@
+---
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  features?: any[];
+  ctaText?: string;
+  ctaLink?: string;
+  background?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  features = [],
+  ctaText,
+  ctaLink,
+  background = "#ffffff",
+} = Astro.props;
+
+// Determine background color
+let bgClass = "bg-white";
+let bgStyle = "";
+if (background) {
+  if (background.includes("#")) {
+    bgStyle = `background-color: ${background}`;
+    bgClass = "";
+  } else if (background.includes("bg-")) {
+    bgClass = background;
+  }
+}
+---
+
+<section class={`relative py-12 md:py-16 ${bgClass}`} style={bgStyle}>
+  <div class="container mx-auto px-4">
+    <div class="max-w-[1240px] mx-auto">
+      <!-- Header -->
+      <div class="mb-10 md:mb-12">
+        {eyebrow && (
+          <p class="flex items-center gap-2 text-[var(--brand-secondary)] text-sm md:text-base font-bold uppercase tracking-wider mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 16 16" fill="currentColor">
+              <rect width="16" height="16" rx="2"/>
+            </svg>
+            {eyebrow}
+          </p>
+        )}
+        {title && (
+          <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+            {title}
+          </h2>
+        )}
+        {description && (
+          <p class="text-base md:text-lg text-gray-700 leading-relaxed max-w-3xl">
+            {description}
+          </p>
+        )}
+      </div>
+
+      <!-- Features Grid with Numbers -->
+      <div class="relative">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10 relative mb-8">
+          {features.map((feature, index) => {
+            let spanClass = '';
+            let orderClass = '';
+            
+            // Make the 5th card (index 4) span full width for 5-item layouts
+            if (features.length === 5 && index === 4) {
+              spanClass = 'sm:col-span-2';
+            }
+            
+            // No order swapping needed - data is in correct order
+            
+            return (
+              <div 
+                class={`relative ${orderClass}`}
+                style={`animation-delay: ${index * 0.1}s;`}
+              >
+                {/* Horizontal arrow from card 1 (Evaluate) to card 2 (Discovery) - RIGHT */}
+                {index === 0 && features.length === 5 && (
+                  <div class="hidden sm:flex absolute top-1/2 -translate-y-1/2 left-full z-20 items-center justify-center" style="width: 2.5rem; margin-left: 0.5rem; margin-right: 0.5rem;">
+                    <svg class="w-6 h-6 text-[var(--brand-secondary)]" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                    </svg>
+                  </div>
+                )}
+                
+                {/* Vertical arrow from card 2 (Discovery) to card 4 (Optimize on right) - DOWN */}
+                {index === 1 && features.length === 5 && (
+                  <div class="hidden sm:flex absolute top-full left-1/2 -translate-x-1/2 z-20 items-center justify-center" style="height: 2.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                    <svg class="w-6 h-6 text-[var(--brand-secondary)] rotate-90" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                    </svg>
+                  </div>
+                )}
+                
+                {/* Horizontal arrow from card 4 (Optimize on right) to card 3 (Strategize on left) - LEFT */}
+                {index === 3 && features.length === 5 && (
+                  <div class="hidden sm:flex absolute top-1/2 -translate-y-1/2 right-full z-20 items-center justify-center" style="width: 2.5rem; margin-left: 0.5rem; margin-right: 0.5rem;">
+                    <svg class="w-6 h-6 text-[var(--brand-secondary)] rotate-180" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                    </svg>
+                  </div>
+                )}
+                
+                {/* Vertical arrow from card 4 (Optimize) to card 5 (Execution) - DOWN */}
+                {index === 3 && features.length === 5 && (
+                  <div class="hidden sm:flex absolute top-full left-1/2 -translate-x-1/2 z-20 items-center justify-center" style="height: 2.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                    <svg class="w-6 h-6 text-[var(--brand-secondary)] rotate-90" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                    </svg>
+                  </div>
+                )}
+                
+                {/* Card */}
+                <div class={`bg-white p-6 lg:p-8 shadow-md hover:shadow-xl transition-all duration-300 h-full relative overflow-hidden ${spanClass}`}>
+                  {/* Background Number with very light blue background */}
+                  <div class="absolute top-4 right-4 pointer-events-none">
+                    <div class="w-16 h-16 bg-[var(--brand-secondary)]/5 rounded-xl flex items-center justify-center">
+                      <span class="text-[var(--brand-secondary)]/60 font-bold text-3xl">
+                        {String(index + 1)}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  {/* Icon */}
+                  {feature.icon && (
+                    <div class="relative z-10 mb-6">
+                      <svg class="w-12 h-12 text-[var(--brand-secondary)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        {feature.icon === 'tabler:search' && (
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        )}
+                        {feature.icon === 'tabler:compass' && (
+                          <>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z" />
+                          </>
+                        )}
+                        {feature.icon === 'tabler:adjustments' && (
+                          <>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                          </>
+                        )}
+                        {feature.icon === 'tabler:brain' && (
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9.5 2A2.5 2.5 0 007 4.5v15A2.5 2.5 0 009.5 22h5a2.5 2.5 0 002.5-2.5v-15A2.5 2.5 0 0014.5 2h-5zM12 6v12M9 9h6M9 12h6M9 15h6" />
+                        )}
+                        {feature.icon === 'tabler:rocket' && (
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09zM12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2zm-7 4a6 6 0 003.44-1.94M15 11h.01" />
+                        )}
+                      </svg>
+                    </div>
+                  )}
+                  
+                  {/* Content */}
+                  <div class="relative z-10">
+                    {/* Title */}
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-tight">
+                      {feature.title}
+                    </h3>
+                    
+                    {/* Description */}
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      {ctaText && ctaLink && (
+        <div class="text-center mt-12">
+          <a
+            href={ctaLink}
+            class="inline-flex items-center gap-3 px-8 py-4 bg-[var(--brand-secondary)] text-white font-semibold rounded-full hover:bg-[var(--brand-quaternary)] transition-all duration-300 hover:shadow-lg hover:scale-105"
+          >
+            <span>{ctaText}</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

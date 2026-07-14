@@ -1,0 +1,87 @@
+{
+  "title": "Contact Us",
+  "description": "Get in touch with us to learn more about our services and how we can help your business grow.",
+  "sections": [
+    {
+      "section": "Hero",
+      "eyebrow": "Let's Work Together",
+      "title": "Get Started Today",
+      "description": "Contact Us to Get Started!",
+      "image": "/images/contact-us-hero.jpg",
+      "order": 1
+    },
+    {
+      "section": "FormSection",
+      "title": "Contact Us",
+      "subtitle": "Let's get in touch",
+      "description": "Ready to take your marketing to the next level? We'd love to hear from you. Whether you're looking for a complete marketing strategy, need help with a specific project, or just have questions about our services, our team is here to help. Fill out the form below and we'll get back to you within 24 hours. We're excited to learn about your business and explore how we can help you achieve your goals.",
+      "order": 2,
+      "submitText": "SUBMIT FORM",
+      "submitAction": "/api/contact",
+      "contactInfo": [
+        {
+          "icon": "tabler:phone",
+          "label": "Phone",
+          "value": "{phoneFormatted}",
+          "link": "tel:{phone}"
+        },
+        {
+          "icon": "tabler:mail",
+          "label": "Email",
+          "value": "{email}",
+          "link": "mailto:{email}"
+        },
+        {
+          "icon": "tabler:map-pin",
+          "label": "Location",
+          "value": "{city}, {stateFull}",
+          "link": ""
+        }
+      ],
+      "formFields": [
+        {
+          "id": "name",
+          "name": "name",
+          "label": "Name",
+          "type": "text",
+          "placeholder": "Name",
+          "required": true,
+          "width": "full"
+        },
+        {
+          "id": "email",
+          "name": "email",
+          "label": "Email address",
+          "type": "email",
+          "placeholder": "Email address",
+          "required": true,
+          "width": "full"
+        },
+        {
+          "id": "phone",
+          "name": "phone",
+          "label": "Phone",
+          "type": "tel",
+          "placeholder": "### ### ####",
+          "required": true,
+          "width": "full"
+        },
+        {
+          "id": "message",
+          "name": "message",
+          "label": "Message",
+          "type": "textarea",
+          "placeholder": "Message",
+          "required": false,
+          "rows": 4,
+          "width": "full"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "title": "{business} | Digital Signage & Marketing",
+    "description": "Contact {business} to learn how our digital signage, SEO, PPC, social media, and website solutions help businesses stay visible and top of mind.",
+    "keywords": "contact {city} marketing agency, marketing agency {city} contact, get in touch marketing services, free marketing consultation {city}, {city} marketing agency phone"
+  }
+}

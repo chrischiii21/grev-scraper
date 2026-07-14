@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80" role="img" aria-label="Vertical Flow">
+  <!-- Mark: simple ascending bars -->
+  <g transform="translate(14,22)">
+    <rect x="0"  y="24" width="8" height="14" rx="1" fill="#1A73E8"/>
+    <rect x="12" y="14" width="8" height="24" rx="1" fill="#1A73E8"/>
+    <rect x="24" y="4"  width="8" height="34" rx="1" fill="#1A73E8"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g font-family="'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif">
+    <text x="62" y="44" fill="#00263E" font-weight="800" font-size="20" letter-spacing="0.4">VERTICAL FLOW</text>
+    <text x="63" y="57" fill="#8A8A8A" font-weight="500" font-size="7" letter-spacing="2.8">T E M P L A T E</text>
+  </g>
+</svg>

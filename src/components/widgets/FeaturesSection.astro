@@ -1,0 +1,100 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  features?: any[];
+  ctaText?: string;
+  ctaLink?: string;
+  background?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  features = [],
+  ctaText,
+  ctaLink,
+  background = "white",
+} = Astro.props;
+
+// Determine background styling
+let bgClass = "bg-white";
+let bgStyle = "";
+if (background) {
+  if (background.includes("#")) {
+    bgStyle = `background-color: ${background}`;
+    bgClass = "";
+  } else if (background.includes("bg-")) {
+    bgClass = background;
+  } else if (background === "gray" || background === "light") {
+    bgClass = "bg-gray-50";
+  }
+}
+---
+
+<section class={`relative py-16 md:py-20 lg:py-24 ${bgClass} overflow-hidden`} style={bgStyle}>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1240px] mx-auto">
+      <!-- Header -->
+      <div class="mb-12 md:mb-16 text-center">
+        {eyebrow && (
+          <p class="flex items-center justify-center gap-2 text-[var(--brand-secondary)] text-sm md:text-base font-bold uppercase tracking-wider mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 16 16" fill="currentColor">
+              <rect width="16" height="16" rx="2"/>
+            </svg>
+            {eyebrow}
+          </p>
+        )}
+        {title && (
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+            {title}
+          </h2>
+        )}
+        {description && (
+          <p class="text-base md:text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto" set:html={description} />
+        )}
+      </div>
+
+      <!-- Features Grid - Clean card layout -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {features.map((feature) => (
+          <div class="group bg-white p-8 shadow-sm border border-gray-100">
+            {/* Icon */}
+            {feature.icon && (
+              <div class="mb-6 flex justify-center">
+                <Icon name={feature.icon} class="w-16 h-16 text-[var(--brand-secondary)]" style="stroke-width: 1.5;" />
+              </div>
+            )}
+            
+            {/* Title */}
+            <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-3 text-center">
+              {feature.title}
+            </h3>
+            
+            {/* Description */}
+            <p class="text-sm md:text-base text-gray-600 leading-relaxed text-center" set:html={feature.description} />
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      {ctaText && ctaLink && (
+        <div class="text-center mt-12 md:mt-16">
+          <a
+            href={ctaLink}
+            class="group inline-flex items-center gap-3 px-8 py-4 bg-[var(--brand-dark)] text-white font-semibold rounded-full hover:bg-[var(--brand-dark)] transition-colors duration-300"
+          >
+            <span>{ctaText}</span>
+            <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

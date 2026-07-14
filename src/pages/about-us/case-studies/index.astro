@@ -1,0 +1,43 @@
+---
+// Case Studies GRID page. Fetches this deploy's published studies (public read
+// API — see src/lib/case-studies.ts) and composes the CaseStudiesGrid section.
+// Only published rows are ever returned.
+import PageLayout from "~/layouts/PageLayout.astro";
+import CaseStudiesGrid from "~/components/sections/CaseStudiesGrid.astro";
+import { getPageTitle } from "~/utils/config";
+import { breadcrumbSchema } from "~/utils/schema";
+import { listCaseStudies, getCategories } from "~/lib/case-studies";
+
+// Static build: render ALL studies and let the grid filter them client-side
+// (query strings can't be read per-visit on a static site). "All" is active
+// on first paint.
+const [categories, studies] = await Promise.all([
+  getCategories(),
+  listCaseStudies(),
+]);
+
+const metadata = {
+  title: getPageTitle("Case Studies"),
+  description: "Real results from real local businesses.",
+};
+
+const origin = Astro.url.origin;
+const schemas = [
+  breadcrumbSchema(origin, [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about-us" },
+    { name: "Case Studies", path: "/about-us/case-studies" },
+  ]),
+];
+---
+
+<PageLayout metadata={metadata} schemas={schemas}>
+  <CaseStudiesGrid
+    eyebrow="Case Studies"
+    title="Proven Results"
+    description="Real results from real local businesses."
+    studies={studies}
+    categories={categories}
+    basePath="/about-us/case-studies"
+  />
+</PageLayout>

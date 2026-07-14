@@ -1,0 +1,119 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  brands?: Array<{
+    name: string;
+    logo: string;
+  }>;
+}
+
+const {
+  title = "Trusted by Leading Brands",
+  subtitle = "Join hundreds of businesses that trust us with their digital marketing",
+  brands = [
+    {
+      name: "Brand 1",
+      logo: "https://via.placeholder.com/150x60/3F4F44/FFFFFF?text=Brand+1",
+    },
+    {
+      name: "Brand 2",
+      logo: "https://via.placeholder.com/150x60/3F4F44/FFFFFF?text=Brand+2",
+    },
+    {
+      name: "Brand 3",
+      logo: "https://via.placeholder.com/150x60/3F4F44/FFFFFF?text=Brand+3",
+    },
+    {
+      name: "Brand 4",
+      logo: "https://via.placeholder.com/150x60/3F4F44/FFFFFF?text=Brand+4",
+    },
+    {
+      name: "Brand 5",
+      logo: "https://via.placeholder.com/150x60/3F4F44/FFFFFF?text=Brand+5",
+    },
+    {
+      name: "Brand 6",
+      logo: "https://via.placeholder.com/150x60/3F4F44/FFFFFF?text=Brand+6",
+    },
+  ],
+} = Astro.props;
+
+// Duplicate brands for seamless loop
+const duplicatedBrands = [...brands, ...brands];
+---
+
+<section
+  class="py-16 bg-gradient-to-b from-white to-neutral/30 overflow-hidden"
+>
+  <div class="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+    {
+      (title || subtitle) && (
+        <div class="text-center mb-12">
+          {title && (
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              {title}
+            </h2>
+          )}
+          {subtitle && (
+            <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">{subtitle}</p>
+          )}
+        </div>
+      )
+    }
+
+    <div class="relative">
+      <!-- Gradient overlays for fade effect -->
+      <div
+        class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"
+      >
+      </div>
+      <div
+        class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"
+      >
+      </div>
+
+      <!-- Carousel container -->
+      <div class="brand-carousel-track flex items-center gap-12 py-8">
+        {
+          duplicatedBrands.map((brand) => (
+            <div class="brand-item flex-shrink-0 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+              <img
+                src={brand.logo}
+                alt={brand.name}
+                class="h-12 w-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .brand-carousel-track {
+    animation: scroll 30s linear infinite;
+    width: max-content;
+  }
+
+  .brand-carousel-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .brand-carousel-track {
+      animation: none;
+    }
+  }
+</style>

@@ -1,0 +1,155 @@
+---
+import PageLayout from "~/layouts/PageLayout.astro";
+import SectionRenderer from "~/components/SectionRenderer.astro";
+import { faqPageSchema } from "~/utils/schema";
+import { localizeData } from "~/utils/site";
+
+import homeData from "~/data/pages/home.json";
+
+const sections = [...(homeData.sections as any[])].sort(
+  (a, b) => (a.order || 0) - (b.order || 0)
+);
+
+// NewsletterCTA sections are excluded here; PageLayout renders the global final CTA
+const mainSections = sections.filter((s: any) => s.section !== "NewsletterCTA");
+
+const faqSection = sections.find((s: any) => s.section === "FAQs");
+const schemas: Array<Record<string, unknown>> = [];
+const faqSchema = faqSection ? faqPageSchema(localizeData(faqSection.faqs)) : null;
+if (faqSchema) schemas.push(faqSchema);
+---
+
+<PageLayout metadata={homeData.metadata} hideMap={true} schemas={schemas}>
+  <div class="home-scroll-reveal">
+    {mainSections.map((section: any) => <SectionRenderer section={section} />)}
+  </div>
+
+</PageLayout>
+
+<style>
+  /* Section-level reveal */
+  .home-scroll-reveal > :global(section) {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .home-scroll-reveal > :global(section.is-visible) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Headings slide up slightly later */
+  .home-scroll-reveal :global(section h1),
+  .home-scroll-reveal :global(section h2),
+  .home-scroll-reveal :global(section h3) {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease-out 0.15s, transform 0.7s ease-out 0.15s;
+  }
+  .home-scroll-reveal :global(section.is-visible h1),
+  .home-scroll-reveal :global(section.is-visible h2),
+  .home-scroll-reveal :global(section.is-visible h3) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Paragraphs */
+  .home-scroll-reveal :global(section p) {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s ease-out 0.25s, transform 0.7s ease-out 0.25s;
+  }
+  .home-scroll-reveal :global(section.is-visible p) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered children within grid layouts (cards, features) — scoped to avoid FAQ internals */
+  .home-scroll-reveal :global(section .grid > *) {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .home-scroll-reveal :global(section.is-visible .grid > *) {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  .home-scroll-reveal :global(section.is-visible .grid > *:nth-child(1)) { transition-delay: 0.1s; }
+  .home-scroll-reveal :global(section.is-visible .grid > *:nth-child(2)) { transition-delay: 0.2s; }
+  .home-scroll-reveal :global(section.is-visible .grid > *:nth-child(3)) { transition-delay: 0.3s; }
+  .home-scroll-reveal :global(section.is-visible .grid > *:nth-child(4)) { transition-delay: 0.4s; }
+  .home-scroll-reveal :global(section.is-visible .grid > *:nth-child(5)) { transition-delay: 0.5s; }
+  .home-scroll-reveal :global(section.is-visible .grid > *:nth-child(6)) { transition-delay: 0.6s; }
+
+  /* Primary CTAs pop in (exclude FAQ toggles) */
+  .home-scroll-reveal :global(section a[class*="bg-"]:not(.faq-toggle)) {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+    transition: opacity 0.6s ease-out 0.45s, transform 0.6s ease-out 0.45s;
+  }
+  .home-scroll-reveal :global(section.is-visible a[class*="bg-"]:not(.faq-toggle)) {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Leave FAQ items alone — they manage their own open/close state */
+  .home-scroll-reveal :global(section .faq-item),
+  .home-scroll-reveal :global(section .faq-item *) {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Hero is always in view on page load — skip reveal + hide overflow so no scrollbar flashes */
+  .home-scroll-reveal :global(section.hero-section),
+  .home-scroll-reveal :global(section.hero-section *) {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .home-scroll-reveal :global(section.hero-section) {
+    overflow: hidden !important;
+  }
+
+  /* Images subtle zoom-in */
+  .home-scroll-reveal :global(section img) {
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity 0.9s ease-out 0.2s, transform 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+  }
+  .home-scroll-reveal :global(section.is-visible img) {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-scroll-reveal :global(*) {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  const sections = document.querySelectorAll<HTMLElement>(".home-scroll-reveal > section");
+  if (sections.length > 0 && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -80px 0px" }
+    );
+    sections.forEach((section) => observer.observe(section));
+  } else {
+    sections.forEach((section) => section.classList.add("is-visible"));
+  }
+</script>

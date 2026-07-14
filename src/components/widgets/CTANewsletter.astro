@@ -1,0 +1,89 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  backgroundImage?: string;
+}
+
+const {
+  title = "Build and Ship Your Website Faster",
+  description = "Speed up your website build with our software UI kits for Framer. Enjoy high-quality, customizable elements for a seamless, stunning user experience.",
+  buttonText = "Get it now",
+  buttonLink = "/contact-us",
+  backgroundImage = "/images/home.avif",
+} = Astro.props;
+---
+
+<section class="relative py-12 md:py-20 lg:py-24 overflow-hidden w-full max-w-full min-h-[500px] flex items-center">
+  <!-- Background Image -->
+  <div class="absolute inset-0 -z-10 w-full h-full">
+    <img 
+      src={backgroundImage}
+      alt="Background" 
+      class="w-full h-full object-cover min-h-full"
+      loading="lazy"
+      decoding="async"
+    />
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black/60 w-full h-full"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="container px-4 sm:px-6 lg:px-8 mx-auto relative z-10 w-full max-w-full">
+    <div class="max-w-[1240px] mx-auto text-center w-full">
+      <!-- Heading -->
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight px-2">
+        {title}
+      </h2>
+      
+      <!-- Description -->
+      <p class="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-10 max-w-3xl mx-auto px-2" set:html={description} />
+
+      <!-- CTA Button -->
+      <div class="flex items-center justify-center px-2">
+        <a
+          href={buttonLink}
+          class="inline-flex items-center gap-2 px-5 sm:px-8 py-3 sm:py-4 text-sm sm:text-base bg-white hover:bg-gray-100 text-[var(--brand-dark)] font-semibold rounded-lg transition-colors duration-300 shadow-lg"
+        >
+          {buttonText}
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Ensure background image covers full section on all screen sizes */
+  section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  section > div:first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  section > div:first-child img {
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  @media (max-width: 425px) {
+    section {
+      min-height: 550px;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+</style>

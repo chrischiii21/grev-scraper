@@ -1,0 +1,67 @@
+{
+  "business": {
+    "name": "Vertical Flow",
+    "fullName": "Vertical Flow",
+    "tagline": "Helping businesses grow through strategic digital marketing solutions that deliver real results.",
+    "description": "We are a local marketing company in Southern California. Premium marketing solutions including website design, social media management, and indoor billboard advertising."
+  },
+  "location": {
+    "city": "Santa Fe Springs",
+    "state": "CA",
+    "address": "Santa Fe Springs, California",
+    "fullAddress": "Santa Fe Springs, California"
+  },
+  "contact": {
+    "email": "info@verticalflow.com",
+    "phone": "3106069194",
+    "phoneFormatted": "(310) 606-9194"
+  },
+  "colors": {
+    "primary": "#00263E",
+    "secondary": "#F18029",
+    "tertiary": "#06D4F5",
+    "quaternary": "#FFBD00",
+    "dark": "#00263E",
+    "light": "#f7fbfe"
+  },
+  "logo": {
+    "src": "/images/vertical-flow-logo.svg",
+    "srcAvif": "/images/vertical-flow-logo.svg",
+    "srcWebp": "/images/vertical-flow-logo.svg",
+    "alt": "Vertical Flow Logo"
+  },
+  "social": {
+    "facebook": "#",
+    "instagram": "#",
+    "linkedin": "#",
+    "youtube": "#",
+    "twitter": "#"
+  },
+  "locations": [
+    { "name": "Arvada", "slug": "arvada", "enabled": true },
+    { "name": "Aurora", "slug": "aurora", "enabled": true },
+    { "name": "Centennial", "slug": "centennial", "enabled": true },
+    { "name": "Lakewood", "slug": "lakewood", "enabled": true }
+  ],
+
+  "map": {
+    "embedUrl": "https://maps.google.com/maps?q=Santa%20Fe%20Springs%2C%20CA&t=&z=11&ie=UTF8&iwloc=&output=embed",
+    "center": "Santa Fe Springs, CA",
+    "latitude": 33.9472,
+    "longitude": -118.0519
+  },
+  "seo": {
+    "siteName": "Vertical Flow",
+    "defaultTitle": "Vertical Flow",
+    "titleTemplate": "%s — Vertical Flow",
+    "defaultDescription": "We are a local marketing company in Southern California. Premium marketing solutions including website design, social media management, and indoor billboard advertising.",
+    "keywords": "Southern California marketing agency, digital marketing Santa Fe Springs, marketing services Whittier CA, Norwalk marketing, La Mirada digital marketing, social media management, website design",
+    "siteUrl": "https://dealer-template-3.vercel.app",
+    "ogImage": "/images/dealer-logo.png",
+    "twitterHandle": ""
+  },
+  "analytics": {
+    "googleAnalyticsId": "G-8YWDT5SDJP",
+    "agencyGoogleAnalyticsId": ""
+  }
+}

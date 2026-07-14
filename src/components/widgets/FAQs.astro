@@ -1,0 +1,91 @@
+---
+interface FAQ {
+  question?: string;
+  answer?: string;
+}
+
+interface Props {
+  title?: string;
+  faqs: FAQ[];
+  eyebrow?: string;
+  background?: string;
+}
+
+const { title = "Frequently Asked Questions", faqs = [], eyebrow, background = "#ffffff" } = Astro.props;
+
+let bgStyle = "";
+if (background && background.includes("#")) {
+  bgStyle = `background-color: ${background}`;
+}
+---
+
+<section class="relative py-12 md:py-14" style={bgStyle || "background-color: #ffffff"}>
+  <div class="container px-4 sm:px-6 lg:px-8 mx-auto">
+    <div class="max-w-[1240px] mx-auto">
+      <div class="text-center mb-10 md:mb-12">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          {title}
+        </h2>
+        {eyebrow && (
+          <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">{eyebrow}</p>
+        )}
+      </div>
+
+      <div class="space-y-4" id="faq-list">
+        {faqs.map((faq, index) => (
+          <div class={`faq-item border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 ${index === 0 ? 'bg-[var(--brand-light)]' : 'bg-white'}`}>
+            <button
+              class={`faq-toggle w-full flex justify-between items-center px-6 md:px-8 py-5 text-left transition-colors ${index === 0 ? 'bg-[var(--brand-light)]' : 'bg-white hover:bg-gray-50'}`}
+              aria-expanded={index === 0 ? "true" : "false"}
+            >
+              <span class="text-base md:text-lg font-medium text-gray-900 pr-4">{faq.question}</span>
+              <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center bg-[var(--brand-secondary)]">
+                <svg class="faq-icon-plus w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style={index === 0 ? "display:none" : ""}>
+                  <path d="M12 5v14M5 12h14"></path>
+                </svg>
+                <svg class="faq-icon-minus w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style={index === 0 ? "" : "display:none"}>
+                  <path d="M5 12h14"></path>
+                </svg>
+              </div>
+            </button>
+            <div class="faq-content px-6 md:px-8 pb-5 text-gray-700 leading-relaxed text-sm md:text-base bg-[var(--brand-light)]" style={index === 0 ? "" : "display:none"} set:html={faq.answer} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+(function(){
+  document.querySelectorAll('.faq-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.faq-item');
+      var content = item.querySelector('.faq-content');
+      var plus = item.querySelector('.faq-icon-plus');
+      var minus = item.querySelector('.faq-icon-minus');
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      if (isOpen) {
+        content.style.display = 'none';
+        plus.style.display = '';
+        minus.style.display = 'none';
+        btn.setAttribute('aria-expanded', 'false');
+        item.classList.remove('bg-[var(--brand-light)]');
+        item.classList.add('bg-white');
+        btn.classList.remove('bg-[var(--brand-light)]');
+        btn.classList.add('bg-white', 'hover:bg-gray-50');
+      } else {
+        content.style.display = '';
+        plus.style.display = 'none';
+        minus.style.display = '';
+        btn.setAttribute('aria-expanded', 'true');
+        item.classList.add('bg-[var(--brand-light)]');
+        item.classList.remove('bg-white');
+        btn.classList.add('bg-[var(--brand-light)]');
+        btn.classList.remove('bg-white', 'hover:bg-gray-50');
+      }
+    });
+  });
+})();
+</script>

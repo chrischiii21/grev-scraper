@@ -1,0 +1,39 @@
+# ============================================
+# LEGACY CONFIG - kept for compatibility
+# Primary config is now: src/content/settings/site.json
+# Edit site.json to update branding globally
+# ============================================
+
+site:
+  name: Vertical Flow
+  site: "https://verticalflow.com"
+  base: "/"
+  trailingSlash: false
+
+# Default SEO metadata
+metadata:
+  title:
+    default: Vertical Flow
+    template: "%s — Vertical Flow"
+  description: "Premium marketing solutions including website design, social media management, and indoor billboard advertising."
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: Vertical Flow
+    images:
+      - url: "~/assets/images/default.png"
+        width: 1200
+        height: 628
+    type: website
+  twitter:
+    handle: ""
+    site: ""
+    cardType: summary_large_image
+
+i18n:
+  language: en
+  textDirection: ltr
+
+ui:
+  theme: "system"

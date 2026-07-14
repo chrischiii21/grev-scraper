@@ -1,0 +1,161 @@
+{
+  "title": "Display (Geofencing)",
+  "description": "Location-based display advertising that targets customers where they are.",
+  "category": "branding-awareness",
+  "order": 2,
+  "icon": "tabler:target",
+  "thumbnail": "/images/geofencing.avif",
+  "ctaText": "Start Your Campaign",
+  "ctaLink": "/contact-us",
+  "sections": [
+    {
+      "section": "Hero",
+      "eyebrow": "Branding & Awareness",
+      "title": "Target Customers Where They Are with Geofencing",
+      "description": "Use location data to reach your audience on the websites they love most. Deliver personalized ads to customers in specific geographic areas.",
+      "image": "/images/geofencing.avif",
+      "order": 1,
+      "ctaText": "Get Started",
+      "ctaLink": "/contact-us"
+    },
+    {
+      "section": "ContentWithImage",
+      "title": "Precision Targeting with Geofencing Technology",
+      "background": "primary-dark",
+      "description": "Leveraging Geofencing technology, Display Advertising targets precise geographic regions, delivering personalized ads to users within and near those locations. Your audience will encounter these tailored messages seamlessly integrated as dynamic, full-motion ads across their favorite websites and online platforms. Reach customers at your competitors' locations, near your business, or at events and venues where your ideal customers gather.",
+      "image": "/images/geofencing-content.avif",
+      "order": 2
+    },
+    {
+      "section": "CTALight",
+      "title": "Display Advertising is a Boost to Your Marketing Efforts",
+      "description": "Display advertising amplifies your brand visibility across the web. While your competitors rely solely on <strong><a href='/solutions/lead-gen/pay-per-click' style='text-decoration: none; color: inherit;'>search ads</a></strong>, your brand appears on thousands of websites your customers visit daily. Combined with geofencing, you can target customers at specific locations, your store, competitor locations, events, or anywhere your ideal customers gather. Pair Display Advertising with <strong><a href='/solutions/foundational/google-business-profile' style='text-decoration: none; color: inherit;'>Google Business Profile</a></strong> or <strong><a href='/solutions/lead-gen/social-media-advertising' style='text-decoration: none; color: inherit;'>Social Media Advertising</a></strong> for maximum impact.",
+      "order": 3,
+      "ctaText": "Launch Your Campaign",
+      "ctaLink": "/contact-us"
+    },
+    {
+      "section": "FeaturesSection",
+      "title": "Four Advantages of Display Advertising",
+      "description": "Reach your audience with precision targeting and measurable results.",
+      "order": 4,
+      "features": [
+        {
+          "title": "Precision Targeting",
+          "description": "Display Advertising with geofencing capabilities offers you the advantage of reaching highly specific audiences at the right time and place. With these dynamic ads, you can be certain your message resonates with the most relevant demographics.",
+          "icon": "tabler:target"
+        },
+        {
+          "title": "Brand Awareness",
+          "description": "Increase your brand visibility across thousands of premium websites. Keep your business top-of-mind with consistent, eye-catching display ads that build recognition and trust.",
+          "icon": "tabler:eye"
+        },
+        {
+          "title": "Competitive Advantage",
+          "description": "Target customers at your competitors' locations or capture market share by reaching audiences in strategic geographic areas where your competitors aren't advertising.",
+          "icon": "tabler:trophy"
+        },
+        {
+          "title": "Real-Time Insights",
+          "description": "Track impressions, clicks, conversions, and exposure with detailed analytics. Know exactly what's working and optimize your campaigns in real-time for maximum performance.",
+          "icon": "tabler:chart-line"
+        }
+      ]
+    },
+    {
+      "section": "FeaturesWithImage",
+      "title": "Your Path to Powerful Branding and Awareness",
+      "description": "From strategy to optimization, we handle everything to maximize your display advertising exposure.",
+      "order": 5,
+      "features": [
+        {
+          "title": "Strategy",
+          "description": "We identify your target audience, define geographic zones, and create a targeting strategy to reach the right people at the right locations.",
+          "icon": "tabler:bulb",
+          "image": "/images/geofencing-strategy.avif"
+        },
+        {
+          "title": "Execution",
+          "description": "We design compelling display ads and launch your campaign across thousands of premium websites where your customers spend time online.",
+          "icon": "tabler:rocket",
+          "image": "/images/geofencing-execution.jpeg"
+        },
+        {
+          "title": "Measure",
+          "description": "Track impressions, clicks, website visits, and conversions with detailed reporting. See exactly how your campaign is performing.",
+          "icon": "tabler:chart-line",
+          "image": "/images/geofencing-measure.jpeg"
+        },
+        {
+          "title": "Optimize",
+          "description": "We continuously analyze performance data and adjust targeting, creative, and bidding strategies to maximize your exposure.",
+          "icon": "tabler:adjustments",
+          "image": "/images/geofencing-optimized.avif"
+        }
+      ]
+    },
+    {
+      "section": "FeaturesSection",
+      "title": "Our Marketing Service Approach is Simple",
+      "description": "We believe great marketing shouldn't be complicated. Here's how we help businesses grow.",
+      "order": 6,
+      "features": [
+        {
+          "title": "We Listen",
+          "description": "We take time to understand your business, goals, and challenges before recommending solutions.",
+          "icon": "tabler:ear"
+        },
+        {
+          "title": "We Strategize",
+          "description": "Every business is different. We create custom strategies tailored to your unique needs and budget.",
+          "icon": "tabler:chess"
+        },
+        {
+          "title": "We Execute",
+          "description": "From design to launch, we handle everything so you can focus on running your business.",
+          "icon": "tabler:player-play"
+        },
+        {
+          "title": "We Measure",
+          "description": "We track results and provide clear reports so you always know what's working.",
+          "icon": "tabler:chart-dots"
+        },
+        {
+          "title": "We Optimize",
+          "description": "Marketing isn't set-it-and-forget-it. We continuously improve to maximize your exposure.",
+          "icon": "tabler:adjustments"
+        },
+        {
+          "title": "We Support",
+          "description": "Questions? Updates? We're here whenever you need us with friendly, responsive support.",
+          "icon": "tabler:headset"
+        }
+      ]
+    },
+    {
+      "section": "FAQs",
+      "title": "Common Questions About Display Advertising and Geofencing",
+      "description": "Get answers to frequently asked questions about our display advertising services.",
+      "order": 7,
+      "faqs": [
+        {
+          "question": "Will Display Ads with Geofencing help me generate leads?",
+          "answer": "Yes! Display advertising with geofencing is highly effective for lead generation. By targeting customers at specific locations and showing them relevant ads across the web, you can drive qualified traffic to your website and capture leads when they're most interested."
+        },
+        {
+          "question": "Can you place a fence around any location?",
+          "answer": "Absolutely! We can create geofences around any location, your business, competitor locations, events, neighborhoods, shopping centers, or any geographic area where your ideal customers gather. The precision of geofencing allows for highly targeted campaigns."
+        },
+        {
+          "question": "Can you target phone numbers?",
+          "answer": "While we can't target specific phone numbers directly, we can target households and devices within specific geographic areas. This location-based targeting is often more effective than phone number targeting, as it reaches customers where they actually are."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "title": "Display Geofencing Ads | Hyper-Targeted Local Marketing",
+    "description": "Reach customers based on where they go. Our geofencing ads deliver precise location-based targeting.",
+    "keywords": "display advertising {city}, geofencing advertising {city}, location-based advertising, geofencing marketing {city}, targeted display ads, programmatic advertising {city}, geotargeting ads"
+  }
+}
