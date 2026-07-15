@@ -10,6 +10,7 @@ interface Props {
   imageAlt?: string;
   imagePosition?: string;
   background?: string;
+  showImageOnMobile?: boolean;
 }
 
 const {
@@ -23,6 +24,7 @@ const {
   imageAlt,
   imagePosition = "right",
   background = "white",
+  showImageOnMobile = false,
 } = Astro.props;
 
 // Map friendly background names to real colors. Hex values pass through as-is.
@@ -85,7 +87,7 @@ const backgroundColor = background.startsWith("#")
         </div>
         
         <!-- Image -->
-        <div class={`max-[425px]:hidden ${imagePosition === "left" ? "order-1 lg:order-1" : "order-2 lg:order-2"}`}>
+        <div class={`${showImageOnMobile ? "" : "max-[425px]:hidden"} ${imagePosition === "left" ? "order-1 lg:order-1" : "order-2 lg:order-2"}`}>
           {image && (
             <div class="rounded-2xl overflow-hidden shadow-lg">
               <img 
