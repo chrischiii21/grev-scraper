@@ -2,7 +2,7 @@
   "business": {
     "name": "Alamo Media Network",
     "fullName": "Alamo Media Network",
-    "tagline": "Amplify Your Brand Where It Matters Most",
+    "tagline": "Be seen where your customers eat, work, shop, and play. We offer indoor digital billboards, website design, Google Business Profile optimization, PPC, geofencing, and comprehensive marketing solutions in the {city} area of {state}.",
     "description": "We are a local marketing company in {city}, {state}. Premium marketing solutions including indoor digital billboards, website design, social media management, and targeted advertising."
   },
   "location": {
@@ -32,9 +32,9 @@
     "alt": "Alamo Media Network Logo"
   },
   "social": {
-    "facebook": "",
-    "instagram": "",
-    "linkedin": "",
+    "facebook": "https://www.facebook.com/people/Alamo-Media-Network/61577198616736/",
+    "instagram": "https://www.instagram.com/alamomedianetwork/",
+    "linkedin": "https://www.linkedin.com/company/alamomedianetwork",
     "youtube": "",
     "twitter": ""
   },
