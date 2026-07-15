@@ -48,6 +48,30 @@
           "icon": "tabler:phone"
         }
       ]
+    },
+    {
+      "section": "FAQs",
+      "title": "Network Location Common Questions",
+      "description": "",
+      "order": 4,
+      "faqs": [
+        {
+          "question": "Where are your screens located?",
+          "answer": "Our indoor digital billboards are placed in high-traffic retail and restaurant venues throughout the community - places where customers eat, work, live, and play. Use the map above to explore our current network, or <strong><a href='/contact-us' style='text-decoration: none; color: inherit;'>contact us</a></strong> for details about specific venues."
+        },
+        {
+          "question": "Can I choose which locations my ad appears in?",
+          "answer": "Yes! We can tailor your campaign to the venues that best match your target audience, or run your ad across the entire network for maximum reach. Learn more about how our <strong><a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>screen advertising</a></strong> works."
+        },
+        {
+          "question": "How often do new locations join the network?",
+          "answer": "Our network is always growing as new venues sign on. Advertisers benefit automatically - as the network expands, so does your reach, at no extra effort on your part."
+        },
+        {
+          "question": "My business is in a high-traffic area. Can I host a screen?",
+          "answer": "Absolutely! We're always looking for great venues to join the network. Hosting a screen puts your business in front of customers across all our locations. Learn how to <strong><a href='/indoor-billboards/become-a-venue-partner' style='text-decoration: none; color: inherit;'>become a venue partner</a></strong>."
+        }
+      ]
     }
   ],
   "metadata": {

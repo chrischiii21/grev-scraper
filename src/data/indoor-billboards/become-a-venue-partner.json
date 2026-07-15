@@ -113,6 +113,30 @@
           "icon": "tabler:calendar"
         }
       ]
+    },
+    {
+      "section": "FAQs",
+      "title": "Venue Partner Common Questions",
+      "description": "",
+      "order": 7,
+      "faqs": [
+        {
+          "question": "Does it cost anything to host a screen in my venue?",
+          "answer": "No. We handle the screen, installation, and ongoing maintenance at no cost to you. In return, your venue becomes part of our <strong><a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>screen advertising network</a></strong>, and you enjoy benefits like discounted advertising and cross-network promotion."
+        },
+        {
+          "question": "What kind of venues make good network partners?",
+          "answer": "High-traffic retail and restaurant venues are ideal - places where customers eat, work, live, and play. Check out our current <strong><a href='/indoor-billboards/locations' style='text-decoration: none; color: inherit;'>network locations</a></strong> to see the types of venues already in our network and where your business could fit in."
+        },
+        {
+          "question": "Do I get to control what appears on the screen in my venue?",
+          "answer": "You'll always have dedicated screen time to promote your own specials, events, and messages to customers inside your establishment. We also keep content appropriate and non-competitive - your screen will never feature ads from a direct competitor."
+        },
+        {
+          "question": "Who creates the content for my venue's ads?",
+          "answer": "We do! Our team handles all graphic content creation for Venue Network Partners. Just provide a few design elements, pictures, and messages, and we'll take it from there. When you're ready to get started, <strong><a href='/contact-us' style='text-decoration: none; color: inherit;'>contact us</a></strong> for a free consultation."
+        }
+      ]
     }
   ],
   "metadata": {
