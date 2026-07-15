@@ -35,7 +35,7 @@ const {
       <!-- Map -->
       <div class="relative min-h-[340px] sm:min-h-[420px] lg:min-h-[520px] rounded-2xl overflow-hidden shadow-lg">
         <iframe
-          class="absolute inset-0 w-full h-full"
+          class="map-iframe absolute inset-0 w-full h-full"
           src={mapUrl}
           style="border:0;"
           allowfullscreen=""
@@ -47,3 +47,16 @@ const {
     </div>
   </div>
 </section>
+
+<style>
+  /* On mobile, render the iframe at 520px (wide enough for Google's map
+     header to fit on one line) and scale it down to fit the container. */
+  @media (max-width: 639px) {
+    .map-iframe {
+      width: 520px;
+      height: calc(100% / 0.72);
+      transform: scale(0.72);
+      transform-origin: top left;
+    }
+  }
+</style>
