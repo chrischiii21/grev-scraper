@@ -32,6 +32,8 @@ const {
   showTriggerButton = false,
   triggerButtonText = "Free Consultation",
 } = Astro.props;
+
+const isExternalCta = /^https?:\/\//.test(ctaLink);
 ---
 
 <div
@@ -46,32 +48,12 @@ const {
 >
   <!-- Modal Container -->
   <div
-    class="relative w-full h-full sm:h-auto sm:w-[90%] sm:max-w-4xl mx-auto shadow-2xl overflow-hidden sm:overflow-y-auto sm:max-h-[90vh] sm:animate-scale-in rounded-lg"
+    class="relative w-[92%] max-w-md sm:w-[90%] sm:max-w-4xl mx-auto shadow-2xl overflow-y-auto max-h-[90vh] sm:animate-scale-in rounded-2xl sm:rounded-lg"
   >
-    <!-- Close Button -->
-    <button
-      id="close-popup"
-      class="absolute top-4 right-4 z-20 w-8 h-8 md:hidden flex items-center justify-center text-white hover:text-gray-300 transition-colors"
-      aria-label="Close popup"
-    >
-      <svg
-        class="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
-
     <!-- Two Column Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 min-h-[450px]">
-      <!-- Left Side - Dark Navy Background -->
-      <div class="relative bg-[var(--brand-dark)] text-white px-8 sm:px-10 lg:px-12 py-10 sm:py-12 lg:py-14 flex flex-col justify-end overflow-hidden">
+    <div class="grid grid-cols-1 md:grid-cols-2 md:min-h-[450px]">
+      <!-- Left Side - Dark Navy Background (hidden on mobile) -->
+      <div class="relative bg-[var(--brand-dark)] text-white px-8 sm:px-10 lg:px-12 py-10 sm:py-12 lg:py-14 hidden md:flex flex-col justify-end overflow-hidden">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0">
           <img
@@ -105,7 +87,7 @@ const {
       </div>
 
       <!-- Right Side - White Content Section -->
-      <div class="bg-white px-8 sm:px-10 lg:px-12 py-10 sm:py-12 lg:py-14 flex flex-col justify-center relative">
+      <div class="bg-white px-6 py-8 sm:px-10 sm:py-12 lg:px-12 lg:py-14 flex flex-col justify-center relative">
         <!-- Close Button -->
         <button
           id="close-popup-white"
@@ -127,7 +109,7 @@ const {
         </button>
 
         <!-- Blue Left Border Accent -->
-        <div class="absolute left-6 top-12 bottom-12 w-1 bg-[var(--brand-secondary)] rounded-r"></div>
+        <div class="hidden md:block absolute left-6 top-12 bottom-12 w-1 bg-[var(--brand-secondary)] rounded-r"></div>
 
         <div class="max-w-md mx-auto w-full">
           <!-- Logo -->
@@ -135,7 +117,7 @@ const {
             <img
               src={siteConfig.logo.src}
               alt={siteConfig.logo.alt}
-              class="h-20 sm:h-24 w-auto"
+              class="h-12 sm:h-24 w-auto"
               loading="lazy"
               decoding="async"
             />
@@ -143,37 +125,37 @@ const {
 
           <!-- Headline -->
           <div class="mb-6">
-            <h4 class="text-2xl sm:text-3xl font-bold text-[var(--brand-dark)] leading-tight mb-3">
+            <h4 class="text-2xl sm:text-3xl font-bold text-[var(--brand-dark)] leading-tight mb-3 text-center md:text-left">
               Ready to Grow Your Business?
             </h4>
-            <p class="text-sm text-gray-700 leading-relaxed">
+            <p class="text-sm text-gray-700 leading-relaxed text-center md:text-left">
               Get expert marketing strategies tailored for local businesses. Let's discuss how we can help you succeed.
             </p>
           </div>
 
           <!-- Benefits List with Icons -->
-          <ul class="space-y-4 mb-8">
+          <ul class="space-y-3 md:space-y-4 mb-6 md:mb-8">
             {benefits.map((benefit, index) => (
               <li class="flex items-start gap-4">
-                <div class="flex-shrink-0 w-12 h-12 bg-[var(--brand-secondary)]/10 rounded-lg flex items-center justify-center">
+                <div class="benefit-icon-box flex-shrink-0 w-9 h-9 md:w-12 md:h-12 bg-[var(--brand-dark)] md:bg-[var(--brand-secondary)]/10 rounded-lg flex items-center justify-center">
                   {index === 0 && (
-                    <svg class="w-6 h-6 text-[var(--brand-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                   )}
                   {index === 1 && (
-                    <svg class="w-6 h-6 text-[var(--brand-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                     </svg>
                   )}
                   {index === 2 && (
-                    <svg class="w-6 h-6 text-[var(--brand-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                   )}
                 </div>
                 <div class="flex-1 pt-1">
-                  <span class="text-base text-[var(--brand-dark)] font-medium leading-relaxed">
+                  <span class="text-sm md:text-base text-[var(--brand-dark)] font-medium leading-relaxed">
                     {benefit}
                   </span>
                 </div>
@@ -184,18 +166,20 @@ const {
           <!-- CTA Button - Navy with Darker Hover -->
           <a
             href={ctaLink}
+            target={isExternalCta ? "_blank" : undefined}
+            rel={isExternalCta ? "noopener noreferrer" : undefined}
             class="block w-full px-6 py-3.5 bg-[var(--brand-dark)] hover:bg-black text-white text-center font-bold text-base rounded-lg transition-all duration-300 mb-6"
           >
             {ctaText}
           </a>
 
           <!-- Trust Indicators -->
-          <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-gray-600 mb-5">
+          <div class="flex flex-wrap items-center justify-center gap-x-6 md:gap-x-8 gap-y-2 md:gap-y-3 text-xs md:text-sm text-gray-600 mb-5">
             <div class="flex items-center gap-2">
               <svg class="w-5 h-5 text-[var(--brand-tertiary)]" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
               </svg>
-              <span class="font-semibold">20+ Years Experience</span>
+              <span class="font-semibold">17+ Years Experience</span>
             </div>
             <div class="flex items-center gap-2">
               <svg class="w-5 h-5 text-[var(--brand-tertiary)]" fill="currentColor" viewBox="0 0 20 20">
@@ -374,6 +358,19 @@ const {
 </script>
 
 <style>
+  /* Benefit icons: white on navy squares (mobile), brand blue on tinted squares (md+).
+     Set here instead of text-white/md:text-* utilities — chunked utility CSS made the
+     base color override the md variant. */
+  .benefit-icon-box {
+    color: #fff;
+  }
+
+  @media (min-width: 768px) {
+    .benefit-icon-box {
+      color: var(--brand-secondary);
+    }
+  }
+
   @keyframes scale-in {
     from {
       opacity: 0;

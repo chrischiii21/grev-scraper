@@ -40,7 +40,7 @@
   },
   "locations": [],
   "map": {
-    "embedUrl": "https://www.google.com/maps/d/embed?mid=1eedbNtKnFQ2thuy4h9A3_JdGW6fucHY&ehbc=2E312F",
+    "embedUrl": "https://www.google.com/maps/d/embed?mid=1eedbNtKnFQ2thuy4h9A3_JdGW6fucHY&ehbc=2E312F&ll=29.5993,-98.4720&z=12",
     "center": "San Antonio, TX",
     "latitude": 29.4241,
     "longitude": -98.4936
@@ -59,7 +59,7 @@
     "lastUpdated": "November 20, 2025"
   },
   "integrations": {
-    "googleMapsEmbedUrl": "https://www.google.com/maps/d/embed?mid=1eedbNtKnFQ2thuy4h9A3_JdGW6fucHY&ehbc=2E312F",
+    "googleMapsEmbedUrl": "https://www.google.com/maps/d/embed?mid=1eedbNtKnFQ2thuy4h9A3_JdGW6fucHY&ehbc=2E312F&ll=29.5993,-98.4720&z=12",
     "recaptchaSiteKey": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
   },
   "popup": {

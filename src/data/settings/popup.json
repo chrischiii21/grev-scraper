@@ -2,8 +2,8 @@
   "enabled": true,
   "title": "Ready to Grow Your Business?",
   "description": "Get expert marketing strategies tailored for your business. Let's discuss how we can help you succeed.",
-  "buttonText": "Schedule Free Consultation",
-  "buttonHref": "/contact-us",
+  "ctaText": "Schedule Free Consultation",
+  "ctaLink": "https://calendly.com/alamomedia/30-min-strategy-session",
   "image": "/images/home.avif",
   "delay": 5
 }

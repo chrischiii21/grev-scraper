@@ -27,6 +27,7 @@
       "section": "FeaturesWithImage",
       "title": "5 Reasons To Choose Us",
       "description": "",
+      "image": "/images/about-us-team.avif",
       "order": 3,
       "background": "#ffffff",
       "isCarousel": true,
@@ -35,33 +36,33 @@
       "carouselAutoplayDelay": 5000,
       "features": [
         {
-          "title": "Experts in Local Marketing",
-          "description": "Our marketing strategies are finely tuned to reach your specific community. From <strong><a href='/indoor-billboards/screen-advertising' class='text-primary-dark hover:text-primary transition-colors'>indoor digital billboards</a></strong> to robust <strong><a href='/solutions' class='text-primary-dark hover:text-primary transition-colors'>digital campaigns</a></strong>, we ensure your brand connects with the people who matter most, those in your immediate vicinity who are most likely to become loyal customers.",
-          "icon": "tabler:map-pin",
+          "title": "A Strategy Built in the Right Order",
+          "description": "Too many agencies start by selling whatever's easiest, usually ads, before a business even has a solid website or Google presence to send that traffic to. We start with the foundation: making sure you're easy to find and easy to trust online. From there we layer in demand generation like <strong><a href='/solutions/lead-gen/pay-per-click' class='text-primary-dark hover:text-primary transition-colors'>PPC campaigns</a></strong> and <strong><a href='/solutions/lead-gen/social-media-advertising' class='text-primary-dark hover:text-primary transition-colors'>social media ads</a></strong>, and finally add awareness plays like <strong><a href='/indoor-billboards/screen-advertising' class='text-primary-dark hover:text-primary transition-colors'>indoor digital billboards</a></strong>, geofencing, and connected TV, so every dollar you spend builds on what came before it.",
+          "icon": "tabler:list-numbers",
           "image": "/images/local-marketing-experts.avif"
         },
         {
-          "title": "Community-Based Advertising",
-          "description": "We understand the value of community and tailor our campaigns to resonate with local values and interests. This approach not only boosts your brand's visibility but also fosters a strong, positive relationship with your audience. Explore our <strong><a href='/indoor-billboards/locations' class='text-primary-dark hover:text-primary transition-colors'>venue network</a></strong> across {city}.",
-          "icon": "tabler:users",
+          "title": "You Work Directly With Me",
+          "description": "No account managers who've never set foot in your business, no handoffs between departments. Every strategy, every campaign, and every conversation runs through someone who actually knows your business and has a personal stake in seeing it grow.",
+          "icon": "tabler:user-check",
           "image": "/images/community-advertising.avif"
         },
         {
-          "title": "Affordability",
-          "description": "We offer cost-effective marketing solutions tailored to your budget, providing exceptional value without compromising on quality or impact.",
-          "icon": "tabler:currency-dollar",
+          "title": "Locally Owned, Personally Invested",
+          "description": "I live in San Antonio, I'm raising my family here and I'm active in the local business community through BNI, the Metro SA Chamber, Hispanic Chamber and other local networks. When your business grows, it's the same community I'm invested in.",
+          "icon": "tabler:map-pin",
+          "image": "/images/brands/family-photo.avif"
+        },
+        {
+          "title": "No Long-Term Contracts",
+          "description": "We earn your business every month, not through a contract that locks you in. If our work isn't delivering results, you're free to walk away, which is exactly why we work hard to make sure you never want to.",
+          "icon": "tabler:lock-open",
           "image": "/images/affordability.avif"
         },
         {
-          "title": "Amazing Creative",
-          "description": "Our team excels at creating dynamic, engaging content that stands out. Whether it's eye-catching visuals or compelling messaging, we ensure your advertisements capture and retain the attention of your target audience. From <strong><a href='/solutions/foundational/social-media-management' class='text-primary-dark hover:text-primary transition-colors'>social media content</a></strong> to <strong><a href='/solutions/lead-gen/pay-per-click' class='text-primary-dark hover:text-primary transition-colors'>PPC campaigns</a></strong>, we deliver results.",
-          "icon": "tabler:sparkles",
-          "image": "/images/amazing-creative.avif"
-        },
-        {
-          "title": "A Proven Track Record",
-          "description": "We have a history of successful campaigns that drive results. Our clients have seen significant increases in brand awareness, foot traffic, and customer engagement. Our proven strategies are designed to deliver measurable outcomes that contribute to your business growth.",
-          "icon": "tabler:award",
+          "title": "Real Results You Can See",
+          "description": "You'll always know what's working. From clear reporting dashboards to honest conversations about what's driving results and what isn't, we believe you should never have to wonder what you're paying for.",
+          "icon": "tabler:chart-bar",
           "image": "/images/track-record.avif"
         }
       ]
