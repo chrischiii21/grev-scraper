@@ -15,6 +15,7 @@
       "description": "Connecting brands with audiences everywhere.",
       "image": "/images/indoor-billboard.avif",
       "bgPosition": "top",
+      "bgPositionMobile": "left",
       "bgSize": "130% auto",
       "order": 1,
       "ctaText": "Get In Touch",

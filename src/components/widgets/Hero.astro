@@ -7,6 +7,7 @@ interface Props {
   imageAlt?: string;
   backgroundImage?: string;
   bgPosition?: string;
+  bgPositionMobile?: string;
   bgSize?: string;
   actions?: Array<{
     text: string;
@@ -23,6 +24,7 @@ const {
   imageAlt,
   backgroundImage = '',
   bgPosition = 'center',
+  bgPositionMobile = 'center',
   bgSize = 'cover',
   actions = [],
 } = Astro.props;
@@ -37,7 +39,7 @@ const heroBackground = image || backgroundImage;
     {heroBackground && (
       <div
         class="hero-bg-image absolute inset-0 w-full h-full bg-no-repeat"
-        style={`background-image: url('${heroBackground}'); --hero-bg-position: ${bgPosition}; --hero-bg-size: ${bgSize};`}
+        style={`background-image: url('${heroBackground}'); --hero-bg-position: ${bgPosition}; --hero-bg-position-mobile: ${bgPositionMobile}; --hero-bg-size: ${bgSize};`}
         role="img"
         aria-label={imageAlt || title || "Hero background"}
       ></div>
@@ -105,10 +107,11 @@ const heroBackground = image || backgroundImage;
 
   <!-- Custom diagonal shape style -->
   <style is:global>
-    /* Mobile always covers the full hero; custom framing (bgSize/bgPosition) only applies md+ */
+    /* Mobile always covers the full hero; custom framing (bgSize/bgPosition) only applies md+.
+       bgPositionMobile lets a page pick which part of the image survives the mobile crop. */
     .hero-bg-image {
       background-size: cover;
-      background-position: center;
+      background-position: var(--hero-bg-position-mobile, center);
     }
 
     @media (min-width: 768px) {
