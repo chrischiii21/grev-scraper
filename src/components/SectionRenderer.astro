@@ -25,6 +25,7 @@ import ProcessSteps from "~/components/widgets/ProcessSteps.astro";
 import NetworksSection from "~/components/widgets/NetworksSection.astro";
 import FormSection from "~/components/widgets/FormSection.astro";
 import ServicesGrid from "~/components/widgets/ServicesGrid.astro";
+import GoogleReviews from "~/components/widgets/GoogleReviews.astro";
 import { localizeData } from "~/utils/site";
 
 interface Props {
@@ -280,6 +281,15 @@ const ctaActions = s.ctaText && s.ctaLink
     title={s.title}
     subtitle={s.description}
     actions={ctaActions}
+  />
+)}
+
+{s.section === "GoogleReviews" && (
+  <GoogleReviews
+    eyebrow={s.eyebrow}
+    title={s.title}
+    description={s.description}
+    ctaText={s.ctaText}
   />
 )}
 
