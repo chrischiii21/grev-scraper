@@ -1,6 +1,7 @@
 {
   "title": "Pay Per Click",
   "description": "Professional pay-per-click advertising services to drive targeted traffic and conversions.",
+  "navDescription": "Targeted Google Ads that drive leads.",
   "category": "lead-gen",
   "order": 2,
   "icon": "tabler:currency-dollar",
@@ -11,7 +12,7 @@
     {
       "section": "Hero",
       "eyebrow": "Lead Generation",
-      "title": "Pay-Per-Click (PPC)",
+      "title": "Pay-Per-Click Advertising in {city}",
       "description": "Driving Targeted Traffic to Your Website",
       "image": "/images/ppc.avif",
       "order": 1,
@@ -42,7 +43,7 @@
       "features": [
         {
           "title": "Search Optimization",
-          "description": "From optimizing your ad copy to managing your budget to maximize conversions, the skilled PPC team will take your campaign to the next level.",
+          "description": "From optimizing your ad copy to managing your budget to maximize conversions, our skilled PPC team will take your campaign to the next level.",
           "icon": "tabler:search"
         },
         {
@@ -154,7 +155,7 @@
     }
   ],
   "metadata": {
-    "title": "Pay Per Click Advertising | Drive Traffics & Sales",
+    "title": "PPC Management {city} | {business}",
     "description": "Drive more conversions with expert PPC services. Google Ads, retargeting & optimization on every click to boost exposure and eliminate wasted ad spend.",
     "keywords": "pay per click {city}, PPC advertising {city}, Google Ads {city}, PPC management {city}, best PPC agency {city}, top PPC services {city}, paid search advertising, PPC campaign management, {city} PPC services"
   }

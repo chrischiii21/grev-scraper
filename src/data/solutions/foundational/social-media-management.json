@@ -1,6 +1,7 @@
 {
   "title": "Social Media Management",
   "description": "Build and engage your audience across all major social platforms.",
+  "navDescription": "Consistent posting that grows your audience.",
   "category": "foundational",
   "order": 3,
   "icon": "tabler:calendar-event",
@@ -144,7 +145,7 @@
         },
         {
           "question": "Can I make my posts even if my profile is being managed?",
-          "answer": "Yes! All we ask is that you let us know what you plan on posting to ensure that our messaging and cadence is consistent throughout the duration of your contract."
+          "answer": "Yes! All we ask is that you let us know what you plan on posting to ensure that our messaging and cadence is consistent throughout our partnership."
         },
         {
           "question": "Do I need to give you my password?",

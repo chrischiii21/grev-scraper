@@ -1,6 +1,7 @@
 {
   "title": "Design Services",
   "description": "Professional design services to elevate your brand identity.",
+  "navDescription": "Logos, flyers, and brand design.",
   "category": "foundational",
   "order": 4,
   "icon": "tabler:palette",

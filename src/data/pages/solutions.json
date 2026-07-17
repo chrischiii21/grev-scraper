@@ -5,7 +5,7 @@
     {
       "section": "Hero",
       "eyebrow": "Digital Marketing",
-      "title": "Digital Marketing Services",
+      "title": "Digital Marketing Services in {city}",
       "description": "A full range of services to make your business a digital powerhouse!",
       "image": "/images/digital-marketing.avif",
       "order": 1,
@@ -48,7 +48,7 @@
     {
       "section": "FeaturesSection",
       "title": "Multichannel Marketing",
-      "description": "",
+      "description": "We organize our services the way we recommend building them. Foundational services make sure customers can find and trust you. Lead generation captures the demand that's already searching for you. And branding and awareness keeps you top of mind so you're the first call when they're ready. Most agencies sell these in whatever order is easiest. We build them in the order that works.",
       "order": 3,
       "features": [
         {
@@ -115,7 +115,7 @@
     }
   ],
   "metadata": {
-    "title": "Digital Marketing Solutions | Full-Service Marketing Agency",
+    "title": "Digital Marketing Services in {city} | {business}",
     "description": "Explore our suite of digital marketing, including indoor billboards, website design, social media, & PPC, to grow your business with proven results.",
     "keywords": "marketing solutions {city}, digital marketing services {city}, full service marketing {city}, marketing services overview, {city} advertising solutions, comprehensive marketing {city}"
   }

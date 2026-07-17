@@ -63,7 +63,11 @@ export function localBusinessSchema(origin: string): Json {
       longitude: siteConfig.map.longitude,
     },
     areaServed: [
-      { "@type": "State", name: "California" },
+      {
+        "@type": "City",
+        name: siteConfig.location.city,
+      },
+      { "@type": "State", name: siteConfig.location.stateFull },
       ...siteConfig.locations.map((loc) => ({
         "@type": "City",
         name: loc.name,
@@ -140,7 +144,11 @@ export function serviceSchema(
     url: pageUrl,
     provider: { "@id": `${origin}/#organization` },
     areaServed: [
-      { "@type": "State", name: "California" },
+      {
+        "@type": "City",
+        name: siteConfig.location.city,
+      },
+      { "@type": "State", name: siteConfig.location.stateFull },
       ...siteConfig.locations.map((loc) => ({
         "@type": "City",
         name: loc.name,

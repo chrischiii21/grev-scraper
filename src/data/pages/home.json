@@ -1,11 +1,11 @@
 {
-  "title": "Local Advertising and Digital Marketing Pros in {city}",
+  "title": "{city} Digital Marketing & Indoor Billboard Advertising",
   "description": "Helping Businesses Get Noticed, On Screens and Online. Premium indoor billboard advertising and comprehensive digital marketing solutions for {city} businesses.",
   "sections": [
     {
       "section": "Hero",
-      "eyebrow": "Premium Marketing Solutions",
-      "title": "Local Advertising and Digital Marketing Pros in {city}",
+      "eyebrow": "Local. Invested. Month-to-Month Marketing",
+      "title": "{city} Digital Marketing & Indoor Billboard Advertising",
       "description": "Helping Businesses Get Noticed, On Screens and Online",
       "ctaText": "Talk to Our Team",
       "ctaLink": "/contact-us",
@@ -15,7 +15,7 @@
     {
       "section": "ServicesGrid",
       "title": "Local Advertising Solutions for {city} Businesses",
-      "description": "As your trusted <strong>{city} marketing pros</strong>, our <strong><a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>billboard network</a></strong> gives you access to high-traffic locations where your ideal customers spend time. From gyms and restaurants to retail stores and office buildings, we help you get noticed in the moments that matter.",
+      "description": "As your trusted <strong><a href='/about-us' style='text-decoration: none; color: inherit;'>{city} digital marketing agency</a></strong>, our <strong><a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>billboard network</a></strong> gives you access to high-traffic locations where your ideal customers spend time. From gyms and restaurants to retail stores and office buildings, we help you get noticed in the moments that matter.",
       "ctaText": "Explore Our Digital Marketing Services",
       "ctaLink": "/solutions",
       "order": 2,
@@ -50,7 +50,7 @@
       "section": "ContentWithKeypoints",
       "title": "{city}'s Premier Venue Partner Network",
       "eyebrow": "Local Advertising That Reaches Your Audience",
-      "description": "Our <strong>digital marketing pros</strong> have built exclusive partnerships with {city}'s most popular venues and businesses. Our <strong><a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>screen network</a></strong> reaches customers when they're relaxed, engaged, and ready to take action, whether they're working out, dining, shopping, or waiting for service.",
+      "description": "We've built exclusive partnerships with {city}'s most popular venues and businesses. Our <strong><a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>screen network</a></strong> reaches customers when they're relaxed, engaged, and ready to take action, whether they're working out, dining, shopping, or waiting for service.",
       "ctaText": "View Venue Partners",
       "ctaLink": "/indoor-billboards/become-a-venue-partner",
       "image": "/images/venue-partner-mobile.avif",
@@ -65,8 +65,8 @@
     },
     {
       "section": "BoostVisibility",
-      "title": "Full-Service Digital Marketing from {city} Pros",
-      "description": "Beyond <strong><a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>screen ads</a></strong>, our <strong>{city} marketing pros</strong> provide full-scale digital marketing to help your business show up, stand out, and grow. Whether you're just getting started or need help scaling your outreach, we've got the tools and the team to support you.",
+      "title": "Full-Service Digital Marketing from Your Local Marketing Partner",
+      "description": "Beyond <strong><a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>screen ads</a></strong>, our <strong><a href='/about-us' style='text-decoration: none; color: inherit;'>digital marketing agency in {city}</a></strong> provides full-scale digital marketing to help your business show up, stand out, and grow. Whether you're just getting started or need help scaling your outreach, we've got the tools and the team to support you.",
       "image": "/images/boost-visibility.avif",
       "ctaText": "View All Marketing Solutions",
       "ctaLink": "/solutions",
@@ -97,8 +97,8 @@
     {
       "section": "ContentWithImage",
       "eyebrow": "Your Trusted {city} Marketing Partners",
-      "title": "Why {city} Businesses Choose Our Marketing Pros",
-      "description": "We're not just another agency. We're <strong>{city} marketing pros</strong> and locals who understand the market, know the neighborhoods, and have the relationships that get results. Our clients choose us because we deliver measurable outcomes, transparent reporting, and personalized service that treats your business like our own. From <strong><a href='/solutions/foundational/website-design' style='text-decoration: none; color: inherit;'>web design</a></strong> to <strong><a href='/solutions/lead-gen/pay-per-click' style='text-decoration: none; color: inherit;'>PPC campaigns</a></strong>, we've got you covered.",
+      "title": "Why {city} Businesses Choose Our Agency",
+      "description": "We're not just another agency. We're a <strong><a href='/about-us' style='text-decoration: none; color: inherit;'>{city} digital marketing agency</a></strong> run by locals who understand the market, know the neighborhoods, and have the relationships that get results. Our clients choose us because we deliver measurable outcomes, transparent reporting, and personalized service that treats your business like our own. From <strong><a href='/solutions/foundational/website-design' style='text-decoration: none; color: inherit;'>web design</a></strong> to <strong><a href='/solutions/lead-gen/pay-per-click' style='text-decoration: none; color: inherit;'>PPC campaigns</a></strong>, we've got you covered. {business} is founder-owned and operated right here in {city}. When you call, you talk to the <strong><a href='/about-us' style='text-decoration: none; color: inherit;'>owner</a></strong>, Cameron Nouri.",
       "image": "/images/marketing-partners.avif",
       "ctaText": "Get Started Today",
       "ctaLink": "/contact-us",
@@ -107,8 +107,8 @@
     },
     {
       "section": "CTABanner",
-      "title": "Partner with {city}'s Local Advertising & Digital Marketing Pros",
-      "description": "Whether you're looking for <strong><a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>screen ads</a></strong>, a new <strong><a href='/solutions/foundational/website-design' style='text-decoration: none; color: inherit;'>website</a></strong>, or a complete <strong>digital marketing</strong> strategy in <strong>{city}</strong>, we're here to help. Contact us today for a free consultation and let's discuss how we can grow your business.",
+      "title": "Partner with {city}'s Local Advertising & Digital Marketing Agency",
+      "description": "Whether you're looking for <strong><a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>screen ads</a></strong>, a new <strong><a href='/solutions/foundational/website-design' style='text-decoration: none; color: inherit;'>website</a></strong>, or a complete <strong><a href='/solutions' style='text-decoration: none; color: inherit;'>digital marketing</a></strong> strategy in {city}, we're here to help. Contact us today for a free consultation and let's discuss how we can grow your business.",
       "ctaText": "Schedule Free Consultation",
       "ctaLink": "https://calendly.com/alamomedia/30-min-strategy-session",
       "background": "#1a2b5c",
@@ -144,8 +144,8 @@
     }
   ],
   "metadata": {
-    "title": "{city} Digital Signage & Marketing | {business}",
-    "description": "We connect businesses in {city} through digital signage, PPC, social media, SEO, and website design to keep brands visible and top of mind.",
+    "title": "Indoor Billboard Advertising & Digital Marketing | {city} {state}",
+    "description": "{city}'s local indoor billboard network – 1.1M+ monthly impressions across 45+ screens – plus PPC, social media, websites, and full digital marketing services.",
     "keywords": "{city} marketing agency, digital marketing {city}, indoor billboard advertising, marketing services {city} {state}, best marketing agency {city}, top {city} marketing agency, social media management {city}, website design {city}, PPC advertising {city}, local marketing {city}, {city} advertising agency",
     "openGraph": {
       "type": "website",

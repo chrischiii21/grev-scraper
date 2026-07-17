@@ -1,6 +1,7 @@
 {
   "title": "Locations",
   "description": "Our network of indoor digital billboards is located within retail and restaurant venues across your local community.",
+  "navDescription": "See where our screens are located.",
   "category": "indoor-billboards",
   "order": 2,
   "icon": "tabler:map-pin",
@@ -21,7 +22,7 @@
     {
       "section": "Map",
       "title": "Our Locations",
-      "description": "Our <a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>screens</a> can be found in many popular locations throughout the community. Our screens offer a unique format - keeping you in front of your customers in your business, even when other ads are playing. Interested in hosting a screen? <a href='/indoor-billboards/become-a-venue-partner' style='text-decoration: none; color: inherit;'>Become a venue partner</a>.",
+      "description": "Our <a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>screens</a> can be found in many popular locations throughout the community. Our screens offer a unique format. Your ad rotates throughout the day in every venue you select, keeping your brand in front of local customers again and again as they go about their routines. Interested in hosting a screen? <a href='/indoor-billboards/become-a-venue-partner' style='text-decoration: none; color: inherit;'>Become a venue partner</a>.<br /><br />Our screen network is concentrated in North {city}, inside the places locals already spend their time. You'll find our screens in neighborhood favorites like Ice & Golf Center at Northwoods, Capo's Pizzeria, 210 Batting Lanes, and Maui Maui Kids Play Island, along with gyms, barbershops, family entertainment centers, restaurants, medical offices, and retail shops across the area. Every venue is chosen for high traffic and long dwell times, so your ad isn't seen once, it's seen again and again by the same local customers week after week.",
       "order": 2,
       "viewMode": "half",
       "mapUrl": "https://www.google.com/maps/d/embed?mid=1eedbNtKnFQ2thuy4h9A3_JdGW6fucHY&ehbc=2E312F&ll=29.5993,-98.4720&z=12"

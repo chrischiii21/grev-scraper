@@ -1,6 +1,7 @@
 {
   "title": "Screen Advertising",
   "description": "Advertise on screens in your local community to reach your target audience.",
+  "navDescription": "Your ad on high-traffic local screens.",
   "category": "indoor-billboards",
   "order": 3,
   "icon": "tabler:device-tv",
@@ -12,7 +13,7 @@
       "section": "Hero",
       "eyebrow": "Indoor Billboard Network",
       "title": "Indoor Digital Billboard Advertising",
-      "description": "Connecting brands with audiences everywhere.",
+      "description": "Real reach, real numbers. Over a million monthly impressions inside venues where {city} locals eat, play, and get things done.",
       "image": "/images/indoor-billboard.avif",
       "bgPosition": "top",
       "bgPositionMobile": "top",
@@ -33,7 +34,7 @@
     {
       "section": "CTALight",
       "title": "Our Advertising Screen Network can Increase Your Brand Recognition",
-      "description": "Repeated exposure to your brand message, visuals, and logo, helps your brand stay top of mind with your target audience. Indoor digital billboards give you the unique ability to reach viewers on a platform where you can't be paused skipped or blocked. Build your brand faster by pairing the screen advertising with various marketing channels such as <strong><a href='/solutions/lead-gen/social-media-advertising' style='text-decoration: none; color: inherit;'>Social Media Ads</a></strong>, <strong><a href='/solutions/branding-awareness/display-geofencing' style='text-decoration: none; color: inherit;'>Display Advertising</a></strong>, or a <strong><a href='/solutions/foundational/website-design' style='text-decoration: none; color: inherit;'>Custom Website</a></strong>.",
+      "description": "Repeated exposure to your brand message, visuals, and logo, helps your brand stay top of mind with your target audience. Indoor digital billboards give you the unique ability to reach viewers on a platform where you can't be paused, skipped, or blocked. Build your brand faster by pairing the screen advertising with various marketing channels such as <strong><a href='/solutions/lead-gen/social-media-advertising' style='text-decoration: none; color: inherit;'>Social Media Ads</a></strong>, <strong><a href='/solutions/branding-awareness/display-geofencing' style='text-decoration: none; color: inherit;'>Display Advertising</a></strong>, or a <strong><a href='/solutions/foundational/website-design' style='text-decoration: none; color: inherit;'>Custom Website</a></strong>.",
       "order": 3,
       "ctaText": "Learn more",
       "ctaLink": "/contact-us"
@@ -65,7 +66,7 @@
           "icon": "tabler:refresh"
         },
         {
-          "title": "Cross Channel Compliment",
+          "title": "Cross Channel Complement",
           "description": "It's the perfect addition to other marketing channels, this integrated strategy guarantees an expansive marketing reach and deeper engagement across multiple platforms.",
           "icon": "tabler:arrows-left-right"
         }
@@ -97,7 +98,7 @@
         },
         {
           "title": "Step 4<br>Maintenance + Updates",
-          "description": "Throughout the lifetime of your contract, we'll be in regular contact to ensure that your ad is up-to-date and engaging to your audience.",
+          "description": "Throughout the lifetime of your campaign, we'll be in regular contact to ensure that your ad is up-to-date and engaging to your audience.",
           "icon": "tabler:tools",
           "image": "/images/maintenance.avif"
         }
@@ -158,13 +159,17 @@
         {
           "question": "What if I need to run an ad for only a short time, like for an event?",
           "answer": "Not a problem, we deal with events and promotions all the time. Just <strong><a href='/contact-us' style='text-decoration: none; color: inherit;'>contact us</a></strong> and we can come up with an ad production plan that will align with your campaign needs."
+        },
+        {
+          "question": "Do I have to sign a long-term contract?",
+          "answer": "No. We work month-to-month. We believe we should earn your business with results, not lock you in with paperwork. You can adjust or pause your campaign as your needs change."
         }
       ]
     }
   ],
   "metadata": {
     "title": "High-Traffic Digital Billboard Advertising Network",
-    "description": "Promote your business across our high-traffic digital signage network with ads displayed thousands of times to repeat local customers.",
+    "description": "{city}'s local indoor billboard network – 1.1M+ monthly impressions across 45+ screens.",
     "keywords": "indoor digital billboard advertising {city}, screen advertising {city}, digital signage advertising, indoor billboard network, local screen advertising {city}, venue advertising {city}"
   }
 }

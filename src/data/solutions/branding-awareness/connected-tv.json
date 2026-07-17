@@ -1,6 +1,7 @@
 {
   "title": "Connected TV (OTT Ads)",
   "description": "Reach audiences on streaming platforms with targeted TV advertising.",
+  "navDescription": "Non-skippable ads on streaming TV.",
   "category": "branding-awareness",
   "order": 1,
   "icon": "tabler:device-tv",
@@ -11,7 +12,7 @@
     {
       "section": "Hero",
       "eyebrow": "Branding & Awareness",
-      "title": "Connected TV | OTT",
+      "title": "Connected TV (OTT) Advertising in {city}",
       "description": "Capture the attention of a streaming audience with dynamic video ads.",
       "image": "/images/connected-tv.avif",
       "order": 1,
@@ -20,7 +21,7 @@
     },
     {
       "section": "ContentWithImage",
-      "title": "Connected TV +Over-The-Top Advertising",
+      "title": "Connected TV + Over-The-Top Advertising",
       "background": "primary-dark",
       "description": "Connected TV (CTV) and Over-The-Top video (OTT) advertising allows you to make an impact with stunning video ads. Target TV streaming audiences on popular channels like ESPN, CNN, and Fox. These non-skippable ads are designed to leave a lasting impression and keep you top-of-mind.",
       "image": "/images/connected-tv-content.avif",

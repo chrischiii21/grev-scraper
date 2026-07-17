@@ -1,6 +1,7 @@
 {
   "title": "Streaming Audio Advertising",
   "description": "Reach engaged listeners with targeted streaming audio ads on popular music and podcast platforms. Non-skippable audio advertising that drives brand awareness and conversions.",
+  "navDescription": "Audio ads on music and podcast platforms.",
   "category": "branding-awareness",
   "order": 3,
   "icon": "tabler:headphones",
@@ -31,7 +32,7 @@
     {
       "section": "CTALight",
       "title": "Stream Audio Advertising can Extend Your Market Reach",
-      "description": "Streaming Audio Advertising's versatility and ability to reach consumers during various activities make it a powerful tool for building brand awareness and driving engagement across multiple audio platforms. With sophisticated targeting and a captive audience, this audio-first platform allows you to tell your brand's story powerfully. Maximize the impact of your streaming audio campaign with complimentary strategies like <strong><a href='/solutions/foundational/social-media-management' style='text-decoration: none; color: inherit;'>Social Media Management</a></strong>, <strong><a href='/solutions/branding-awareness/connected-tv' style='text-decoration: none; color: inherit;'>Connected TV</a></strong>, or <strong><a href='/solutions/branding-awareness/display-geofencing' style='text-decoration: none; color: inherit;'>Display Advertising</a></strong>.",
+      "description": "Streaming Audio Advertising's versatility and ability to reach consumers during various activities make it a powerful tool for building brand awareness and driving engagement across multiple audio platforms. With sophisticated targeting and a captive audience, this audio-first platform allows you to tell your brand's story powerfully. Maximize the impact of your streaming audio campaign with complementary strategies like <strong><a href='/solutions/foundational/social-media-management' style='text-decoration: none; color: inherit;'>Social Media Management</a></strong>, <strong><a href='/solutions/branding-awareness/connected-tv' style='text-decoration: none; color: inherit;'>Connected TV</a></strong>, or <strong><a href='/solutions/branding-awareness/display-geofencing' style='text-decoration: none; color: inherit;'>Display Advertising</a></strong>.",
       "imagePosition": "right",
       "ctaText": "Launch Your Campaign",
       "ctaLink": "/contact-us",
@@ -151,7 +152,7 @@
         },
         {
           "question": "How much does streaming audio advertising cost?",
-          "answer": "Streaming audio advertising costs vary based on targeting parameters, platform selection, ad length, and campaign duration. Most campaigns start around $1,000-$2,500 per month with CPM (cost per thousand impressions) rates typically ranging from $15-$35. We work with budgets of all sizes and provide transparent pricing with no hidden fees."
+          "answer": "Streaming audio campaign costs vary based on targeting, platform selection, ad length, and campaign duration. We work with budgets of all sizes and provide transparent pricing with no hidden fees. Contact us for a quote tailored to your goals."
         },
         {
           "question": "What's included in creative production?",

@@ -1,6 +1,7 @@
 {
   "title": "Google Business Profile",
   "description": "Optimize your local presence and get found by customers searching for your services.",
+  "navDescription": "Get found in local search and Maps.",
   "category": "foundational",
   "order": 2,
   "icon": "tabler:brand-google",
@@ -23,14 +24,14 @@
       "title": "Google Business Profile Management",
       "background": "primary-dark",
       "imagePosition": "left",
-      "description": "Our Google Business Profile Management service offers a dedicated account specialists who expertly optimize your profile. They will handle everything from weekly posts to photo uploads. With us, your Google presence will be professionally managed, leaving you to focus on what you do best - running your business. <strong>Looking to maximize your online visibility?</strong> Pair GBP management with a professional <strong><a href='/solutions/foundational/website-design' style='text-decoration: none; color: inherit;'>website</a></strong> for the ultimate digital presence.",
+      "description": "Our Google Business Profile Management service offers a dedicated account specialist who expertly optimizes your profile. They will handle everything from weekly posts to photo uploads. With us, your Google presence will be professionally managed, leaving you to focus on what you do best - running your business. <strong>Looking to maximize your online visibility?</strong> Pair GBP management with a professional <strong><a href='/solutions/foundational/website-design' style='text-decoration: none; color: inherit;'>website</a></strong> for the ultimate digital presence.",
       "image": "/images/google-business-profile-content.jpg",
       "order": 2
     },
     {
       "section": "CTALight",
       "title": "Google Business Profile has a Huge Impact on Your Local SEO",
-      "description": "Our Google Business Profile is often a customer's first online exposure to your business. A properly managed profile drives local visibility, engagement, and credibility. This foundational marketing tool is crucial to maximizing the success of your business and any supplemental marketing efforts such as <strong><a href='/solutions/branding-awareness/connected-tv' style='text-decoration: none; color: inherit;'>CTV/OTT</a></strong>, <strong><a href='/solutions/lead-gen/pay-per-click' style='text-decoration: none; color: inherit;'>Pay-Per-Click</a></strong>, or <strong><a href='/solutions/branding-awareness/display-geofencing' style='text-decoration: none; color: inherit;'>Display Advertising</a></strong>.",
+      "description": "Your Google Business Profile is often a customer's first online exposure to your business. A properly managed profile drives local visibility, engagement, and credibility. This foundational marketing tool is crucial to maximizing the success of your business and any supplemental marketing efforts such as <strong><a href='/solutions/branding-awareness/connected-tv' style='text-decoration: none; color: inherit;'>CTV/OTT</a></strong>, <strong><a href='/solutions/lead-gen/pay-per-click' style='text-decoration: none; color: inherit;'>Pay-Per-Click</a></strong>, or <strong><a href='/solutions/branding-awareness/display-geofencing' style='text-decoration: none; color: inherit;'>Display Advertising</a></strong>.",
       "order": 3,
       "ctaText": "Explore Our Digital Ad Services",
       "ctaLink": "/contact-us"

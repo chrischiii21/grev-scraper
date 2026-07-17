@@ -1,6 +1,7 @@
 {
   "title": "Website Design",
   "description": "Custom website design & development to achieve your unique goals and maximize results.",
+  "navDescription": "Fast, mobile-ready websites built to convert.",
   "category": "foundational",
   "order": 1,
   "icon": "tabler:world",
@@ -11,7 +12,7 @@
     {
       "section": "Hero",
       "eyebrow": "Foundational",
-      "title": "Best Website Design Services to Elevate Your Brand Online",
+      "title": "Custom Website Design & SEO for {city} Businesses",
       "description": "Custom website design & development to achieve your unique goals and maximize results.",
       "image": "/images/website-design.avif",
       "order": 1,
@@ -29,7 +30,7 @@
     },
     {
       "section": "CTALight",
-      "title": "Your Site is Your Cornerstone of Your Online Presence",
+      "title": "Your Site is the Cornerstone of Your Online Presence",
       "description": "Your website is the foundation of all your digital marketing efforts. It's where <strong><a href='/solutions/foundational/social-media-management' style='text-decoration: none; color: inherit;'>social media</a></strong> followers land, where ads drive traffic, and where customers learn about your business. A strong website amplifies everything else you do online, from <strong><a href='/solutions/foundational/google-business-profile' style='text-decoration: none; color: inherit;'>local SEO</a></strong> to <strong><a href='/solutions/lead-gen/pay-per-click' style='text-decoration: none; color: inherit;'>paid advertising</a></strong> and email campaigns. Without a solid website, you're building on shaky ground. <br><br><strong>Want to amplify your reach?</strong> Pair your website with our <strong><a href='/indoor-billboards/screen-advertising' style='text-decoration: none; color: inherit;'>indoor billboard advertising</a></strong> to dominate both online and offline.",
       "order": 3,
       "ctaText": "Get Started Today",

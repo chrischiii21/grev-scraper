@@ -86,6 +86,12 @@ export const footerData = {
         { text: getEmail(), href: getEmailHref() },
       ],
     },
+    {
+      title: "Leave Us a Review",
+      links: [
+        { text: "Review us on Google", href: "https://g.page/r/CYZXw1jYcmTvEBM/review", target: "_blank" },
+      ],
+    },
   ],
   secondaryLinks: [
     { text: "Terms of Service", href: getPermalink("/terms-of-service") },

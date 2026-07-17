@@ -1,6 +1,7 @@
 {
   "title": "Social Media Advertising",
   "description": "Professional social media advertising services to drive targeted traffic and conversions.",
+  "navDescription": "Reach ideal customers with targeted social ads.",
   "category": "lead-gen",
   "order": 1,
   "icon": "tabler:ad",
@@ -42,7 +43,7 @@
       "features": [
         {
           "title": "Demographic Research",
-          "description": "Your dedicated specialist will identify platform algorithms to target your ideal customer.",
+          "description": "Your dedicated specialist will use each platform's targeting tools to reach your ideal customer.",
           "icon": "tabler:users"
         },
         {

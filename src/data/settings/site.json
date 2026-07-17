@@ -64,7 +64,7 @@
   },
   "popup": {
     "image": "/images/on-boarding.avif",
-    "badge": "Limited Time Offer",
+    "badge": "No Cost, No Obligation.",
     "headline": "Ready to Grow Your Business?",
     "description": "Get expert marketing strategies tailored for your business. Let's discuss how we can help you succeed.",
     "benefits": [
@@ -77,7 +77,7 @@
       "Proven Results"
     ],
     "dismissText": "No thanks, I'll browse first",
-    "floatingButtonText": "Ask for a Free Scan"
+    "floatingButtonText": "Claim Free Strategy Session"
   },
   "cta": {
     "backgroundImage": "/images/San-Antonio-Texas-Banner.webp"
