@@ -103,6 +103,7 @@ const currentYear = new Date().getFullYear();
               src={siteConfig.logo.src}
               alt={siteConfig.logo.alt}
               class="footer-logo h-16 md:h-24 w-auto transition-transform group-hover:scale-105"
+              style="height: 4rem; width: auto;"
               width="260"
               height="96"
               loading="lazy"
@@ -425,7 +426,13 @@ const currentYear = new Date().getFullYear();
     background-color: var(--color-tertiary, #06D4F5) !important;
   }
 
-  @media (max-width: 767px) {
+  @media (min-width: 768px) {
+    .footer-logo {
+      height: 6rem !important;
+    }
+  }
+
+  @media (max-width: 425px) {
     .footer-logo {
       height: 4rem !important;
       width: auto !important;
