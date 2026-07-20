@@ -95,14 +95,14 @@ const currentYear = new Date().getFullYear();
     <!-- Top Section: Logo + Tagline + Social -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
       <div class="lg:col-span-2">
-        <a href="/" class="block w-fit mb-6 group">
+        <a href="/" class="footer-logo-link block w-fit mb-6 group">
           <picture>
             <source srcset={siteConfig.logo.srcAvif} type="image/avif" />
             <source srcset={siteConfig.logo.srcWebp} type="image/webp" />
             <img
               src={siteConfig.logo.src}
               alt={siteConfig.logo.alt}
-              class="h-12 md:h-24 w-auto transition-transform group-hover:scale-105"
+              class="footer-logo h-16 md:h-24 w-auto transition-transform group-hover:scale-105"
               width="260"
               height="96"
               loading="lazy"
@@ -423,5 +423,21 @@ const currentYear = new Date().getFullYear();
 
   .footer-bullet {
     background-color: var(--color-tertiary, #06D4F5) !important;
+  }
+
+  @media (max-width: 767px) {
+    .footer-logo {
+      height: 4rem !important;
+      width: auto !important;
+      max-width: none !important;
+    }
+
+    .footer-logo-link {
+      display: block !important;
+      width: fit-content !important;
+      margin-left: 0 !important;
+      margin-right: auto !important;
+      text-align: left !important;
+    }
   }
 </style>
