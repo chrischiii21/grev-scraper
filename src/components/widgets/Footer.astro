@@ -95,14 +95,14 @@ const currentYear = new Date().getFullYear();
     <!-- Top Section: Logo + Tagline + Social -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
       <div class="lg:col-span-2">
-        <a href="/" class="hidden md:inline-block mb-6 group">
+        <a href="/" class="block w-fit mb-6 group">
           <picture>
             <source srcset={siteConfig.logo.srcAvif} type="image/avif" />
             <source srcset={siteConfig.logo.srcWebp} type="image/webp" />
             <img
               src={siteConfig.logo.src}
               alt={siteConfig.logo.alt}
-              class="h-24 w-auto transition-transform group-hover:scale-105"
+              class="h-12 md:h-24 w-auto transition-transform group-hover:scale-105"
               width="260"
               height="96"
               loading="lazy"
