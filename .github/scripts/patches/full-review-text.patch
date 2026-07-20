@@ -1,0 +1,83 @@
+diff --git a/gmaps/reviews.go b/gmaps/reviews.go
+index 7a8b737..4dec11b 100644
+--- a/gmaps/reviews.go
++++ b/gmaps/reviews.go
+@@ -424,6 +424,64 @@ func extractReviewsFromPage(ctx context.Context, page scrapemate.BrowserPage) ([
+ 		default:
+ 		}
+ 
++		clickMoreButtons := func() {
++			_, _ = page.Eval(`() => {
++				try {
++					const moreButtons = document.querySelectorAll('.w8nwRe, button[aria-label*="More"], button[aria-expanded="false"]');
++					for (const btn of moreButtons) {
++						try { btn.click(); } catch (e) {}
++					}
++				} catch (e) {}
++			}`)
++		}
++
++		countTruncated := func() float64 {
++			remaining, _ := page.Eval(`() => {
++				try {
++					return Array.from(document.querySelectorAll('.wiI7pd'))
++						.filter(el => /…\s*$/.test(el.textContent || '')).length;
++				} catch (e) {
++					return 0;
++				}
++			}`)
++			n, _ := remaining.(float64)
++			return n
++		}
++
++		// Click every "More" button first and give Google's async text-expansion
++		// fetch real wall-clock time to resolve, in a *separate* Eval call and a
++		// real Go-level sleep - not a synchronous click-then-immediately-read in
++		// the same JS call, which never observes the expanded text because the
++		// underlying browser driver's Eval here does not await returned promises
++		// for plain function expressions (see go-rod EvalOptions.ByPromise).
++		//
++		// The expand-fetch latency is genuinely variable (observed anywhere from
++		// under 500ms to over 4s across otherwise-identical runs against the
++		// same business), so this polls for up to ~10s, and if anything is
++		// still truncated after that, re-clicks and polls once more (some
++		// clicks land on a button before its handler has fully attached after
++		// a DOM re-render, so a second attempt can pick up stragglers) for
++		// another ~10s before giving up.
++		clickMoreButtons()
++		for round := 0; round < 2; round++ {
++			var remainingN float64
++			for pollAttempt := 0; pollAttempt < 20; pollAttempt++ {
++				time.Sleep(500 * time.Millisecond)
++				remainingN = countTruncated()
++				if remainingN <= 0 {
++					break
++				}
++			}
++			if remainingN <= 0 {
++				break
++			}
++			if round == 0 {
++				clickMoreButtons()
++			} else {
++				log.Printf("Review expansion: %v review(s) still truncated after two full wait rounds", remainingN)
++			}
++		}
++
+ 		// Extract reviews from the DOM - updated for Dec 2025 Google Maps structure
+ 		reviewsJSON, err := page.Eval(`() => {
+ 			try {
+@@ -559,11 +617,8 @@ func extractReviewsFromPage(ctx context.Context, page scrapemate.BrowserPage) ([
+ 						];
+ 						let text = '';
+ 
+-						// First try to click "More" button to expand text
+-						const moreButtons = element.querySelectorAll('.w8nwRe, button[aria-label*="More"], button[aria-expanded="false"]');
+-						for (const btn of moreButtons) {
+-							try { btn.click(); } catch(e) {}
+-						}
++						// "More" buttons were already clicked, with a real wait, before
++						// this extraction pass ran (see the Eval call above this loop).
+ 
+ 						for (const sel of textSelectors) {
+ 							const textEl = element.querySelector(sel);

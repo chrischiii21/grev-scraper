@@ -4,8 +4,6 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "fetch:reviews": "node scripts/fetch-reviews.mjs",
-    "prebuild": "node scripts/fetch-reviews.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"

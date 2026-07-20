@@ -26,3 +26,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# raw google-maps-scraper output (staged before validation, not committed)
+.github/scripts/output/
+# generated at scrape time from config.json - not hand-maintained
+.github/scripts/queries.txt
